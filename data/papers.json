@@ -22,7 +22,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ma-compbio-lab/AgentCo-Op"
   },
   {
     "title": "Event-B Agent: Towards LLM Agent for Formal Model Synthesis and Repair",
@@ -47,7 +47,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/HongshuW/EventB_Agent"
   },
   {
     "title": "Skills on the Fly: Test-Time Adaptive Skill Synthesis for LLM Agents",
@@ -74,7 +74,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Rule2DRC: Benchmarking LLM Agents for DRC Script Synthesis with Execution-Guided Test Generation",
@@ -123,7 +123,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "NIMO Controller: a self-driving laboratory orchestrator based on the Model Context Protocol",
@@ -144,7 +144,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/NIMS-DA/nimo-controller"
   },
   {
     "title": "Property-Guided LLM Program Synthesis for Planning",
@@ -167,7 +167,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "A Reproducible Optimisation Protocol for Calibrating Prompt-Based Large Language Model Workflows in Evidence Synthesis",
@@ -187,7 +187,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Beyond Scalar Objectives: Expert-Feedback-Driven Autonomous Experimentation for Scientific Discovery at the Nanoscale",
@@ -320,7 +320,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "DataArc-SynData-Toolkit: A Unified Closed-Loop Framework for Multi-Path, Multimodal, and Multilingual Data Synthesis",
@@ -349,7 +349,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/DataArcTech/DataArc-SynData-Toolkit"
   },
   {
     "title": "SpatialAgent: An autonomous AI agent for spatial biology",
@@ -471,7 +471,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AgenticScience/Awesome-Agent-Scientists"
   },
   {
     "title": "Autonomous Inorganic Materials Discovery via Multi-Agent Physics-Aware Scientific Reasoning",
@@ -494,7 +494,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/lamm-mit/SparksMatter"
   },
   {
     "title": "The Denario project: Deep knowledge AI agents for scientific discovery",
@@ -551,7 +551,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AstroPilot-AI/Denario"
   },
   {
     "title": "A Process-Centric Survey of AI for Scientific Discovery Through the EXHYTE Framework",
@@ -719,7 +719,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/gtex-hydrogen-storage/DIVE"
   },
   {
     "title": "Aster: Autonomous Scientific Discovery over 20x Faster Than Existing Methods",
@@ -796,7 +796,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/EdisonScientific/kosmos-figures"
   },
   {
     "title": "Democratizing Drug Discovery with an Orchestrated, Knowledge-Driven Multi-Agent Team for User-Guided Therapeutic Design",
@@ -887,7 +887,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/dualverse-ai/station"
   },
   {
     "title": "AI for Scientific Discovery: A New Frontier",
@@ -1043,7 +1043,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AD-SDL/MADSci"
   },
   {
     "title": "Scientific Algorithm Discovery by Augmenting AlphaEvolve with Deep Research",
@@ -1068,7 +1068,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/liugangcode/deepevolve"
   },
   {
     "title": "Catalyst-Agent: Autonomous heterogeneous catalyst screening and optimization with an LLM Agent",
@@ -1209,7 +1209,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/csml-rpi/cfd-scientist"
   },
   {
     "title": "Automated Scientific Discovery: From Equation Discovery to Autonomous Discovery Systems",
@@ -1232,7 +1232,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/allenai/discoverybench"
   },
   {
     "title": "Operationalizing Serendipity: Multi-Agent AI Workflows for Enhanced Materials Characterization with Theory-in-the-Loop",
@@ -1258,7 +1258,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ziatdinovmax/SciLink"
   },
   {
     "title": "The Virtual Biotech: A Multi-Agent AI Framework for Therapeutic Discovery and Development",
@@ -1424,7 +1424,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/EdisonScientific/labbench2"
   },
   {
     "title": "Eubiota: Modular Agentic AI for Autonomous Discovery in the Gut Microbiome",
@@ -1516,7 +1516,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/lamm-mit/GraphAgents"
   },
   {
     "title": "Autonomous Agents Coordinating Distributed Discovery Through Emergent Artifact Exchange",
@@ -1544,7 +1544,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/lamm-mit/scienceclaw"
   },
   {
     "title": "A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On Demand.",
@@ -1602,7 +1602,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/lamm-mit/ProtAgents"
   },
   {
     "title": "Autonomous \u2018self-driving\u2019 laboratories: a review of technology and policy implications",
@@ -1672,7 +1672,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Agent-based Learning of Materials Datasets from Scientific Literature",
@@ -1694,7 +1694,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AI4ChemS/Eunomia"
   },
   {
     "title": "PantheonOS: An Evolvable Multi-Agent Framework for Automatic Genomics Discovery",
@@ -1842,7 +1842,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "Abstract A019: A fully transparent and automatable form of AI for biomarker and new target discovery using diverse multi-omics data",
@@ -1939,7 +1939,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Iman-Peivaste/ChemNavigator"
   },
   {
     "title": "Abstract 28: PortrAIgent: Co-scientist agent for end-to-end spatial transcriptomics discovery.",
@@ -2017,7 +2017,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/argonne-lcf/ChemGraph"
   },
   {
     "title": "El Agente Quntur: A research collaborator agent for quantum chemistry",
@@ -2176,7 +2176,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/samoalfred/LLM-based-Agent"
   },
   {
     "title": "CASCADE: Cumulative Agentic Skill Creation through Autonomous Development and Evolution",
@@ -2203,7 +2203,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CederGroupHub/CASCADE"
   },
   {
     "title": "BioLab: End-to-End Autonomous Life Sciences Research with Multi-Agents System Integrating Biological Foundation Models",
@@ -2288,7 +2288,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Autonomous Microscopy Experiments through Large Language Model Agents",
@@ -2361,7 +2361,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/fengxuyy/QUASAR"
   },
   {
     "title": "Epistemic Closure: Autonomous Mechanism Completion for Physically Consistent Simulation",
@@ -2388,7 +2388,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/shuWuYue123/Neuro-Symbolic-Auto-Coupling"
   },
   {
     "title": "AI agents for solid electrolytes: opportunities, challenges, and future directions",
@@ -2467,7 +2467,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CMEG-IITR/Agentic_data_extraction"
   },
   {
     "title": "Mozi: Governed Autonomy for Drug Discovery LLM Agents",
@@ -2497,7 +2497,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Bridging Innovation and Efficiency: The Promises and Challenges of Self-Driving Labs as Sustainable Drivers for Chemistry.",
@@ -2596,7 +2596,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "El Agente Forjador: Task-Driven Agent Generation for Quantum Simulation",
@@ -2623,7 +2623,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Knowledge Models and Inference Frameworks for Scientific Discovery",
@@ -2696,7 +2696,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/openai/swarm"
   },
   {
     "title": "Out-of-the-box bioinformatics capabilities of large language models (LLMs)",
@@ -2933,7 +2933,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Alistair-Turcan/TusoAI"
   },
   {
     "title": "Can AIGC Aid Intelligent Robot Design? A Tentative Research of Apple-Harvesting Robot",
@@ -3059,7 +3059,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/portex-ai/portex-composit-harbor-adapter"
   },
   {
     "title": "Artificial Intelligence in Basic Scientific Research: Trends and Implications",
@@ -3152,7 +3152,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Beyond Low Earth Orbit: Biomonitoring, Artificial Intelligence, and Precision Space Health",
@@ -3503,7 +3503,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Agentic AI platforms for autonomous training and rule induction of human-human and virus-human protein-protein interactions",
@@ -3548,7 +3548,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Nothing256/Phoenix"
   },
   {
     "title": "MASS-RAG: Multi-Agent Synthesis Retrieval-Augmented Generation",
@@ -3572,7 +3572,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Beyond Task Success: An Evidence-Synthesis Framework for Evaluating, Governing, and Orchestrating Agentic AI",
@@ -3593,7 +3593,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Compressing Correct-by-Design Synthesis for Stochastic Homogeneous Multi-Agent Systems with Counting LTL",
@@ -3617,7 +3617,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "MatClaw: An Autonomous Code-First LLM Agent for End-to-End Materials Exploration",
@@ -3639,7 +3639,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/cz2014/MatClaw"
   },
   {
     "title": "Self-evolving AI agents for protein discovery and directed evolution",
@@ -3694,7 +3694,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Graph-COM/NSL"
   },
   {
     "title": "OpenQlaw: An Agentic AI Assistant for Analysis of 2D Quantum Materials",
@@ -3721,7 +3721,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/HKUDS/nanobot"
   },
   {
     "title": "ResearchPilot: A Local-First Multi-Agent System for Literature Synthesis and Related Work Drafting",
@@ -3741,7 +3741,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Significant-Gravitas/AutoGPT"
   },
   {
     "title": "EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery",
@@ -3772,7 +3772,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/EvoScientist/EvoScientist"
   },
   {
     "title": "EigenData: A Self-Evolving Multi-Agent Platform for Function-Calling Data Synthesis, Auditing, and Repair",
@@ -3798,7 +3798,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/eigen-ai-labs/eigendata-corrected-bfcl-v3"
   },
   {
     "title": "Building an Affordable Self-Driving Lab: Practical Machine Learning Experiments for Physics Education Using Internet-of-Things",
@@ -3829,7 +3829,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/YongXie-ICMM/APL_Machine_Learning_2025"
   },
   {
     "title": "Agentic LLM Reasoning in a Self-Driving Laboratory for Air-Sensitive Lithium Halide Spinel Conductors",
@@ -3888,7 +3888,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AFRL-ARES/ARES/releases"
   },
   {
     "title": "Toward Full Autonomous Laboratory Instrumentation Control with Large Language Models",
@@ -3977,7 +3977,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "When Agents Go Quiet: Output Generation Capacity and Format-Cost Separation for LLM Document Synthesis",
@@ -4002,7 +4002,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/jayluxferro/gen-pilot"
   },
   {
     "title": "From Papers to Property Tables: A Priority-Based LLM Workflow for Materials Data Extraction",
@@ -4026,7 +4026,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Training LLMs for Multi-Step Tool Orchestration with Constrained Data Synthesis and Graduated Rewards",
@@ -4056,7 +4056,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/horizon-rl/ToolOrchestrationReward"
   },
   {
     "title": "ProtRLSearch: A Multi-Round Multimodal Protein Search Agent with Large Language Models Trained via Reinforcement Learning",
@@ -4083,7 +4083,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "RAVEL: Reasoning Agents for Validating and Evaluating LLM Text Synthesis",
@@ -4115,7 +4115,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ZhuoerFeng/RAVEL-Reasoning-Agents-Text-Eval"
   },
   {
     "title": "PseudoAct: Leveraging Pseudocode Synthesis for Flexible Planning and Action Control in Large Language Model Agents",
@@ -4137,7 +4137,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Rhizome OS-1: Rhizome's Semi-Autonomous Operating System for Small Molecule Drug Discovery",
@@ -4160,7 +4160,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Let the Abyss Stare Back Adaptive Falsification for Autonomous Scientific Discovery",
@@ -4187,7 +4187,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Optimal Control Synthesis of Closed-Loop Recommendation Systems over Social Networks",
@@ -4208,7 +4208,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Iterative Closed-Loop Motion Synthesis for Scaling the Capabilities of Humanoid Control",
@@ -4238,7 +4238,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "An autonomous LLM-agent platform for computational binder design and conjugation-aware prioritization of antibody\u2013drug conjugates",
@@ -4288,7 +4288,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "Towards LLM-Driven Multi-Agent Pipeline for Drug Discovery: Neurodegenerative Diseases Case Study",
@@ -4378,7 +4378,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/phenixace/MolViBench-open"
   },
   {
     "title": "From Isolation to Agency: Toward Fully Autonomous Laboratory Ecosystems",
@@ -4699,7 +4699,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/maxwell2732/hler-working-papers"
   },
   {
     "title": "Paper Circle: An Open-source Multi-agent Research Discovery and Analysis Framework",
@@ -4723,7 +4723,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/MAXNORM8650/papercircle"
   },
   {
     "title": "BloClaw: An Omniscient, Multi-Modal Agentic Workspace for Next-Generation Scientific Discovery",
@@ -4746,7 +4746,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/qinheming/BIoClaw"
   },
   {
     "title": "Evolving Idea Graphs with Learnable Edits-and-Commits for Multi-Agent Scientific Ideation",
@@ -4769,7 +4769,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Jiangwen-Dong/idea-graph"
   },
   {
     "title": "Mimosa Framework: Toward Evolving Multi-Agent Systems for Scientific Research",
@@ -4796,7 +4796,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/HolobiomicsLab/Mimosa-AI"
   },
   {
     "title": "Learn to Understand: Knowledge Exemplification via Multi-Agent Cooperation for Science Question Answering",
@@ -4860,7 +4860,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CEED/Laghos"
   },
   {
     "title": "MetaMuse: A Multi-Agent AI System for Biomedical Metadata Curation and Harmonization",
@@ -4942,7 +4942,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/confident-ai/deepeval"
   },
   {
     "title": "A Closed-Loop Chemical Reaction Network for Autonomous, Dual-Window Temporal Programming From a Single Fuel Pulse.",
@@ -5001,7 +5001,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Accelerating Discovery of Organic Molecular Crystals via Materials Informatics and Autonomous Experiments",
@@ -5130,7 +5130,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Kinetic negative-feedback-based barrier membrane attenuates pathological fluctuations and promotes bone regeneration in diabetes.",
@@ -5216,7 +5216,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/zsy-suyang/SPT"
   },
   {
     "title": "BioVeil MATRIX: Uncovering and categorizing vulnerabilities of agentic biological AI scientists",
@@ -5240,7 +5240,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/averyself/wmdp-agentic-eval"
   },
   {
     "title": "Artificial Intelligence in Transcriptomics: From Human-in-the-Loop to Agentic AI",
@@ -5663,7 +5663,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/IMMS-Ewha/MIND"
   },
   {
     "title": "Research Paradigm of Materials Science Tetrahedra with Artificial Intelligence",
@@ -5689,7 +5689,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "AI agents in drug discovery: applications and case studies.",
@@ -5990,7 +5990,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/D2I-Group/matmcd"
   },
   {
     "title": "ChemBOMAS: Accelerated BO in Chemistry with LLM-Enhanced Multi-Agent System",
@@ -6052,7 +6052,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "CACTUS: Chemistry Agent Connecting Tool Usage to Science",
@@ -6078,7 +6078,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/pnnl/cactus"
   },
   {
     "title": "BioChemAIgent: An AI-driven Protein Modeling and Docking Framework for Structure-Based Drug Discovery",
@@ -6254,7 +6254,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "ProtChat: An AI Multi-Agent for Automated Protein Analysis Leveraging GPT-4 and Protein Language Model",
@@ -6384,7 +6384,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/HowardLi1984/ChemCraft"
   },
   {
     "title": "Advances in Natural-Product-Based Fluorescent Agents and Synthetic Analogues for Analytical and Biomedical Applications",
@@ -6673,7 +6673,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/An-xu/SDL_LCST_OP"
   },
   {
     "title": "Performance metrics to unleash the power of self-driving labs in chemistry and materials science",
@@ -7326,7 +7326,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ABnano/SciQu"
   },
   {
     "title": "Autonomous Chemical Experiments: Challenges and Perspectives on Establishing a Self-Driving Lab",
@@ -7406,7 +7406,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/jkitchin/claude-light"
   },
   {
     "title": "Autonomous Nanocrystal Doping by Self\u2010Driving Fluidic Micro\u2010Processors",
@@ -7534,7 +7534,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/PV-Lab/ASHE"
   },
   {
     "title": "A framework for fully autonomous design of materials via multiobjective optimization and active learning: challenges and next steps",
@@ -7689,7 +7689,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/pnnl/autolabs"
   },
   {
     "title": "Perspectives for self-driving labs in synthetic biology.",
@@ -7809,7 +7809,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/PV-Lab/SDCNN"
   },
   {
     "title": "AI/ML-Driven Surface Plasmon Resonance (SPR) and Spectroscopy: Materials Interfaces and Autonomous Experiments",
@@ -9152,7 +9152,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/hasanjawad001/curiosity-driven-gated-active-learning"
   },
   {
     "title": "Evaluating large language model agents for automation of atomic force microscopy",
@@ -9311,7 +9311,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/sukritimanna/automoose"
   },
   {
     "title": "The advancement of artificial intelligence in biomedical research and health innovation: challenges and opportunities in emerging economies",
@@ -9602,7 +9602,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/DIAOZHUO/LLM-directed-SPM"
   },
   {
     "title": "Comparative Analysis of Jacobian-Based Motion Planning Methods for Redundant Manipulators",
@@ -9651,7 +9651,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/gkwt/rbo"
   },
   {
     "title": "Ai-Driven High Throughput Screening (HTC) Approaches to Overcoming the Challenges of Electrocatalysis for Hydrogen Evolution Reaction (HER): A Review",
@@ -9960,7 +9960,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "Large language models to accelerate organic chemistry synthesis",
@@ -10186,7 +10186,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/tatsu-lab/stanford_alpaca"
   },
   {
     "title": "Validation of the Scientific Literature via Chemputation Augmented by Large Language Models",
@@ -10255,7 +10255,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Yifei-Zhu/VisU.git"
   },
   {
     "title": "Toward Automated Simulation Research Workflow through LLM Prompt Engineering Design",
@@ -10277,7 +10277,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/zokaraa/autonomous_simulation_agent"
   },
   {
     "title": "Enhancing Surgical Robots with Embodied Intelligence for Autonomous Ultrasound Scanning",
@@ -10375,7 +10375,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
   },
   {
     "title": "ML-Tool-Bench: Tool-Augmented Planning for ML Tasks",
@@ -10475,7 +10475,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "ChemGraph: An Agentic Framework for Computational Chemistry Workflows",
@@ -10571,7 +10571,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/hicai-zju/scitoolagent"
   },
   {
     "title": "K-Dense Analyst: Towards Fully Automated Scientific Analysis",
@@ -10699,7 +10699,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/microsoft/DeepVideoDiscovery"
   },
   {
     "title": "MSAgent: An Evidence Grounded Agentic Framework for LLM-driven Scientific Exploration in Mass Spectrometry-based Metabolomics",
@@ -10993,7 +10993,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "Idea2Story: An Automated Pipeline for Transforming Research Concepts into Complete Scientific Narratives",
@@ -11031,7 +11031,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/AgentAlphaAGI/Idea2Paper.git"
   },
   {
     "title": "ATLAS: A High-Difficulty, Multidisciplinary Benchmark for Frontier Scientific Reasoning",
@@ -11088,7 +11088,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/open-compass/ATLAS"
   },
   {
     "title": "From automation to agentic artificial intelligence in laboratory medicine: an opinion of the IFCC Division on Emerging Technologies",
@@ -11163,7 +11163,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/NJUNLP/CogGen"
   },
   {
     "title": "The Use of LLMs and Other AI Models in Science",
@@ -11220,7 +11220,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/wanhaoliu/PolyReal"
   },
   {
     "title": "How AI agents will change cancer research and oncology",
@@ -11356,7 +11356,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/open-sciencelab/Virtual-Scientists"
   },
   {
     "title": "AgenticSciML: Collaborative Multi-Agent Systems for Emergent Discovery in Scientific Machine Learning",
@@ -11377,7 +11377,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Qile-J/AgenticSciML"
   },
   {
     "title": "PiFlow: Principle-aware Scientific Discovery with Multi-Agent Collaboration",
@@ -11423,7 +11423,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Anikethh/IRIS-Interactive-Research-Ideation-System"
   },
   {
     "title": "Accelerating Drug Discovery Through Agentic AI: A Multi-Agent Approach to Laboratory Automation in the DMTA Cycle",
@@ -11478,7 +11478,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/amair-lab/PriM"
   },
   {
     "title": "XAIgent: A Multi-Agentic Design Method for Explainable Human-Robot Interaction in Scientific Discovery",
@@ -11705,7 +11705,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Accelerating earth science discovery via multi-agent LLM systems",
@@ -11808,7 +11808,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/kyunghyuncho/pubmed-vectors"
   },
   {
     "title": "DrugPilot: LLM-based Parameterized Reasoning Agent for Drug Discovery",
@@ -11937,7 +11937,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CLMFAP/MAC-AMP_v1/"
   },
   {
     "title": "Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics",
@@ -11963,7 +11963,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CMBAgents/cmbagent"
   },
   {
     "title": "ChemCoScientist: LLM-Based Multi-Agent Assistant for Automated Solving of Chemical Tasks Using Data-Driven Tools",
@@ -12205,7 +12205,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/quantumblacklabs/causalnex"
   },
   {
     "title": "CodeScientist: End-to-End Semi-Automated Scientific Discovery with Code-based Experimentation",
@@ -12305,7 +12305,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/LionSR/lean-qec"
   },
   {
     "title": "Enhancing Agentic Autonomous Scientific Discovery with Vision-Language Model Capabilities",
@@ -12328,7 +12328,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CMBAgents/cmbagent"
   },
   {
     "title": "OR-Agent: Bridging Evolutionary Search and Structured Research for Automated Algorithm Discovery",
@@ -12351,7 +12351,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/qiliuchn/OR-Agent"
   },
   {
     "title": "Abstract 2460: Judith: An agentic AI system for biomedical image analysis and scientific discovery in precision oncology",
@@ -12420,7 +12420,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/johnnardini/ME-EQL"
   },
   {
     "title": "Sparks: Multi-Agent Artificial Intelligence Model Discovers Protein Design Principles",
@@ -12766,7 +12766,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "EarthLink: A Self-Evolving AI Agent for Climate Science",
@@ -12843,7 +12843,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/codelion/openevolve"
   },
   {
     "title": "Towards an AI Fluid Scientist: LLM-Powered Scientific Discovery in Experimental Fluid Mechanics",
@@ -12887,7 +12887,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/algorithmicsuperintelligence/openevolve"
   },
   {
     "title": "CoDaS: AI Co-Data-Scientist for Biomarker Discovery via Wearable Sensors",
@@ -12935,7 +12935,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "The evolving chemistry of cADPR analogues: from marine discovery to calcium signaling tools.",
@@ -13120,7 +13120,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/karpathy/autoresearch"
   },
   {
     "title": "SciHorizon-DataEVA: An Agentic System for AI-Readiness Evaluation of Heterogeneous Scientific Data",
@@ -13148,7 +13148,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "SASAV: Self-Directed Agent for Scientific Analysis and Visualization",
@@ -13171,7 +13171,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Advancing drug discovery: Thiadiazole derivatives as multifaceted agents in medicinal chemistry and pharmacology.",
@@ -13271,7 +13271,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/h4duan/SciGym"
   },
   {
     "title": "DynaMate: An Autonomous Agent for Protein-Ligand Molecular Dynamics Simulations",
@@ -13295,7 +13295,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/schwallergroup/DynaMate"
   },
   {
     "title": "MM-Agent: LLM as Agents for Real-world Mathematical Modeling Problem",
@@ -13377,7 +13377,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/microsoft/nova-agent"
   },
   {
     "title": "Graph-based Agent Memory: Taxonomy, Techniques, and Applications",
@@ -13414,7 +13414,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/DEEP-PolyU/Awesome-GraphMemory"
   },
   {
     "title": "Beyond AI as Assistants: Toward Autonomous Discovery in Cosmology",
@@ -13435,7 +13435,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Auto-MedCalc: Automated Biomarkers Discovery and Risk Score Generation with AI Agents",
@@ -13544,7 +13544,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/InternScience/scp"
   },
   {
     "title": "Conversational No-code, Multi-agentic Disease Module Identification and Drug Repurposing Prediction with ChatDRex",
@@ -13748,7 +13748,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/xiangyu-mm/Cool-EarthScience-Foundation-Models"
   },
   {
     "title": "ArchAgent: Agentic AI-driven Computer Architecture Discovery",
@@ -13897,7 +13897,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langgraph-supervisor-py"
   },
   {
     "title": "Can AI Agents Design and Implement Drug Discovery Pipelines?",
@@ -13958,7 +13958,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Genentech/CLADD"
   },
   {
     "title": "Scientific Hypothesis Generation and Validation: Methods, Datasets, and Future Directions",
@@ -13989,7 +13989,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md"
   },
   {
     "title": "Recent advances in screening methods enabling the discovery of novel anti-hepatitis B virus drug candidates.",
@@ -14093,7 +14093,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/OpenDFM/LLM4Chemistry"
   },
   {
     "title": "An Agentic Framework for Autonomous Materials Computation",
@@ -14125,7 +14125,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Phoinikas03/VaspAgent_with_Benchmark"
   },
   {
     "title": "AI-Driven Automation Can Become the Foundation of Next-Era Science of Science Research",
@@ -14177,7 +14177,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/deltawave-tech/delta"
   },
   {
     "title": "AI Agents for Enabling Autonomous Experiments at ORNL\u2019s HPC and Manufacturing User Facilities",
@@ -14371,7 +14371,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/diffractivelabs/MADE"
   },
   {
     "title": "An Autonomous Electrochemical Discovery Robot that Utilises Probabilistic Algorithms: Probing the Redox Behaviour of Inorganic Materials",
@@ -15110,7 +15110,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/kaueltzen/LLM_Hackathon_2024"
   },
   {
     "title": "Researchers\u2019 perceptions of automating scientific research",
@@ -15152,7 +15152,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/just5034/GRACE_whitepaper_data"
   },
   {
     "title": "DEVELOPMENT OF INTERDISCIPLINARY SCIENTIFIC RESEARCH THROUGH THE APPLICATION OF ARTIFICIAL INTELLIGENCE",
@@ -15237,7 +15237,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/jmhb0/microvqa"
   },
   {
     "title": "Probing the limitations of multimodal language models for chemistry and materials research",
@@ -15597,7 +15597,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/kaueltzen/LLM_Hackathon_2024"
   },
   {
     "title": "Human-AI Co-Embodied Intelligence for Scientific Experimentation and Manufacturing",
@@ -15651,7 +15651,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/CASIA-LM/S1-NexusAgent"
   },
   {
     "title": "AI-Enhanced Prediction Tools and Sensor Integration in Advanced Analytical Chemistry Techniques",
@@ -15826,7 +15826,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/NVIDIA/cuEquivariance"
   },
   {
     "title": "HeurekaBench: A Benchmarking Framework for AI Co-scientist",
@@ -15848,7 +15848,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/mlbio-epfl/HeurekaBench"
   },
   {
     "title": "A survey on memory-efficient transformer-based model training in AI for science",
@@ -16251,7 +16251,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/deepprinciple/lm-evaluation-harness/tree/main"
   },
   {
     "title": "MatGPT: A Vane of Materials Informatics from Past, Present, to Future",
@@ -16475,7 +16475,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/HaochenZhao/SafeAgent4Chem"
   },
   {
     "title": "Synthetic organic chemistry driven by artificial intelligence",
@@ -16541,7 +16541,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ukplab/scicoqa"
   },
   {
     "title": "An MLCommons Scientific Benchmarks Ontology",
@@ -16683,7 +16683,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/scaleapi/scipredict"
   },
   {
     "title": "CellVoyager: AI CompBio Agent Generates New Insights by Autonomously Analyzing Biological Data",
@@ -16742,7 +16742,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/chao1224/Geom3D"
   },
   {
     "title": "AI for Advancing Scientific Discovery for a Sustainable Future",
@@ -16828,7 +16828,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Future-House/paper-qa"
   },
   {
     "title": "Integration of Machine Learning and Automated Synthesis for Accelerated Drug and Material Research",
@@ -16985,7 +16985,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/OpenTechBio/Olaf"
   },
   {
     "title": "Case-Based Calibration of Adaptive Reasoning and Execution for LLM Tool Use",
@@ -17010,7 +17010,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Prompting Policies for Multi-step Reasoning and Tool-Use in Black-box LLMs with Iterative Distillation of Experience",
@@ -17032,7 +17032,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "FAMA: Failure-Aware Meta-Agentic Framework for Open-Source LLMs in Interactive Tool Use Environments",
@@ -17058,7 +17058,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "AgenticQwen: Training Small Agentic Language Models with Dual Data Flywheels for Industrial-Scale Tool Use",
@@ -17107,7 +17107,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/luaygz/luna_new"
   },
   {
     "title": "ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection",
@@ -17130,7 +17130,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langchain"
   },
   {
     "title": "UniToolCall: Unifying Tool-Use Representation, Data, and Evaluation for LLM Agents",
@@ -17157,7 +17157,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/EIT-NLP/UniToolCall"
   },
   {
     "title": "Your LLM Agent Can Leak Your Data: Data Exfiltration via Backdoored Tool Use",
@@ -17178,7 +17178,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/tatsu-lab/stanford_alpaca"
   },
   {
     "title": "Utility-Guided Agent Orchestration for Efficient LLM Tool Use",
@@ -17200,7 +17200,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/kagami-kasumi/Utility-Guided-Agent-Orchestration-for-Efficient-LLM-Tool-Use"
   },
   {
     "title": "OpenClaw PRISM: A Zero-Fork, Defense-in-Depth Runtime Security Layer for Tool-Augmented LLM Agents",
@@ -17220,7 +17220,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "In-Context Reinforcement Learning for Tool Use in Large Language Models",
@@ -17272,7 +17272,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/microsoft/semantic-kernel"
   },
   {
     "title": "Learning to Rewrite Tool Descriptions for Reliable LLM-Agent Tool Use",
@@ -17296,7 +17296,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/huggingface/smolagents"
   },
   {
     "title": "ResearchEVO: An End-to-End Framework for Automated Scientific Discovery and Documentation",
@@ -17322,7 +17322,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/oscarhiggott/PyMatching"
   },
   {
     "title": "From Photons to Electrons: Accelerated Materials Discovery via Random Libraries and Automated Scanning Transmission Electron Microscopy",
@@ -18630,7 +18630,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": null
+    "code_url": "https://github.com/DIAOZHUO/SPMUtil"
   },
   {
     "title": "Terahertz (THz) Wave Imaging in Civil Engineering to Assess Self-Healing of Fiber-Reinforced Cementitious Composites (FRCC)",
@@ -18912,7 +18912,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langgraph"
   },
   {
     "title": "AgentCompress: Task-Aware Compression for Affordable Large Language Model Agents",
@@ -18964,7 +18964,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/DDigimon/GraphPattern"
   },
   {
     "title": "A Lightweight Modular Framework for Constructing Autonomous Agents Driven by Large Language Models: Design, Implementation, and Applications in AgentForge",
@@ -18986,7 +18986,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/001shahab/agentforge"
   },
   {
     "title": "Autonomous Radiotherapy Treatment Planning Using DOLA: A Privacy-Preserving, LLM-Based Optimization Agent",
@@ -19060,7 +19060,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/KHenryAegis/VulnBot"
   },
   {
     "title": "Transforming Grocery Retail and E-Commerce Through Large Language Models",
@@ -19105,7 +19105,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/lennendd/TableMind"
   },
   {
     "title": "QAgent: An LLM-based Multi-Agent System for Autonomous OpenQASM programming",
@@ -19128,7 +19128,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/fuzhenxiao/QCoder"
   },
   {
     "title": "CyberScribe- Scalable Autonomous Web Crawler",
@@ -19329,7 +19329,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/features/copilot"
   },
   {
     "title": "Safe and Adaptive Cloud Healing: Verifying LLM-Generated Recovery Plans with a Neural-Symbolic World Model",
@@ -19381,7 +19381,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/syr-cn/ReactXT/tree/master/openExp"
   },
   {
     "title": "FaMA: LLM-Empowered Agentic Assistant for Consumer-to-Consumer Marketplace",
@@ -19521,7 +19521,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/gopichandkanumolu/AgentIdeate"
   },
   {
     "title": "OSCAR: Operating System Control via State-Aware Reasoning and Re-Planning",
@@ -19608,7 +19608,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/Aska-zhang/RecThinker"
   },
   {
     "title": "ColPackAgent: Agent-Skill-Guided Hard-Particle Monte Carlo Workflows for Colloidal Packing",
@@ -19630,7 +19630,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/ljding94/ColPackAgent"
   },
   {
     "title": "stratum: A System Infrastructure for Massive Agent-Centric ML Workloads",
@@ -19652,7 +19652,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/deem-data/stratum"
   },
   {
     "title": "Virtual Speech Therapist: A Clinician-in-the-Loop AI Speech Therapy Agent for Personalized and Supervised Therapy",
@@ -19678,7 +19678,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/pmarmaroli/vocametrix-platform/tree/main/python/vstagent"
   },
   {
     "title": "TxGemma: Efficient and Agentic LLMs for Therapeutics",
@@ -19753,7 +19753,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/arXiv/html_feedback/issues"
   },
   {
     "title": "Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks",
@@ -19806,7 +19806,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/XiaoXiao-Woo/SelfAI"
   },
   {
     "title": "Agentic Search Systems And Multi-Agent Intelligence Generation",
@@ -19876,7 +19876,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/langchain-ai/langgraph"
   },
   {
     "title": "Ascorbic acid: Chemistry, biology and the treatment of cancer",
@@ -19971,7 +19971,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/RyanWangZf/BioDSA/tree/main/biodsa/agents/deepevidence"
   },
   {
     "title": "The AnIML Ontology: Enabling Semantic Interoperability for Large-Scale Experimental Data in Interconnected Scientific Labs",
@@ -20001,7 +20001,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/KE-UniLiv/animl-ontology"
   },
   {
     "title": "LLM-based Agentic Reasoning Frameworks: A Survey from Methods to Scenarios",
@@ -20026,7 +20026,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": null
+    "code_url": "https://github.com/microsoft/autogen"
   },
   {
     "title": "Molecular landscape and biomarker discovery in adrenocortical carcinoma: An integrative review of bioinformatics and translational insights.",
@@ -20122,7 +20122,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/jonfanlab/metachat"
   },
   {
     "title": "Bypassing the Synthesis Bottleneck: A Resource-Stratified Framework for Advancing Cancer Drug Discovery",
@@ -20664,7 +20664,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null
+    "code_url": "https://github.com/angelosalatino/kos-rf"
   },
   {
     "title": "Editorial Letter",

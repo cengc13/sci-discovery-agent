@@ -89,6 +89,155 @@ def _extract_code_urls(papers: list) -> int:
     return count
 
 
+_STOPWORDS = {
+    'a', 'an', 'the', 'of', 'for', 'in', 'on', 'to', 'and', 'or', 'with',
+    'via', 'from', 'by', 'at', 'as', 'is', 'are', 'we', 'our', 'this',
+    'that', 'large', 'using', 'based', 'new', 'approach', 'method', 'paper',
+    'model', 'models', 'learning', 'deep', 'language', 'toward', 'towards',
+}
+
+_ACRONYM_PAT  = re.compile(r'\b([A-Z][A-Z0-9]{1,7})\b')
+_CAMEL_PAT    = re.compile(r'\b([A-Z][a-z]+(?:[A-Z][a-z0-9]*)+)\b')   # SciToolAgent, MatClaw
+_HYBRID_PAT   = re.compile(r'\b([A-Z][a-z]{1,6}[A-Z]{2,8})\b')        # TopoMAS, ChemROT
+
+
+def _extract_tool_name(title: str, abstract: str) -> str | None:
+    # Quoted name: “DIVE”, “ChemAgent”
+    quoted = re.search(u'[“”‘’\'”]([A-Za-z][A-Za-z0-9\\-]{1,15})[“”‘’\'”]', title)
+    if quoted:
+        return quoted.group(1)
+    short_title = title.split(':')[0]
+    # All-caps acronym: QUASAR, ARES
+    acr = _ACRONYM_PAT.findall(short_title)
+    if acr:
+        return acr[0]
+    # CamelCase: SciToolAgent, MatClaw
+    cc = _CAMEL_PAT.findall(short_title)
+    if cc:
+        return cc[0]
+    # Hybrid CamelCase+caps: TopoMAS, ChemROT
+    hy = _HYBRID_PAT.findall(short_title)
+    if hy:
+        return hy[0]
+    return None
+
+
+def _title_keywords(title: str) -> list[str]:
+    words = re.sub(r'[^a-z0-9 ]', ' ', title.lower()).split()
+    return [w for w in words if len(w) > 3 and w not in _STOPWORDS][:6]
+
+
+def _enrich_code_urls_github(papers: list, github_token: str | None = None,
+                              delay: float = 6.5) -> int:
+    """Search GitHub for repos matching tool name + paper keywords.
+
+    Only run on papers already selected for display (~50 papers).
+    Uses unauthenticated search (10 req/min) by default; pass github_token
+    for 30 req/min. Delay default ~6.5s keeps well under unauthenticated limit.
+    """
+    import time
+    import random
+    import requests
+
+    candidates = [p for p in papers if not p.code_url]
+    logger.info(f"GitHub code search: {len(candidates)} candidates")
+
+    headers = {'Accept': 'application/vnd.github+json',
+               'X-GitHub-Api-Version': '2022-11-28'}
+    if github_token:
+        headers['Authorization'] = f'Bearer {github_token}'
+
+    count = 0
+    for p in candidates:
+        tool = _extract_tool_name(p.title, p.abstract or '')
+        if not tool:
+            continue
+
+        keywords = _title_keywords(p.title)
+        query = f'{tool} in:name,description {" ".join(keywords[:3])}'
+
+        try:
+            r = requests.get('https://api.github.com/search/repositories',
+                             params={'q': query, 'sort': 'updated', 'per_page': 30},
+                             headers=headers, timeout=10)
+            if r.status_code == 403 or r.status_code == 429:
+                logger.warning('GitHub search rate-limited; stopping early')
+                break
+            r.raise_for_status()
+            items = r.json().get('items', [])
+        except Exception as e:
+            logger.debug(f"GitHub search failed for '{query}': {e}")
+            time.sleep(delay)
+            continue
+
+        paper_kws = set(_title_keywords(p.title))
+        best_score, best_repo = 0, None
+        for repo in items:
+            repo_name = repo.get('name', '').lower()
+            repo_text = ' '.join(filter(None, [
+                repo_name, repo.get('description') or '',
+                ' '.join(repo.get('topics') or []),
+            ])).lower()
+            exact_name = repo_name == tool.lower()
+            tool_hit   = tool.lower() in repo_text
+            kw_hits    = sum(1 for kw in paper_kws if kw in repo_text)
+            # Score: exact name match = 4, tool anywhere = 2, each keyword = 1
+            score = (4 if exact_name else 2 if tool_hit else 0) + kw_hits
+            if score > best_score:
+                best_score, best_repo = score, repo
+        # Accept: exact name + any keyword (score≥5), or strong keyword overlap (score≥4)
+        if best_repo and best_score >= 4:
+            p.code_url = best_repo['html_url']
+            count += 1
+            logger.info(f"  GitHub match (score={best_score}): {p.title[:50]} → {p.code_url}")
+
+        jitter = delay * (1 + random.uniform(-0.15, 0.15))
+        time.sleep(jitter)
+
+    return count
+
+
+def _enrich_code_urls_arxiv(papers: list, delay: float = 2.0) -> int:
+    """Fetch arXiv HTML for papers missing code_url and search for GitHub links.
+
+    Targets the Data/Code Availability sections that aren't in the abstract.
+    Only attempts papers with an arxiv_id; skips if HTML version doesn't exist.
+    """
+    import re
+    import time
+    import random
+    import requests
+
+    gh_pat = re.compile(r'https?://github\.com/[\w\-][^/\s\)>\]"<]+/[\w\-][^\s\)>\]"<]*')
+    candidates = [p for p in papers if p.arxiv_id and not p.code_url]
+    logger.info(f"arXiv HTML code enrichment: {len(candidates)} candidates")
+    count = 0
+
+    for p in candidates:
+        arxiv_id = re.sub(r'v\d+$', '', p.arxiv_id)
+        url = f'https://arxiv.org/html/{arxiv_id}'
+        try:
+            r = requests.get(url, timeout=15,
+                             headers={'User-Agent': 'paper-fetcher/1.0 (code-enrichment)'})
+            if r.status_code == 404:
+                continue
+            if r.status_code == 429:
+                logger.warning("arXiv HTML rate-limited; stopping code enrichment early")
+                break
+            r.raise_for_status()
+            m = gh_pat.search(r.text)
+            if m:
+                p.code_url = m.group(0).rstrip('.,;:)"\'')
+                count += 1
+                logger.info(f"  found code: {p.title[:60]} → {p.code_url}")
+        except Exception as e:
+            logger.debug(f"arXiv HTML fetch failed for {arxiv_id}: {e}")
+        jitter = delay * (1 + random.uniform(-0.2, 0.2))
+        time.sleep(jitter)
+
+    return count
+
+
 def merge(existing: list, new_papers: list) -> list:
     """Merge new papers into existing, dedup by external ID then normalised title.
 
@@ -190,10 +339,12 @@ def merge(existing: list, new_papers: list) -> list:
               help='Skip fetching; just re-render from the cached data/papers.json')
 @click.option('--enrich/--no-enrich', default=True, show_default=True,
               help='After fetching, batch-enrich citation counts via Semantic Scholar')
+@click.option('--enrich-code/--no-enrich-code', default=False, show_default=True,
+              help='Fetch arXiv HTML to find GitHub links in Data/Code Availability sections')
 @click.option('--source', multiple=True, metavar='NAME',
               help='Restrict fetch to: arxiv, semantic_scholar, pubmed, biorxiv (repeatable)')
 @click.option('-v', '--verbose', is_flag=True)
-def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, enrich, source, verbose):
+def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, enrich, enrich_code, source, verbose):
     """Fetch, rank and render agentic-AI-for-science papers to markdown."""
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -265,6 +416,27 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
             n = enricher.enrich_citations(cached)
             click.echo(f'[Semantic Scholar] updated {n} citation counts')
             save_cache(cached)
+
+    if enrich_code:
+        from src.renderer import get_display_papers
+        display = get_display_papers(cached, recent_days=days, top_n=top_n)
+        display_no_code = [p for p in display if not p.code_url]
+        click.echo(f'[code enrichment] {len(display_no_code)} display papers missing code URL')
+
+        click.echo('[arXiv HTML] checking Data/Code Availability sections...')
+        n = _enrich_code_urls_arxiv(display_no_code)
+        click.echo(f'[arXiv HTML] found {n} new code links')
+
+        display_no_code = [p for p in display if not p.code_url]
+        if display_no_code:
+            import os
+            gh_token = os.environ.get('GITHUB_TOKEN')
+            click.echo(f'[GitHub search] searching {len(display_no_code)} remaining papers'
+                       + (' (authenticated)' if gh_token else ' (unauthenticated, ~6s/paper)'))
+            n2 = _enrich_code_urls_github(display_no_code, github_token=gh_token)
+            click.echo(f'[GitHub search] found {n2} new code links')
+
+        save_cache(cached)
 
     from src.renderer import render_markdown, inject_into_readme
     md = render_markdown(cached, recent_days=days, top_n=top_n)

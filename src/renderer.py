@@ -250,6 +250,31 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
     return '\n'.join(lines)
 
 
+def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> list[Paper]:
+    """Return the unique set of papers that would appear in the README tables."""
+    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)]
+    scored = [(p, importance_score(p)) for p in on_topic]
+
+    seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]
+    recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
+
+    sem_articles = sorted([(p, s) for p, s in seminal_all if not _is_review(p) and is_published(p)],
+                          key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
+    sem_reviews  = _top6_reviews([(p, s) for p, s in seminal_all if _is_review(p)])
+    rec_articles = sorted([(p, s) for p, s in recent_all if not _is_review(p)],
+                          key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
+    rec_reviews  = sorted([(p, s) for p, s in recent_all if _is_review(p)],
+                          key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
+
+    seen: set[int] = set()
+    result: list[Paper] = []
+    for p, _ in sem_articles + sem_reviews + rec_articles + rec_reviews:
+        if id(p) not in seen:
+            seen.add(id(p))
+            result.append(p)
+    return result
+
+
 def inject_into_readme(md_block: str, readme_path: str = 'README.md'):
     try:
         with open(readme_path, 'r', encoding='utf-8') as f:

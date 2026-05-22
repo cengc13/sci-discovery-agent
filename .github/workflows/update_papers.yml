@@ -40,10 +40,12 @@ jobs:
         env:
           S2_API_KEY:     ${{ secrets.S2_API_KEY }}
           CROSSREF_EMAIL: ${{ secrets.CROSSREF_EMAIL }}
+          GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
         run: |
           python fetch_papers.py \
             --days 90 \
             --top-n 20 \
+            --enrich-code \
             --update-readme
 
       - name: Commit changes
