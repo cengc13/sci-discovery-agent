@@ -1,0 +1,450 @@
+[
+  {
+    "title": "AgentCo-op: Retrieval-Based Synthesis of Interoperable Multi-Agent Workflows",
+    "authors": [
+      "Shuaike Shen",
+      "Wenduo Cheng",
+      "Shike Wang",
+      "Mingqian Ma",
+      "Jian Ma"
+    ],
+    "abstract": "Designing multi-agent workflows is especially difficult in open-ended scientific settings where tasks lack curated training sets, reliable scalar evaluation metrics, and standardized interfaces between existing tools and agents. We propose AgentCo-op, a retrieval-based synthesis framework that composes reusable skills, tools, and external agents into executable workflows through typed artifact han",
+    "source": "arxiv",
+    "published_date": "2026-05-19",
+    "doi": null,
+    "arxiv_id": "2605.20425v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.20425v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ]
+  },
+  {
+    "title": "Event-B Agent: Towards LLM Agent for Formal Model Synthesis and Repair",
+    "authors": [
+      "Hongshu Wang",
+      "Xinyue Zuo",
+      "Yuhan Sun",
+      "Qin Li",
+      "Yamine Ait Ameur",
+      "Jin Song Dong"
+    ],
+    "abstract": "Building software that is correct by construction is a long-standing goal in software engineering, as it ensures reliability during design and development rather than after deployment. Formal methods realize this vision by enabling the expression of system behavior and requirements in mathematics, thereby guaranteeing correctness through formal verification, including theorem proving and model che",
+    "source": "arxiv",
+    "published_date": "2026-05-17",
+    "doi": "10.1145/3808218",
+    "arxiv_id": "2605.17475v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.17475v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry"
+    ]
+  },
+  {
+    "title": "Skills on the Fly: Test-Time Adaptive Skill Synthesis for LLM Agents",
+    "authors": [
+      "Jingxing Wang",
+      "Chenyu Zhou",
+      "Zhihui Fu",
+      "Jun Wang",
+      "Weiwen Liu",
+      "Weinan Zhang",
+      "Jianghao Lin"
+    ],
+    "abstract": "LLM agents benefit from reusable skills, yet test-time tasks often require guidance more specific than a static skill library can provide. We propose \\emph{SkillTTA}, a Test-Time Adaptive Skill Synthesis method that retrieves a small set of training trajectories relevant to the current task and synthesizes them into a temporary, task-specific textual skill. The solver model is kept fixed, so adapt",
+    "source": "arxiv",
+    "published_date": "2026-05-16",
+    "doi": null,
+    "arxiv_id": "2605.16986v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.16986v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ]
+  },
+  {
+    "title": "Rule2DRC: Benchmarking LLM Agents for DRC Script Synthesis with Execution-Guided Test Generation",
+    "authors": [
+      "Jinuk Kim",
+      "Junsoo Byun",
+      "Donghwi Hwang",
+      "Seong-Jin Park",
+      "Hyun Oh Song"
+    ],
+    "abstract": "Manufacturable chip layouts must satisfy thousands of geometry-based design rules, and design rule checking (DRC) enforces them by running executable DRC scripts on layouts. Translating natural language rules into correct DRC scripts is labor-intensive and requires specialized expertise, motivating LLM agents for DRC script synthesis and debugging. However, existing benchmarks have small evaluatio",
+    "source": "arxiv",
+    "published_date": "2026-05-15",
+    "doi": null,
+    "arxiv_id": "2605.15669v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.15669v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ]
+  },
+  {
+    "title": "Agentic AI Scientists Are Not Built For Autonomous Scientific Discovery",
+    "authors": [
+      "Harshit Bisht",
+      "Vinay Kumar",
+      "Kevin Maik Jablonka",
+      " Mausam",
+      "N. M. Anoop Krishnan"
+    ],
+    "abstract": "A growing body of work pursues AI scientists capable of end-to-end autonomous scientific discovery. This position paper argues that although they already function as co-scientists, agentic AI scientists are not built for autonomous scientific discovery. We identify the following challenges in building and deploying autonomous AI scientists: (1) Problem selection is influenced by the McNamara falla",
+    "source": "arxiv",
+    "published_date": "2026-05-09",
+    "doi": null,
+    "arxiv_id": "2605.08956v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.08956v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ]
+  },
+  {
+    "title": "NIMO Controller: a self-driving laboratory orchestrator based on the Model Context Protocol",
+    "authors": [
+      "Naruki Yoshikawa",
+      "Ryo Tamura"
+    ],
+    "abstract": "Self-driving laboratories (SDLs) have attracted increasing attention as a means of accelerating scientific discovery; however, developing SDL software remains technically demanding. To improve accessibility, orchestration software frameworks have been proposed to coordinate SDL components. Nevertheless, existing frameworks are primarily designed for human interaction and do not provide standardize",
+    "source": "arxiv",
+    "published_date": "2026-05-13",
+    "doi": null,
+    "arxiv_id": "2605.15227v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.15227v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ]
+  },
+  {
+    "title": "Case-Based Calibration of Adaptive Reasoning and Execution for LLM Tool Use",
+    "authors": [
+      "Renning Pang",
+      "Tian Lan",
+      "Leyuan Liu",
+      "Piao Tong",
+      "Sheng Cao",
+      "Xiaosong Zhang"
+    ],
+    "abstract": "Tool use extends large language models beyond parametric knowledge, but reliable execution requires balancing appropriate reasoning depth with strict structural validity. We approach this problem from a case-based perspective to present CAST, a case-driven framework that treats historical execution trajectories as structured cases. Instead of reusing raw exemplar outputs, CAST extracts case-derive",
+    "source": "arxiv",
+    "published_date": "2026-05-14",
+    "doi": null,
+    "arxiv_id": "2605.15041v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.15041v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "Prompting Policies for Multi-step Reasoning and Tool-Use in Black-box LLMs with Iterative Distillation of Experience",
+    "authors": [
+      "Krishna Sayana",
+      "Ketan Todi",
+      "Ambarish Jash"
+    ],
+    "abstract": "The shift toward interacting with frozen, \"black-box\" Large Language Models (LLMs) has transformed prompt engineering from a heuristic exercise into a critical optimization challenge. We propose a Reinforcement Learning (RL) framework for training learned prompting policies via iterative distillation of experience. In this architecture, a lightweight prompter model is optimized to maximize task-sp",
+    "source": "arxiv",
+    "published_date": "2026-05-14",
+    "doi": null,
+    "arxiv_id": "2605.14443v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.14443v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "Model-Adaptive Tool Necessity Reveals the Knowing-Doing Gap in LLM Tool Use",
+    "authors": [
+      "Yize Cheng",
+      "Chenrui Fan",
+      "Mahdi JafariRaviz",
+      "Keivan Rezaei",
+      "Soheil Feizi"
+    ],
+    "abstract": "Large language models (LLMs) increasingly act as autonomous agents that must decide when to answer directly vs. when to invoke external tools. Prior work studying adaptive tool use has largely treated tool necessity as a model-agnostic property, annotated by human or LLM judge, and mostly cover cases where the answer is obvious (e.g., fetching the weather vs. paraphrasing text). However, tool nece",
+    "source": "arxiv",
+    "published_date": "2026-05-13",
+    "doi": null,
+    "arxiv_id": "2605.14038v2",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.14038v2",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "VectraYX-Nano: A 42M-Parameter Spanish Cybersecurity Language Model with Curriculum Learning and Native Tool Use",
+    "authors": [
+      "Juan S. Santillana"
+    ],
+    "abstract": "We present VectraYX-Nano, a 41.95M-parameter decoder-only language model trained from scratch in Spanish for cybersecurity, with a Latin-American regional focus and native tool invocation via the Model Context Protocol (MCP). The model has four contributions. (i) Corpus: VectraYX-Sec-ES, a 170M-token Spanish corpus assembled by an eight-VM distributed pipeline at ~$25 USD of cloud compute and spli",
+    "source": "arxiv",
+    "published_date": "2026-05-13",
+    "doi": null,
+    "arxiv_id": "2605.13989v3",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.13989v3",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "Trajectory Supervision for Continual Tool-Use Learning in LLMs",
+    "authors": [
+      "Vishnu Vardhan Reddy",
+      "Sagnik Chatterjee",
+      "Soumik Bhatta"
+    ],
+    "abstract": "Most language-model training data shows final artifacts, not the process that produced them. We study a tractable version of this question in tool use: when a model learns a stream of new API domains, does keeping tool-use trajectories help compared with stripping the intermediate API trace? We fine-tune Llama 3.1 8B Instruct with QLoRA on API-Bank using four sequential domain blocks. Condition A ",
+    "source": "arxiv",
+    "published_date": "2026-05-10",
+    "doi": null,
+    "arxiv_id": "2605.09734v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.09734v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ]
+  },
+  {
+    "title": "Property-Guided LLM Program Synthesis for Planning",
+    "authors": [
+      "Andr\u00e9 G. Pereira",
+      "Augusto B. Corr\u00eaa",
+      "Jendrik Seipp"
+    ],
+    "abstract": "LLMs have shown impressive success in program synthesis, discovering programs that surpass prior solutions. However, these approaches rely on simple numeric scores to signal program quality, such as the value of the solution or the number of passed tests. Because a score offers no guidance on why a program failed, the system must generate and evaluate many candidates hoping some succeed, increasin",
+    "source": "arxiv",
+    "published_date": "2026-05-15",
+    "doi": null,
+    "arxiv_id": "2605.16142v2",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.16142v2",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ]
+  },
+  {
+    "title": "A Reproducible Optimisation Protocol for Calibrating Prompt-Based Large Language Model Workflows in Evidence Synthesis",
+    "authors": [
+      "Teo Susnjak"
+    ],
+    "abstract": "This methods article presents a reproducible calibration workflow for prompt-based large language models (LLMs) in structured evidence-synthesis tasks. The method separates the rules that define the scientific task from the mutable prompt harness that frames and applies them. It optimises that harness against labelled or reference examples and an explicit task metric, then preserves the calibrated",
+    "source": "arxiv",
+    "published_date": "2026-05-07",
+    "doi": null,
+    "arxiv_id": "2605.06937v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.06937v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry"
+    ]
+  },
+  {
+    "title": "Beyond Scalar Objectives: Expert-Feedback-Driven Autonomous Experimentation for Scientific Discovery at the Nanoscale",
+    "authors": [
+      "Ralph Bulanadi",
+      "Jefferey Baxter",
+      "Arpan Biswas",
+      "Hiroshi Funakubo",
+      "Dennis Meier",
+      "Jan Schulthei\u00df",
+      "Rama Vasudevan",
+      "Yongtao Liu"
+    ],
+    "abstract": "Self-driving laboratories or autonomous experimentation are emerging as transformative platforms for accelerating scientific discovery. Bayesian optimization (BO) is among the most widely used machine learning frameworks for these purposes, but these BO-based frameworks rely on predefined scalar descriptors to guide experimentation. In many situations, the determination of an appropriate scalar de",
+    "source": "arxiv",
+    "published_date": "2026-05-20",
+    "doi": null,
+    "arxiv_id": "2605.21820v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.21820v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "End-to-end autonomous scientific discovery on a real optical platform",
+    "authors": [
+      "Shuxing Yang",
+      "Fujia Chen",
+      "Rui Zhao",
+      "Junyao Wu",
+      "Yize Wang",
+      "Haiyao Luo",
+      "Ning Han",
+      "Qiaolu Chen",
+      "Yuze Hu",
+      "Wenhao Li",
+      "Mingzhu Li",
+      "Hongsheng Chen",
+      "Yihao Yang"
+    ],
+    "abstract": "Scientific research has long been human-led, driving new knowledge and transformative technologies through the continual revision of questions, methods and claims as evidence accumulates. Although large language model (LLM)-based agents are beginning to move beyond assisting predefined research workflows, none has yet demonstrated end-to-end autonomous discovery in a real physical system that prod",
+    "source": "arxiv",
+    "published_date": "2026-04-29",
+    "doi": null,
+    "arxiv_id": "2604.27092v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2604.27092v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "AI/science"
+    ]
+  },
+  {
+    "title": "AIMBio-Mat: An AI-Native FAIR Platform for Closed-Loop Materials Discovery and Biomedical Translation",
+    "authors": [
+      "D. -M. Mei",
+      "K. Acharya",
+      "C. M. Adhikari",
+      "M. Adhikari",
+      "S. Aryal",
+      "B. V. Benson",
+      "K. Bhatta",
+      "S. Bhattarai",
+      "N. Budhathoki",
+      "A. M. Castillo",
+      "D. Chakraborty",
+      "S. Chhetri",
+      "S. Choudhury",
+      "T. A. Chowdhury",
+      "R. D. Cruz",
+      "B. Cui",
+      "S. Dhital",
+      "K. -M. Dong",
+      "R. Gapuz",
+      "A. Ghasemi",
+      "E. Z. Gnimpieba",
+      "B. D. S. Gurung",
+      "H. A. Hashim",
+      "R. I. Harry",
+      "K. -E. Hasin",
+      "M. K. Hassanzadeh",
+      "M. K. Jha",
+      "D. Kim",
+      "K. -C. Kong",
+      "B. Lama",
+      "A. Mahat",
+      "N. Maharjan",
+      "A. Majeed",
+      "J. Mammo",
+      "M. M. Masud",
+      "K. S. Moore",
+      "A. Nawaz",
+      "H. Oli",
+      "S. A. Panamaldeniya",
+      "L. Pandey",
+      "R. Pandey",
+      "Z. Peng",
+      "A. Prem",
+      "M. M. Rana",
+      "K. Rana Magar",
+      "R. Rizk",
+      "C. S. Tadi",
+      "L. -W. Wang",
+      "Y. Yang",
+      "G. -L. Yin",
+      "C. -X. Yu",
+      "D. Zeng",
+      "M. Zhou",
+      "Q. Zhou"
+    ],
+    "abstract": "Materials discovery and biomedical translation increasingly require models that can reason across composition, processing, structure, biological response, manufacturability, safety, and governance constraints. Existing materials and biomedical data ecosystems are powerful but remain poorly coupled for AI-guided discovery. Here we present AIMBio, a conceptual framework for an AI-native, FAIR, and g",
+    "source": "arxiv",
+    "published_date": "2026-05-20",
+    "doi": null,
+    "arxiv_id": "2605.21083v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.21083v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "materials",
+      "biology"
+    ]
+  },
+  {
+    "title": "DataArc-SynData-Toolkit: A Unified Closed-Loop Framework for Multi-Path, Multimodal, and Multilingual Data Synthesis",
+    "authors": [
+      "Zhichao Shi",
+      "Cehao Yang",
+      "Hao Zhou",
+      "Xiaojun Wu",
+      "Huajie Li",
+      "Xuhui Jiang",
+      "Chengjin Xu",
+      "Yuanzhuo Wang",
+      "Jian Guo"
+    ],
+    "abstract": "Synthetic data has emerged as a crucial solution to the data scarcity bottleneck in large language models (LLMs), particularly for specialized domains and low-resource languages. However, the broader adoption of existing synthetic data tools is severely hindered by convoluted workflows, fragmented data standards, and limited scalability across modalities. To address these limitations, we develop D",
+    "source": "arxiv",
+    "published_date": "2026-05-02",
+    "doi": null,
+    "arxiv_id": "2605.08138v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.08138v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ]
+  }
+]

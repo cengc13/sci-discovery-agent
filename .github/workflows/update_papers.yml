@@ -1,0 +1,39 @@
+name: Update papers
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # every Monday 06:00 UTC
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Fetch and render papers
+        env:
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}   # optional — higher rate limit
+        run: |
+          python fetch_papers.py \
+            --days 90 \
+            --top-n 20 \
+            --update-readme
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md data/papers.json
+          git diff --cached --quiet || git commit -m "chore: update papers [skip ci]"
+          git push

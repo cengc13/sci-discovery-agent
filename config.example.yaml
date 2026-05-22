@@ -1,0 +1,25 @@
+sources:
+  arxiv:
+    enabled: true
+    max_results: 150
+
+  semantic_scholar:
+    enabled: true
+    max_results: 100
+    # Optional — raises rate limit from 1 req/s to 10 req/s
+    # Get a key at https://www.semanticscholar.org/product/api
+    # In GitHub Actions, set as repo secret S2_API_KEY
+    api_key: ""
+
+  pubmed:
+    enabled: true
+    max_results: 100
+    # Add your email — required by NCBI for rate-limit compliance
+    email: "user@example.com"
+    # Optional key: https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities/
+    api_key: ""
+
+  biorxiv:
+    enabled: true
+    max_results: 200
+    include_chemrxiv: true
