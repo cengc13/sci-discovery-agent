@@ -74,7 +74,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Rule2DRC: Benchmarking LLM Agents for DRC Script Synthesis with Execution-Guided Test Generation",
@@ -123,7 +123,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "NIMO Controller: a self-driving laboratory orchestrator based on the Model Context Protocol",
@@ -167,7 +167,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "A Reproducible Optimisation Protocol for Calibrating Prompt-Based Large Language Model Workflows in Evidence Synthesis",
@@ -187,7 +187,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Beyond Scalar Objectives: Expert-Feedback-Driven Autonomous Experimentation for Scientific Discovery at the Nanoscale",
@@ -320,7 +320,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "DataArc-SynData-Toolkit: A Unified Closed-Loop Framework for Multi-Path, Multimodal, and Multilingual Data Synthesis",
@@ -861,7 +861,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/adma.202413523",
     "venue": "Advances in Materials",
-    "citation_count": 166,
+    "citation_count": 167,
     "domains": [
       "materials",
       "biology"
@@ -1619,7 +1619,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1098/rsos.250646",
     "venue": "Royal Society Open Science",
-    "citation_count": 28,
+    "citation_count": 29,
     "domains": [
       "chemistry",
       "materials",
@@ -1672,7 +1672,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Agent-based Learning of Materials Datasets from Scientific Literature",
@@ -2288,7 +2288,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Autonomous Microscopy Experiments through Large Language Model Agents",
@@ -2440,7 +2440,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s42256-024-00832-8.pdf",
     "venue": "Nature Machine Intelligence",
-    "citation_count": 903,
+    "citation_count": 904,
     "domains": [
       "chemistry",
       "materials",
@@ -2497,7 +2497,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Bridging Innovation and Efficiency: The Promises and Challenges of Self-Driving Labs as Sustainable Drivers for Chemistry.",
@@ -2596,7 +2596,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "El Agente Forjador: Task-Driven Agent Generation for Quantum Simulation",
@@ -2623,7 +2623,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Knowledge Models and Inference Frameworks for Scientific Discovery",
@@ -3152,7 +3152,7 @@
       "chemistry",
       "materials"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Beyond Low Earth Orbit: Biomonitoring, Artificial Intelligence, and Precision Space Health",
@@ -3503,7 +3503,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Agentic AI platforms for autonomous training and rule induction of human-human and virus-human protein-protein interactions",
@@ -3572,7 +3572,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Beyond Task Success: An Evidence-Synthesis Framework for Evaluating, Governing, and Orchestrating Agentic AI",
@@ -3593,7 +3593,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Compressing Correct-by-Design Synthesis for Stochastic Homogeneous Multi-Agent Systems with Counting LTL",
@@ -3617,7 +3617,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "MatClaw: An Autonomous Code-First LLM Agent for End-to-End Materials Exploration",
@@ -3977,7 +3977,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "When Agents Go Quiet: Output Generation Capacity and Format-Cost Separation for LLM Document Synthesis",
@@ -4026,7 +4026,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Training LLMs for Multi-Step Tool Orchestration with Constrained Data Synthesis and Graduated Rewards",
@@ -4083,7 +4083,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "RAVEL: Reasoning Agents for Validating and Evaluating LLM Text Synthesis",
@@ -4137,7 +4137,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Rhizome OS-1: Rhizome's Semi-Autonomous Operating System for Small Molecule Drug Discovery",
@@ -4160,7 +4160,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Let the Abyss Stare Back Adaptive Falsification for Autonomous Scientific Discovery",
@@ -4187,7 +4187,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Optimal Control Synthesis of Closed-Loop Recommendation Systems over Social Networks",
@@ -4208,7 +4208,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Iterative Closed-Loop Motion Synthesis for Scaling the Capabilities of Humanoid Control",
@@ -4238,7 +4238,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "An autonomous LLM-agent platform for computational binder design and conjugation-aware prioritization of antibody\u2013drug conjugates",
@@ -5001,7 +5001,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Accelerating Discovery of Organic Molecular Crystals via Materials Informatics and Autonomous Experiments",
@@ -5130,7 +5130,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Kinetic negative-feedback-based barrier membrane attenuates pathological fluctuations and promotes bone regeneration in diabetes.",
@@ -5689,7 +5689,7 @@
     "domains": [
       "materials"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "AI agents in drug discovery: applications and case studies.",
@@ -6254,7 +6254,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "ProtChat: An AI Multi-Agent for Automated Protein Analysis Leveraging GPT-4 and Protein Language Model",
@@ -6619,7 +6619,7 @@
     "biorxiv_id": null,
     "url": "https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055",
     "venue": "Chemical Reviews",
-    "citation_count": 421,
+    "citation_count": 424,
     "domains": [
       "chemistry",
       "materials",
@@ -6690,7 +6690,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41467-024-45569-5.pdf",
     "venue": "Nature Communications",
-    "citation_count": 48,
+    "citation_count": 49,
     "domains": [
       "chemistry",
       "materials"
@@ -6903,7 +6903,7 @@
     "biorxiv_id": null,
     "url": "https://advances.sciencemag.org/content/advances/6/20/eaaz8867.full.pdf",
     "venue": "Science Advances",
-    "citation_count": 581,
+    "citation_count": 583,
     "domains": [
       "materials",
       "biology"
@@ -7480,7 +7480,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1016/J.TRECHM.2019.02.007",
     "venue": "Trends in Chemistry",
-    "citation_count": 288,
+    "citation_count": 290,
     "domains": [
       "materials",
       "biology"
@@ -8004,7 +8004,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/adma.202001626",
     "venue": "Advances in Materials",
-    "citation_count": 265,
+    "citation_count": 266,
     "domains": [
       "chemistry",
       "materials",
@@ -8935,7 +8935,7 @@
     "biorxiv_id": null,
     "url": "https://storage.googleapis.com/plos-corpus-prod/10.1371/journal.pone.0229862/1/pone.0229862.pdf?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=wombat-sa%40plos-prod.iam.gserviceaccount.com%2F20210215%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20210215T065405Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=2f935e3e75d9fc009f53a8f6981be89c56c2f2726ecb8cc8594c93afbd9b9beffa3a6d7876e52104ef278f75371d079d0faf95fca245f56f332e463fbcb4803c34cd9ffd8f3ecf0764edb4a4e258f2369448a1aaf847c8594415261696447c847c6a33aeb7d610d0777ecd1e318667c33572e78da4354ccf704f25ea99439e99d4e95cb64f97ef1b6b5f86c2b18ed766ea87337223b3c773be6f6ca68ca193196aaf18516b86ae206ad5e86e302531b80ebbe9e18a7759641cbf88faed232aa83610520ff5ebbfd73a8d9b722bdbb01e7b2dcaf2abae04025abb1965591188492dfcd3babe364a316aebdf167037063aa292538f368b100d02deabccac983ad8",
     "venue": "PLoS ONE",
-    "citation_count": 126,
+    "citation_count": 127,
     "domains": [
       "materials"
     ],
@@ -8961,7 +8961,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1126/science.adj1817",
     "venue": "Science",
-    "citation_count": 195,
+    "citation_count": 197,
     "domains": [
       "chemistry",
       "materials",
@@ -8995,7 +8995,7 @@
     "biorxiv_id": null,
     "url": "https://link.springer.com/content/pdf/10.1007/s10514-023-10136-2.pdf",
     "venue": "Autonomous Robots",
-    "citation_count": 113,
+    "citation_count": 114,
     "domains": [
       "chemistry",
       "materials",
@@ -9796,7 +9796,7 @@
     "biorxiv_id": null,
     "url": "https://www.frontiersin.org/articles/10.3389/frsc.2020.00038/pdf",
     "venue": "Frontiers in Sustainable Cities",
-    "citation_count": 206,
+    "citation_count": 207,
     "domains": [
       "materials",
       "biology"
@@ -9819,7 +9819,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2407.01603",
     "venue": "Chemical Science",
-    "citation_count": 188,
+    "citation_count": 189,
     "domains": [
       "chemistry"
     ],
@@ -10013,7 +10013,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41586-023-06792-0.pdf",
     "venue": "Nature",
-    "citation_count": 907,
+    "citation_count": 911,
     "domains": [
       "chemistry",
       "biology"
@@ -10475,7 +10475,7 @@
     "domains": [
       "chemistry"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "ChemGraph: An Agentic Framework for Computational Chemistry Workflows",
@@ -11705,7 +11705,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Accelerating earth science discovery via multi-agent LLM systems",
@@ -12935,7 +12935,7 @@
       "materials",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "The evolving chemistry of cADPR analogues: from marine discovery to calcium signaling tools.",
@@ -13148,7 +13148,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "SASAV: Self-Directed Agent for Scientific Analysis and Visualization",
@@ -13171,7 +13171,7 @@
     "domains": [
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Advancing drug discovery: Thiadiazole derivatives as multifaceted agents in medicinal chemistry and pharmacology.",
@@ -13435,7 +13435,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Auto-MedCalc: Automated Biomarkers Discovery and Risk Score Generation with AI Agents",
@@ -13640,7 +13640,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2502.18864",
     "venue": "arXiv.org",
-    "citation_count": 281,
+    "citation_count": 282,
     "domains": [
       "biology"
     ],
@@ -14658,7 +14658,7 @@
     "biorxiv_id": null,
     "url": "https://link.springer.com/content/pdf/10.1557/s43577-021-00051-1.pdf",
     "venue": "MRS bulletin",
-    "citation_count": 124,
+    "citation_count": 125,
     "domains": [
       "materials"
     ],
@@ -14887,7 +14887,7 @@
     "biorxiv_id": null,
     "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202100362",
     "venue": "Advanced Energy Materials",
-    "citation_count": 52,
+    "citation_count": 53,
     "domains": [
       "chemistry",
       "materials"
@@ -15261,7 +15261,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2411.16955",
     "venue": "Nature Computational Science",
-    "citation_count": 45,
+    "citation_count": 46,
     "domains": [
       "chemistry",
       "materials"
@@ -15354,7 +15354,7 @@
     "biorxiv_id": null,
     "url": "http://www.cell.com/article/S2666675821001041/pdf",
     "venue": "The Innovation",
-    "citation_count": 1402,
+    "citation_count": 1404,
     "domains": [
       "chemistry",
       "materials"
@@ -17010,7 +17010,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Prompting Policies for Multi-step Reasoning and Tool-Use in Black-box LLMs with Iterative Distillation of Experience",
@@ -17032,7 +17032,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "FAMA: Failure-Aware Meta-Agentic Framework for Open-Source LLMs in Interactive Tool Use Environments",
@@ -17058,7 +17058,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "AgenticQwen: Training Small Agentic Language Models with Dual Data Flywheels for Industrial-Scale Tool Use",
@@ -17220,7 +17220,7 @@
     "domains": [
       "AI/science"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "In-Context Reinforcement Learning for Tool Use in Large Language Models",
@@ -17596,7 +17596,7 @@
     "biorxiv_id": null,
     "url": "https://europepmc.org/articles/pmc4895206?pdf=render",
     "venue": "Chemical Reviews",
-    "citation_count": 77,
+    "citation_count": 78,
     "domains": [
       "chemistry",
       "materials",
@@ -18043,7 +18043,7 @@
     "biorxiv_id": null,
     "url": "https://europepmc.org/articles/pmc2761982?pdf=render",
     "venue": "Chemical Reviews",
-    "citation_count": 851,
+    "citation_count": 852,
     "domains": [
       "chemistry",
       "biology"
@@ -18699,7 +18699,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1021/acs.chemrev.2c00709",
     "venue": "Chemical Reviews",
-    "citation_count": 53,
+    "citation_count": 54,
     "domains": [
       "chemistry",
       "materials",
@@ -19753,7 +19753,7 @@
       "chemistry",
       "biology"
     ],
-    "code_url": "https://github.com/arXiv/html_feedback/issues"
+    "code_url": null
   },
   {
     "title": "Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks",
@@ -20392,7 +20392,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1186/s13321-025-00978-6",
     "venue": "Journal of Cheminformatics",
-    "citation_count": 10,
+    "citation_count": 11,
     "domains": [
       "chemistry",
       "materials",
@@ -20633,7 +20633,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/adma.201904197",
     "venue": "Advances in Materials",
-    "citation_count": 1274,
+    "citation_count": 1275,
     "domains": [
       "chemistry",
       "materials",

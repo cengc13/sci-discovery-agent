@@ -18,7 +18,7 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · chemR
 | [AP-Lab: An AI-Driven Autonomous Pilot-Scale Platform Bridging Materials Discover…](https://pubmed.ncbi.nlm.nih.gov/41677392/) | 2026 | Adv. Sci. | - |
 | [Ultrasound Patches Toward Intelligent Theranostics: From Flexible Materials to C…](https://pubmed.ncbi.nlm.nih.gov/41899876/) | 2026 | Bioengineering | - |
 | [ChemGraph as an agentic framework for computational chemistry workflows](https://doi.org/10.1038/s42004-025-01776-9) | 2026 | Communications Che… | - |
-| [“DIVE” into hydrogen storage materials discovery with AI agents](https://arxiv.org/abs/2508.13251) | 2025 | Chem. Sci. | - |
+| [“DIVE” into hydrogen storage materials discovery with AI agents](https://arxiv.org/abs/2508.13251) | 2025 | Chem. Sci. | [Code](https://github.com/gtex-hydrogen-storage/DIVE) |
 | [A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On …](https://doi.org/10.1021/jacs.4c17738) | 2025 | JACS | - |
 | [Rapid and automated alloy design with graph neural network-powered large languag…](https://doi.org/10.1557/s43577-025-00953-4) | 2025 | MRS bulletin | - |
 | [Towards Agentic AI for Science Hypothesis Generation, Comprehension, Quantificat…](https://doi.org/10.1145/3701716.3718485) | 2025 | The Web Conference | - |
@@ -40,7 +40,7 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · chemR
 
 | Title | Year | Venue | Citations |
 | --- | --- | --- | ---: |
-| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 421 |
+| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 424 |
 | [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society R… | 252 |
 | [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nature | 231 |
 | [QUASAR: A Universal Autonomous System for Atomistic Simulation and a Benchmark o…](https://arxiv.org/abs/2602.00185) | 2026 | JCIM | 5 |
@@ -53,7 +53,7 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · chemR
 
 | Title | Date | Source | Code |
 | --- | --- | --- | --- |
-| [AIMBio-Mat: An AI-Native FAIR Platform for Closed-Loop Materials Discovery and B…](http://arxiv.org/abs/2605.21083v1) | 2026-05-20 | arxiv | [Code](https://github.com/arXiv/html_feedback/issues) |
+| [AIMBio-Mat: An AI-Native FAIR Platform for Closed-Loop Materials Discovery and B…](http://arxiv.org/abs/2605.21083v1) | 2026-05-20 | arxiv | - |
 | [Harnessing Autonomous AI Agents for the Next Generation of Scientific Discovery](https://doi.org/10.1002/smm2.70068) | 2026-03-19 | semantic_scholar | - |
 | [Digital materials ecosystem: from databases to AI agents for autonomous discover…](https://doi.org/10.1039/d5sc09229a) | 2026-02-23 | semantic_scholar | - |
 | [Catalyst-Agent: Autonomous heterogeneous catalyst screening and optimization wit…](https://arxiv.org/abs/2603.01311) | 2026-03-01 | semantic_scholar | - |
@@ -64,10 +64,10 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · chemR
 | [Multi-Agent Orchestration for High-Throughput Materials Screening on a Leadershi…](https://arxiv.org/abs/2604.07681) | 2026-04-09 | semantic_scholar | [Code](https://github.com/argonne-lcf/ChemGraph) |
 | [A Multi-Agent Human-LLM Collaborative Framework for Closed-Loop Scientific Liter…](https://arxiv.org/abs/2604.01452) | 2026-04-01 | semantic_scholar | - |
 | [From Data to Theory: Autonomous Large Language Model Agents for Materials Scienc…](https://arxiv.org/abs/2604.19789) | 2026-04-01 | semantic_scholar | [Code](https://github.com/samoalfred/LLM-based-Agent) |
-| [Learning Adaptive Force Control for Contact-Rich Sample Scraping with Heterogene…](https://arxiv.org/abs/2603.10979) | 2026-03-11 | semantic_scholar | [Code](https://github.com/arXiv/html_feedback/issues) |
+| [Learning Adaptive Force Control for Contact-Rich Sample Scraping with Heterogene…](https://arxiv.org/abs/2603.10979) | 2026-03-11 | semantic_scholar | - |
 | [Epistemic Closure: Autonomous Mechanism Completion for Physically Consistent Sim…](https://arxiv.org/abs/2603.09756) | 2026-03-10 | semantic_scholar | [Code](https://github.com/shuWuYue123/Neuro-Symbolic-Auto-Coupling) |
-| [Logos: An evolvable reasoning engine for rational molecular design](https://arxiv.org/abs/2603.09268) | 2026-03-10 | semantic_scholar | [Code](https://github.com/arXiv/html_feedback/issues) |
-| [Human-Aware Robot Behaviour in Self-Driving Labs](https://arxiv.org/abs/2603.08420) | 2026-03-09 | semantic_scholar | [Code](https://github.com/arXiv/html_feedback/issues) |
+| [Logos: An evolvable reasoning engine for rational molecular design](https://arxiv.org/abs/2603.09268) | 2026-03-10 | semantic_scholar | - |
+| [Human-Aware Robot Behaviour in Self-Driving Labs](https://arxiv.org/abs/2603.08420) | 2026-03-09 | semantic_scholar | - |
 | [MatClaw: An Autonomous Code-First LLM Agent for End-to-End Materials Exploration](http://arxiv.org/abs/2604.02688v2) | 2026-04-03 | arxiv | [Code](https://github.com/cz2014/MatClaw) |
 | [OpenQlaw: An Agentic AI Assistant for Analysis of 2D Quantum Materials](http://arxiv.org/abs/2603.17043v1) | 2026-03-17 | arxiv | [Code](https://github.com/HKUDS/nanobot) |
 | [Agentic LLM Reasoning in a Self-Driving Laboratory for Air-Sensitive Lithium Hal…](http://arxiv.org/abs/2604.11957v1) | 2026-04-13 | arxiv | - |

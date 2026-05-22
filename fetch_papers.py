@@ -74,6 +74,16 @@ def save_cache(papers: list):
     DATA_FILE.write_text(json.dumps([_paper_to_dict(p) for p in papers], indent=2))
 
 
+_CODE_URL_BLOCKLIST = {
+    # arXiv's own "report missing HTML" link — appears on every HTML-unavailable page
+    'github.com/arxiv/html_feedback',
+}
+
+
+def _is_blocked_code_url(url: str) -> bool:
+    return any(b in url.lower() for b in _CODE_URL_BLOCKLIST)
+
+
 def _extract_code_urls(papers: list) -> int:
     """Backfill code_url from GitHub links found in paper abstracts."""
     import re
@@ -84,8 +94,10 @@ def _extract_code_urls(papers: list) -> int:
             continue
         m = gh_pat.search(p.abstract or '')
         if m:
-            p.code_url = m.group(0).rstrip('.,;:)')
-            count += 1
+            url = m.group(0).rstrip('.,;:)')
+            if not _is_blocked_code_url(url):
+                p.code_url = url
+                count += 1
     return count
 
 
@@ -227,9 +239,11 @@ def _enrich_code_urls_arxiv(papers: list, delay: float = 2.0) -> int:
             r.raise_for_status()
             m = gh_pat.search(r.text)
             if m:
-                p.code_url = m.group(0).rstrip('.,;:)"\'')
-                count += 1
-                logger.info(f"  found code: {p.title[:60]} → {p.code_url}")
+                url = m.group(0).rstrip('.,;:)"\'')
+                if not _is_blocked_code_url(url):
+                    p.code_url = url
+                    count += 1
+                    logger.info(f"  found code: {p.title[:60]} → {p.code_url}")
         except Exception as e:
             logger.debug(f"arXiv HTML fetch failed for {arxiv_id}: {e}")
         jitter = delay * (1 + random.uniform(-0.2, 0.2))
