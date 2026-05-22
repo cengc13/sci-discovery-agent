@@ -96,3 +96,25 @@ def is_recent(paper: Paper, days: int) -> bool:
     if not paper.published_date:
         return False
     return (date.today() - paper.published_date).days <= days
+
+
+import re as _re
+
+_PREPRINT_VENUES = {'', 'arxiv', 'arxiv.org', 'biorxiv', 'chemrxiv', 'medrxiv'}
+
+
+def is_published(paper: Paper) -> bool:
+    """True for peer-reviewed publications; False for preprints (arXiv, bioRxiv, chemRxiv)."""
+    if paper.source == 'openreview':
+        return True
+    if paper.pubmed_id:
+        return True
+    v = (paper.venue or '').strip().lower()
+    if not v or v in _PREPRINT_VENUES or 'preprint' in v or v.startswith('arxiv'):
+        # Check DOI as last resort — real publishers have non-arXiv DOIs
+        if paper.doi and not paper.doi.startswith('10.48550'):
+            # bioRxiv preprint DOIs match 10.1101/YYYY.MM.DD.*
+            if not _re.match(r'10\.1101/\d{4}\.\d{2}\.\d{2}', paper.doi):
+                return True
+        return False
+    return True

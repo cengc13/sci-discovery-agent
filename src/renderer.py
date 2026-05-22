@@ -1,7 +1,7 @@
 from __future__ import annotations
 from datetime import date, datetime
 from .models import Paper
-from .scoring import importance_score, is_recent, is_on_topic
+from .scoring import importance_score, is_recent, is_on_topic, is_published
 
 README_START = '<!-- PAPERS_START -->'
 README_END = '<!-- PAPERS_END -->'
@@ -10,12 +10,13 @@ _REVIEW_TITLE_SIGNALS = [
     'review', 'survey', 'perspective', 'overview', 'roadmap',
     'tutorial', 'meta-analysis', 'systematic', 'a comprehensive',
     'progress in', 'advances in', 'trends in',
+    'benchmark', 'benchmarking', 'informatics', 'landscape',
+    'state of the art', 'state-of-the-art',
 ]
 _REVIEW_VENUE_SIGNALS = [
     'reviews', 'review journal', 'annual review', 'perspectives',
 ]
 
-# Abbreviated journal names (lowercase key → display abbreviation)
 _VENUE_ABBREVS: dict[str, str] = {
     'nature machine intelligence': 'Nat. Mach. Intell.',
     'nature communications': 'Nat. Commun.',
@@ -46,6 +47,9 @@ _VENUE_ABBREVS: dict[str, str] = {
     'proceedings of the national academy of sciences': 'PNAS',
     'matter': 'Matter',
     'joule': 'Joule',
+    'iclr': 'ICLR',
+    'neurips': 'NeurIPS',
+    'icml': 'ICML',
     'arxiv.org': 'arXiv',
     'arxiv': 'arXiv',
     'biorxiv': 'bioRxiv',
@@ -53,7 +57,6 @@ _VENUE_ABBREVS: dict[str, str] = {
     'frontiers in artificial intelligence': 'Front. Artif. Intell.',
 }
 
-# Domain display labels and priority order
 _DOMAIN_PRIORITY = ['materials', 'chemistry', 'biology']
 _DOMAIN_DISPLAY = {
     'materials': 'materials science',
@@ -71,25 +74,26 @@ def _is_review(paper: Paper) -> bool:
     return any(v in venue_lower for v in _REVIEW_VENUE_SIGNALS)
 
 
+def _is_chem_or_materials(paper: Paper) -> bool:
+    """Keep only papers with chemistry or materials as a domain."""
+    return 'chemistry' in paper.domains or 'materials' in paper.domains
+
+
 def _short_venue(venue: str) -> str:
     if not venue:
         return '—'
     v = venue.split('(')[0].strip()
     v_lower = v.lower()
-    # Longest key wins to prevent "science" matching "advanced science"
     for key in sorted(_VENUE_ABBREVS, key=len, reverse=True):
         if v_lower.startswith(key) or key in v_lower:
             return _VENUE_ABBREVS[key]
-    # Fallback: truncate to 18 chars
     return (v[:18] + '…') if len(v) > 18 else v
 
 
 def _primary_domain(paper: Paper) -> str:
-    """Return the single most relevant domain using materials > chemistry > biology priority."""
     for d in _DOMAIN_PRIORITY:
         if d in paper.domains:
             return _DOMAIN_DISPLAY[d]
-    # Fall back to first domain or 'AI/science'
     if paper.domains:
         return _DOMAIN_DISPLAY.get(paper.domains[0], paper.domains[0])
     return '—'
@@ -122,9 +126,7 @@ def _fmt_citations(n: int | None) -> str:
 
 
 def _code_cell(paper: Paper) -> str:
-    if paper.code_url:
-        return f'[Code]({paper.code_url})'
-    return '—'
+    return f'[Code]({paper.code_url})' if paper.code_url else '—'
 
 
 def _pub_year(paper: Paper) -> int:
@@ -132,8 +134,7 @@ def _pub_year(paper: Paper) -> int:
 
 
 def _top_table_articles(papers: list[tuple]) -> list[str]:
-    """Articles table: Title | Year | Venue | Domain | Code (no Citations).
-    Code column only shown when at least one paper has a code_url."""
+    """Title | Year | Venue | Domain | Code (Code column only when papers have code)."""
     if not papers:
         return []
     has_code = any(p.code_url for p, _ in papers)
@@ -152,7 +153,7 @@ def _top_table_articles(papers: list[tuple]) -> list[str]:
 
 
 def _top_table_reviews(papers: list[tuple]) -> list[str]:
-    """Reviews table: Title | Year | Venue | Domain | Citations."""
+    """Title | Year | Venue | Domain | Citations."""
     if not papers:
         return []
     cols = ['Title', 'Year', 'Venue', 'Domain', 'Citations']
@@ -168,7 +169,7 @@ def _top_table_reviews(papers: list[tuple]) -> list[str]:
 
 
 def _recent_table_articles(papers: list[tuple]) -> list[str]:
-    """Recent articles: Title | Date | Source | Domain | Code (no Citations)."""
+    """Title | Date | Source | Domain | Code (Code column only when papers have code)."""
     if not papers:
         return []
     has_code = any(p.code_url for p, _ in papers)
@@ -187,7 +188,7 @@ def _recent_table_articles(papers: list[tuple]) -> list[str]:
 
 
 def _recent_table_reviews(papers: list[tuple]) -> list[str]:
-    """Recent reviews: Title | Date | Source | Domain | Citations."""
+    """Title | Date | Source | Domain | Citations."""
     if not papers:
         return []
     cols = ['Title', 'Date', 'Source', 'Domain', 'Citations']
@@ -202,32 +203,40 @@ def _recent_table_reviews(papers: list[tuple]) -> list[str]:
     return lines
 
 
+def _top6_reviews(reviews: list[tuple]) -> list[tuple]:
+    """3 most cited + 3 most recent, deduped, max 6."""
+    by_cited  = sorted(reviews, key=lambda x: -(x[0].citation_count or 0))[:3]
+    by_recent = sorted(reviews, key=lambda x: -_pub_year(x[0]))[:3]
+    seen = {id(p) for p, _ in by_cited}
+    extra = [(p, s) for p, s in by_recent if id(p) not in seen]
+    return by_cited + extra
+
+
 def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> str:
-    on_topic = [p for p in papers if is_on_topic(p)]
+    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)]
     scored = [(p, importance_score(p)) for p in on_topic]
 
     seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]
-    recent_all = [(p, s) for p, s in scored if is_recent(p, recent_days)]
+    recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
 
-    sem_articles_raw = [(p, s) for p, s in seminal_all if not _is_review(p)]
+    sem_articles_raw = [(p, s) for p, s in seminal_all if not _is_review(p) and is_published(p)]
     sem_reviews_raw  = [(p, s) for p, s in seminal_all if     _is_review(p)]
     rec_articles_raw = [(p, s) for p, s in recent_all  if not _is_review(p)]
     rec_reviews_raw  = [(p, s) for p, s in recent_all  if     _is_review(p)]
 
-    # Articles: sort by year desc, then domain priority
+    # Articles: year desc → domain priority
     sem_articles = sorted(sem_articles_raw, key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
-    # Reviews: sort by year desc, then citations desc
-    sem_reviews  = sorted(sem_reviews_raw,  key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:top_n]
+    # Reviews: 3 most cited + 3 most recent
+    sem_reviews  = _top6_reviews(sem_reviews_raw)
 
-    # Recent: same sort logic
     rec_articles = sorted(rec_articles_raw, key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
-    rec_reviews  = sorted(rec_reviews_raw,  key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:top_n]
+    rec_reviews  = sorted(rec_reviews_raw,  key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
 
     lines: list[str] = [
         README_START,
         '',
         f'*Auto-updated {datetime.now().strftime("%Y-%m-%d")} · '
-        f'Sources: arXiv · Semantic Scholar · PubMed · bioRxiv · chemRxiv*',
+        f'Sources: arXiv · Semantic Scholar · PubMed · bioRxiv · chemRxiv · OpenReview*',
         '',
     ]
 

@@ -34,6 +34,7 @@ def _paper_to_dict(p) -> dict:
         'venue': p.venue,
         'citation_count': p.citation_count,
         'domains': p.domains,
+        'code_url': p.code_url,
     }
 
 
@@ -55,6 +56,7 @@ def _dict_to_paper(d: dict):
         venue=d.get('venue'),
         citation_count=d.get('citation_count'),
         domains=d.get('domains', []),
+        code_url=d.get('code_url'),
     )
 
 
@@ -70,6 +72,21 @@ def load_cache() -> list:
 def save_cache(papers: list):
     DATA_FILE.parent.mkdir(exist_ok=True)
     DATA_FILE.write_text(json.dumps([_paper_to_dict(p) for p in papers], indent=2))
+
+
+def _extract_code_urls(papers: list) -> int:
+    """Backfill code_url from GitHub links found in paper abstracts."""
+    import re
+    gh_pat = re.compile(r'https?://github\.com/[\w\-][^/\s\)>\]]+/[\w\-][^\s\)>\]]*')
+    count = 0
+    for p in papers:
+        if p.code_url:
+            continue
+        m = gh_pat.search(p.abstract or '')
+        if m:
+            p.code_url = m.group(0).rstrip('.,;:)')
+            count += 1
+    return count
 
 
 def merge(existing: list, new_papers: list) -> list:
@@ -183,7 +200,7 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
 
     cfg = yaml.safe_load(open(config))
     sources_cfg = cfg.get('sources', {})
-    active = set(source) if source else {'arxiv', 'semantic_scholar', 'pubmed', 'biorxiv'}
+    active = set(source) if source else {'arxiv', 'semantic_scholar', 'pubmed', 'biorxiv', 'openreview'}
 
     cached = load_cache()
 
@@ -192,6 +209,7 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
         from src.fetchers.semantic_scholar import SemanticScholarFetcher
         from src.fetchers.pubmed_fetcher import PubmedFetcher
         from src.fetchers.biorxiv_fetcher import BiorxivFetcher
+        from src.fetchers.openreview_fetcher import OpenReviewFetcher
 
         until_date = date.today()
         since_date = until_date - timedelta(days=days)
@@ -200,6 +218,7 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
             ('semantic_scholar', 'Semantic Scholar', SemanticScholarFetcher, sources_cfg.get('semantic_scholar', {})),
             ('pubmed',           'PubMed',           PubmedFetcher,          sources_cfg.get('pubmed', {})),
             ('biorxiv',          'bioRxiv/chemRxiv', BiorxivFetcher,         sources_cfg.get('biorxiv', {})),
+            ('openreview',       'OpenReview',       OpenReviewFetcher,      sources_cfg.get('openreview', {})),
         ]
         new_papers = []
         for key, label, Cls, src_cfg in fetcher_map:
@@ -232,6 +251,7 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
                 click.echo(f'[Semantic Scholar seminal] ERROR: {e}', err=True)
 
         cached = merge(cached, new_papers)
+        _extract_code_urls(cached)
         save_cache(cached)
 
     # Citation enrichment runs independently of --no-fetch
