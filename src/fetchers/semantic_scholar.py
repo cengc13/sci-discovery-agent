@@ -1,4 +1,5 @@
 from __future__ import annotations
+import random
 import time
 import logging
 import requests
@@ -43,6 +44,10 @@ class SemanticScholarFetcher:
         self.delay = 1.1  # S2 free tier = 1 req/s cumulative across all endpoints
         self._retry_base = 15  # seconds for first 429 backoff; doubles each time
 
+    @staticmethod
+    def _jitter(base: float, frac: float = 0.2) -> float:
+        return max(0.0, base * (1 + random.uniform(-frac, frac)))
+
     def fetch(self, since: date | None = None, until: date | None = None) -> list[Paper]:
         seen_ids: set[str] = set()
         papers: list[Paper] = []
@@ -50,7 +55,7 @@ class SemanticScholarFetcher:
 
         for i, query in enumerate(QUERIES[:self.max_queries]):
             if i > 0:
-                time.sleep(self.delay)
+                time.sleep(self._jitter(self.delay))
             logger.info(f"S2: {query[:70]}...")
             offset = 0
             backoff = self._retry_base
@@ -68,8 +73,9 @@ class SemanticScholarFetcher:
                         timeout=30,
                     )
                     if r.status_code == 429:
-                        wait = max(int(r.headers.get('Retry-After', backoff)), backoff)
-                        logger.info(f"S2 rate-limited; backing off {wait}s")
+                        raw = max(int(r.headers.get('Retry-After', backoff)), backoff)
+                        wait = self._jitter(raw)
+                        logger.info(f"S2 rate-limited; backing off {wait:.1f}s")
                         time.sleep(wait)
                         backoff = min(backoff * 2, 300)  # cap at 5 min
                         continue
@@ -123,7 +129,7 @@ class SemanticScholarFetcher:
                     offset += len(batch)
                     if len(batch) < 100:
                         break
-                    time.sleep(self.delay)
+                    time.sleep(self._jitter(self.delay))
                 except Exception as e:
                     logger.warning(f"S2 query failed at offset {offset}: {e}")
                     break
@@ -169,8 +175,9 @@ class SemanticScholarFetcher:
                 )
                 backoff = self._retry_base
                 while r.status_code == 429:
-                    wait = max(int(r.headers.get('Retry-After', backoff)), backoff)
-                    logger.info(f"S2 batch rate-limited; backing off {wait}s")
+                    raw = max(int(r.headers.get('Retry-After', backoff)), backoff)
+                    wait = self._jitter(raw)
+                    logger.info(f"S2 batch rate-limited; backing off {wait:.1f}s")
                     time.sleep(wait)
                     backoff = min(backoff * 2, 300)
                     r = requests.post(
@@ -202,7 +209,7 @@ class SemanticScholarFetcher:
             except Exception as e:
                 logger.warning(f"S2 batch enrich failed: {e}")
             if i + BATCH < len(ids):
-                time.sleep(self.delay)
+                time.sleep(self._jitter(self.delay))
 
         logger.info(f"S2 enrichment updated {updated}/{len(id_map)} papers")
         return updated
