@@ -236,7 +236,7 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
         README_START,
         '',
         f'*Auto-updated {datetime.now().strftime("%Y-%m-%d")} · '
-        f'Sources: arXiv · Semantic Scholar · PubMed · OpenReview (ICLR/NeurIPS/ICML)*',
+        f'Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*',
         '',
     ]
 

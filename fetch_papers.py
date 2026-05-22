@@ -200,25 +200,23 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
 
     cfg = yaml.safe_load(open(config))
     sources_cfg = cfg.get('sources', {})
-    active = set(source) if source else {'arxiv', 'semantic_scholar', 'pubmed', 'biorxiv', 'openreview'}
+    active = set(source) if source else {'arxiv', 'semantic_scholar', 'chemrxiv', 'openreview'}
 
     cached = load_cache()
 
     if not no_fetch:
         from src.fetchers.arxiv_fetcher import ArxivFetcher
         from src.fetchers.semantic_scholar import SemanticScholarFetcher
-        from src.fetchers.pubmed_fetcher import PubmedFetcher
         from src.fetchers.biorxiv_fetcher import BiorxivFetcher
         from src.fetchers.openreview_fetcher import OpenReviewFetcher
 
         until_date = date.today()
         since_date = until_date - timedelta(days=days)
         fetcher_map = [
-            ('arxiv',            'arXiv',           ArxivFetcher,           sources_cfg.get('arxiv', {})),
+            ('arxiv',            'arXiv',      ArxivFetcher,           sources_cfg.get('arxiv', {})),
             ('semantic_scholar', 'Semantic Scholar', SemanticScholarFetcher, sources_cfg.get('semantic_scholar', {})),
-            ('pubmed',           'PubMed',           PubmedFetcher,          sources_cfg.get('pubmed', {})),
-            ('biorxiv',          'bioRxiv/chemRxiv', BiorxivFetcher,         sources_cfg.get('biorxiv', {})),
-            ('openreview',       'OpenReview',       OpenReviewFetcher,      sources_cfg.get('openreview', {})),
+            ('chemrxiv',         'chemRxiv',   BiorxivFetcher,         sources_cfg.get('chemrxiv', {})),
+            ('openreview',       'OpenReview', OpenReviewFetcher,      sources_cfg.get('openreview', {})),
         ]
         new_papers = []
         for key, label, Cls, src_cfg in fetcher_map:

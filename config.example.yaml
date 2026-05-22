@@ -11,16 +11,12 @@ sources:
     # In GitHub Actions, set as repo secret S2_API_KEY
     api_key: ""
 
-  pubmed:
+  chemrxiv:
     enabled: true
     max_results: 100
-    # Required by NCBI for rate-limit compliance.
-    # In GitHub Actions, set as repo secret PUBMED_EMAIL (or env var)
-    email: "user@example.com"
-    api_key: ""
-
-  biorxiv:
-    enabled: false   # chemRxiv API returns 403; disable until fixed
+    # Polite-pool email for CrossRef API (recommended, not required)
+    # In GitHub Actions, set as repo secret CROSSREF_EMAIL
+    mailto: "user@example.com"
 
   openreview:
     enabled: true

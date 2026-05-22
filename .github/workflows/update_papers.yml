@@ -25,21 +25,21 @@ jobs:
 
       - name: Build config.yaml from secrets
         env:
-          S2_API_KEY:    ${{ secrets.S2_API_KEY }}
-          PUBMED_EMAIL:  ${{ secrets.PUBMED_EMAIL }}
+          S2_API_KEY:      ${{ secrets.S2_API_KEY }}
+          CROSSREF_EMAIL:  ${{ secrets.CROSSREF_EMAIL }}
         run: |
           python - <<'EOF'
           import yaml, os
           cfg = yaml.safe_load(open('config.example.yaml'))
           cfg['sources']['semantic_scholar']['api_key'] = os.environ.get('S2_API_KEY', '')
-          cfg['sources']['pubmed']['email'] = os.environ.get('PUBMED_EMAIL', 'user@example.com')
+          cfg['sources']['chemrxiv']['mailto'] = os.environ.get('CROSSREF_EMAIL', 'user@example.com')
           yaml.dump(cfg, open('config.yaml', 'w'), default_flow_style=False)
           EOF
 
       - name: Fetch and render papers
         env:
-          S2_API_KEY:   ${{ secrets.S2_API_KEY }}
-          PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
+          S2_API_KEY:     ${{ secrets.S2_API_KEY }}
+          CROSSREF_EMAIL: ${{ secrets.CROSSREF_EMAIL }}
         run: |
           python fetch_papers.py \
             --days 90 \
@@ -51,7 +51,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md data/papers.json
-          # persist OpenReview scan state so completed venues are skipped next run
           git add data/openreview_state.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: update papers [skip ci]"
           git push
