@@ -1,0 +1,21 @@
+sources:
+  arxiv:
+    enabled: true
+    max_results: 5
+
+  semantic_scholar:
+    enabled: true
+    max_results: 10
+    max_queries: 1
+    api_key: "s2k-HbdJpCu51updUS3W7t9HqZfvxtMGjoxJB3XvPeUe"
+
+  pubmed:
+    enabled: true
+    max_results: 5
+    email: "user@example.com"
+    api_key: ""
+
+  biorxiv:
+    enabled: true
+    max_results: 5
+    include_chemrxiv: false

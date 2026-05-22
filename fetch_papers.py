@@ -23,7 +23,7 @@ def _paper_to_dict(p) -> dict:
     return {
         'title': p.title,
         'authors': p.authors,
-        'abstract': p.abstract[:400] if p.abstract else '',
+        'abstract': p.abstract[:800] if p.abstract else '',
         'source': p.source,
         'published_date': str(p.published_date) if p.published_date else None,
         'doi': p.doi,
@@ -73,32 +73,87 @@ def save_cache(papers: list):
 
 
 def merge(existing: list, new_papers: list) -> list:
-    """Merge new papers into existing, dedup by normalised title."""
-    def key(p):
-        return re.sub(r'\W+', ' ', p.title.lower()).strip()
+    """Merge new papers into existing, dedup by external ID then normalised title.
 
-    seen = {key(p) for p in existing}
-    added = 0
-    for p in new_papers:
-        k = key(p)
-        if k not in seen:
-            seen.add(k)
-            existing.append(p)
-            added += 1
+    When a new paper matches an existing one by arxiv_id/doi/pubmed_id,
+    we update the existing entry's citation count rather than adding a duplicate.
+    Off-topic papers are filtered before merging.
+    """
+    from src.scoring import is_on_topic
+    new_papers = [p for p in new_papers if is_on_topic(p)]
 
-    # Prefer higher citation count when same paper comes from multiple sources
-    title_map: dict[str, object] = {}
+    def title_key(p):
+        t = p.title.lower()
+        # Strip short codename prefix ("ChemCrow: Augmenting..." → "augmenting...")
+        # so preprint and published titles with the same subtitle are treated as one paper.
+        if ': ' in t:
+            prefix, suffix = t.split(': ', 1)
+            if len(prefix.split()) <= 2:
+                t = suffix
+        return re.sub(r'\W+', ' ', t).strip()
+
+    def norm_arxiv(arxiv_id: str) -> str:
+        # Strip version suffix so '2302.07842v1' and '2302.07842' match
+        return re.sub(r'v\d+$', '', arxiv_id.lower())
+
+    # Build lookup maps for external IDs in the existing list
+    arxiv_map: dict[str, object] = {}
+    doi_map: dict[str, object] = {}
+    pubmed_map: dict[str, object] = {}
     for p in existing:
-        k = key(p)
+        if p.arxiv_id:
+            arxiv_map[norm_arxiv(p.arxiv_id)] = p
+        if p.doi:
+            doi_map[p.doi.lower()] = p
+        if p.pubmed_id:
+            pubmed_map[p.pubmed_id] = p
+
+    title_map: dict[str, object] = {title_key(p): p for p in existing}
+    added = 0
+
+    for p in new_papers:
+        # Try external-ID match first — enrich citation count if higher
+        existing_paper = None
+        if p.arxiv_id and norm_arxiv(p.arxiv_id) in arxiv_map:
+            existing_paper = arxiv_map[norm_arxiv(p.arxiv_id)]
+        elif p.doi and p.doi.lower() in doi_map:
+            existing_paper = doi_map[p.doi.lower()]
+        elif p.pubmed_id and p.pubmed_id in pubmed_map:
+            existing_paper = pubmed_map[p.pubmed_id]
+
+        if existing_paper is not None:
+            if (p.citation_count or 0) > (existing_paper.citation_count or 0):
+                existing_paper.citation_count = p.citation_count
+            if not existing_paper.venue and p.venue:
+                existing_paper.venue = p.venue
+            if not existing_paper.url and p.url:
+                existing_paper.url = p.url
+            continue
+
+        # Fall back to title-based dedup
+        k = title_key(p)
         if k not in title_map:
             title_map[k] = p
+            existing.append(p)
+            if p.arxiv_id:
+                arxiv_map[norm_arxiv(p.arxiv_id)] = p
+            if p.doi:
+                doi_map[p.doi.lower()] = p
+            if p.pubmed_id:
+                pubmed_map[p.pubmed_id] = p
+            added += 1
         else:
+            # Title match: prefer higher citation count, fill missing fields
             prev = title_map[k]
             if (p.citation_count or 0) > (prev.citation_count or 0):
-                title_map[k] = p
+                prev.citation_count = p.citation_count
+            if not prev.venue and p.venue:
+                prev.venue = p.venue
+            if not prev.url and p.url:
+                prev.url = p.url
 
-    logger.info(f"Merged {added} new papers; total unique: {len(title_map)}")
-    return list(title_map.values())
+    logger.info(f"Merged {added} new; {len(existing)} unique total")
+    return existing
 
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
@@ -116,10 +171,12 @@ def merge(existing: list, new_papers: list) -> list:
               help='Also query Semantic Scholar without a date filter to surface high-citation papers')
 @click.option('--no-fetch', is_flag=True,
               help='Skip fetching; just re-render from the cached data/papers.json')
+@click.option('--enrich/--no-enrich', default=True, show_default=True,
+              help='After fetching, batch-enrich citation counts via Semantic Scholar')
 @click.option('--source', multiple=True, metavar='NAME',
               help='Restrict fetch to: arxiv, semantic_scholar, pubmed, biorxiv (repeatable)')
 @click.option('-v', '--verbose', is_flag=True)
-def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, source, verbose):
+def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, enrich, source, verbose):
     """Fetch, rank and render agentic-AI-for-science papers to markdown."""
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -162,6 +219,8 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, so
 
         # Seminal fetch: S2 with no date filter, take whatever is highly cited
         if fetch_seminal and 'semantic_scholar' in active:
+            import time as _time
+            _time.sleep(1.1)  # gap between dated fetch and seminal fetch
             s2_cfg = sources_cfg.get('semantic_scholar', {})
             s2_cfg_seminal = {**s2_cfg, 'max_results': 200}
             click.echo('[Semantic Scholar] fetching seminal (no date filter)...')
@@ -174,6 +233,20 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, so
 
         cached = merge(cached, new_papers)
         save_cache(cached)
+
+    # Citation enrichment runs independently of --no-fetch
+    if enrich:
+        import time as _time
+        from src.fetchers.semantic_scholar import SemanticScholarFetcher
+        s2_cfg = sources_cfg.get('semantic_scholar', {})
+        if s2_cfg.get('enabled', True):
+            click.echo('[Semantic Scholar] enriching citation counts...')
+            if not no_fetch and 'semantic_scholar' in active:
+                _time.sleep(1.1)  # respect 1 req/s after prior S2 search calls
+            enricher = SemanticScholarFetcher(s2_cfg)
+            n = enricher.enrich_citations(cached)
+            click.echo(f'[Semantic Scholar] updated {n} citation counts')
+            save_cache(cached)
 
     from src.renderer import render_markdown, inject_into_readme
     md = render_markdown(cached, recent_days=days, top_n=top_n)

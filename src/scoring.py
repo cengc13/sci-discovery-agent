@@ -2,6 +2,44 @@ from __future__ import annotations
 from datetime import date
 from .models import Paper
 
+# Paper must contain at least one AI/agent term …
+AI_AGENT_TERMS = [
+    # Agent / LLM core
+    'agent', 'agentic', 'multi-agent', 'multiagent',
+    'llm', 'large language model', 'language model',
+    'gpt', 'chatgpt', 'foundation model', 'generative ai',
+    'copilot', 'co-pilot', 'co-scientist',
+    # Autonomous lab / robotic science
+    'autonomous',  # covers self-driving labs, autonomous experiments, etc.
+    'self-driving lab', 'self-driving laboratory',
+    'robotic',     # covers robotic chemist, robotic synthesis, robotic platform
+    'robot chemist', 'robot scientist',
+    'ai agent', 'ai-driven',
+    # Tool use / closed-loop
+    'tool-augmented', 'tool use', 'tool-use', 'tool calling',
+    'closed-loop',
+    # Broad AI/ML
+    'artificial intelligence', 'machine learning', 'deep learning',
+    'neural network', 'reinforcement learning',
+]
+
+# … AND at least one science-domain term
+SCIENCE_TERMS = [
+    # Chemistry
+    'chemistry', 'chemical', 'synthesis', 'molecule', 'reaction',
+    'catalyst', 'reagent', 'organic', 'inorganic', 'biochem',
+    # Materials
+    'material', 'crystal', 'alloy', 'polymer', 'battery', 'semiconductor',
+    'perovskite', 'nanomaterial', 'composite',
+    # Biology / medicine ('gene' omitted — substring of 'generative'/'general')
+    'biology', 'protein', 'drug', 'cell', 'enzyme', 'genomic',
+    'genetic', 'genome', 'biomedical', 'pharmacol', 'medicin',
+    'disease', 'cancer', 'neuroscien',
+    # Scientific context (keeps survey / review papers about AI for science)
+    'scientific', 'science', 'experiment', 'laboratory',
+    'discovery', 'hypothesis',
+]
+
 TOP_VENUES = {
     'nature', 'science', 'cell', 'jacs', 'journal of the american chemical society',
     'angewandte chemie', 'advanced materials', 'acs nano', 'nature chemistry',
@@ -39,6 +77,19 @@ def importance_score(paper: Paper) -> float:
     recency_boost = max(0.0, (60 - age_days) * 0.5) if age_days < 60 else 0.0
 
     return citations_per_year + venue_bonus + recency_boost
+
+
+def is_on_topic(paper: Paper) -> bool:
+    """Return True if the paper is about agentic/autonomous AI applied to science.
+
+    Requires both an AI/agent signal and a science-domain signal so that
+    general LLM surveys, AGI debates, and commerce/security papers are excluded.
+    """
+    text = (paper.title + ' ' + (paper.abstract or '')).lower()
+    return (
+        any(term in text for term in AI_AGENT_TERMS) and
+        any(term in text for term in SCIENCE_TERMS)
+    )
 
 
 def is_recent(paper: Paper, days: int) -> bool:

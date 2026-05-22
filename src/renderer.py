@@ -1,10 +1,28 @@
 from __future__ import annotations
 from datetime import date, datetime
 from .models import Paper
-from .scoring import importance_score, is_recent
+from .scoring import importance_score, is_recent, is_on_topic
 
 README_START = '<!-- PAPERS_START -->'
 README_END = '<!-- PAPERS_END -->'
+
+# Title / venue keywords that indicate a review or survey paper
+_REVIEW_TITLE_SIGNALS = [
+    'review', 'survey', 'perspective', 'overview', 'roadmap',
+    'tutorial', 'meta-analysis', 'systematic', 'a comprehensive',
+    'progress in', 'advances in', 'trends in',
+]
+_REVIEW_VENUE_SIGNALS = [
+    'reviews', 'review journal', 'annual review', 'perspectives',
+]
+
+
+def _is_review(paper: Paper) -> bool:
+    title_lower = paper.title.lower()
+    if any(s in title_lower for s in _REVIEW_TITLE_SIGNALS):
+        return True
+    venue_lower = (paper.venue or '').lower()
+    return any(v in venue_lower for v in _REVIEW_VENUE_SIGNALS)
 
 
 def _md_row(*cells: str) -> str:
@@ -26,21 +44,40 @@ def _fmt_citations(n: int | None) -> str:
     return str(n)
 
 
-def _fmt_authors(paper: Paper) -> str:
-    if not paper.authors:
-        return '—'
-    first = paper.authors[0].split()[-1] if paper.authors else ''  # last name of first author
-    suffix = ' et al.' if len(paper.authors) > 1 else ''
-    return first + suffix
+def _top_table(papers: list[tuple], header_cols: list[str], row_fn) -> list[str]:
+    if not papers:
+        return []
+    sep = ['---'] * len(header_cols)
+    sep[-1] = '---:'  # right-align citations
+    lines = [_md_row(*header_cols), _md_row(*sep)]
+    for paper, _ in papers:
+        lines.append(row_fn(paper))
+    return lines
 
 
 def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> str:
-    scored = [(p, importance_score(p)) for p in papers]
+    on_topic = [p for p in papers if is_on_topic(p)]
+    scored = [(p, importance_score(p)) for p in on_topic]
     scored.sort(key=lambda x: -x[1])
 
     seminal = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5][:top_n]
-    recent_cutoff = recent_days
-    recent = [(p, s) for p, s in scored if is_recent(p, recent_cutoff)][:top_n]
+    recent = [(p, s) for p, s in scored if is_recent(p, recent_days)][:top_n]
+
+    def top_row(paper: Paper) -> str:
+        year = str(paper.published_date.year) if paper.published_date else '?'
+        venue = (paper.venue or '').split('(')[0].strip()[:30] or '—'
+        domains = ', '.join(paper.domains) if paper.domains else '—'
+        return _md_row(_title_link(paper), year, venue, domains,
+                       _fmt_citations(paper.citation_count))
+
+    def recent_row(paper: Paper) -> str:
+        d = str(paper.published_date) if paper.published_date else '?'
+        domains = ', '.join(paper.domains) if paper.domains else '—'
+        return _md_row(_title_link(paper), d, paper.source, domains,
+                       _fmt_citations(paper.citation_count))
+
+    TOP_COLS = ['Title', 'Year', 'Venue', 'Domain', 'Citations']
+    RECENT_COLS = ['Title', 'Date', 'Source', 'Domain', 'Citations']
 
     lines: list[str] = [
         README_START,
@@ -50,46 +87,31 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
         '',
     ]
 
-    # --- Seminal papers ---
-    lines += [
-        f'### Top Papers (citation-ranked)',
-        '',
-        _md_row('Title', 'First Author', 'Year', 'Venue', 'Domain', 'Citations'),
-        _md_row('---', '---', ':---:', '---', '---', '---:'),
-    ]
-    for paper, _ in seminal:
-        year = str(paper.published_date.year) if paper.published_date else '?'
-        venue = (paper.venue or '').split('(')[0].strip()[:30] or '—'
-        domains = ', '.join(paper.domains) if paper.domains else '—'
-        lines.append(_md_row(
-            _title_link(paper),
-            _fmt_authors(paper),
-            year,
-            venue,
-            domains,
-            _fmt_citations(paper.citation_count),
-        ))
+    # ── Top Papers ────────────────────────────────────────────────────────────
+    sem_articles = [(p, s) for p, s in seminal if not _is_review(p)]
+    sem_reviews  = [(p, s) for p, s in seminal if     _is_review(p)]
+
+    lines += ['### Top Papers (citation-ranked)', '']
+    if sem_articles:
+        lines += ['#### Articles', '']
+        lines += _top_table(sem_articles, TOP_COLS, top_row)
+    if sem_reviews:
+        lines += ['', '#### Reviews & Surveys', '']
+        lines += _top_table(sem_reviews, TOP_COLS, top_row)
 
     lines += ['']
 
-    # --- Recent highlights ---
-    lines += [
-        f'### Recent Highlights (last {recent_cutoff} days)',
-        '',
-        _md_row('Title', 'First Author', 'Date', 'Source', 'Domain', 'Citations'),
-        _md_row('---', '---', ':---:', '---', '---', '---:'),
-    ]
-    for paper, _ in recent:
-        d = str(paper.published_date) if paper.published_date else '?'
-        domains = ', '.join(paper.domains) if paper.domains else '—'
-        lines.append(_md_row(
-            _title_link(paper),
-            _fmt_authors(paper),
-            d,
-            paper.source,
-            domains,
-            _fmt_citations(paper.citation_count),
-        ))
+    # ── Recent Highlights ─────────────────────────────────────────────────────
+    rec_articles = [(p, s) for p, s in recent if not _is_review(p)]
+    rec_reviews  = [(p, s) for p, s in recent if     _is_review(p)]
+
+    lines += [f'### Recent Highlights (last {recent_days} days)', '']
+    if rec_articles:
+        lines += ['#### Articles', '']
+        lines += _top_table(rec_articles, RECENT_COLS, recent_row)
+    if rec_reviews:
+        lines += ['', '#### Reviews & Surveys', '']
+        lines += _top_table(rec_reviews, RECENT_COLS, recent_row)
 
     lines += ['', README_END]
     return '\n'.join(lines)

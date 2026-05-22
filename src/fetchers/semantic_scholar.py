@@ -40,7 +40,8 @@ class SemanticScholarFetcher:
         self.api_key = config.get('api_key') or os.environ.get('S2_API_KEY', '')
         self.max_results = config.get('max_results', 100)
         self.max_queries = config.get('max_queries', len(QUERIES))
-        self.delay = 1.1  # S2 free key = 1 req/s; be safe
+        self.delay = 1.1  # S2 free tier = 1 req/s cumulative across all endpoints
+        self._retry_base = 15  # seconds for first 429 backoff; doubles each time
 
     def fetch(self, since: date | None = None, until: date | None = None) -> list[Paper]:
         seen_ids: set[str] = set()
@@ -52,6 +53,7 @@ class SemanticScholarFetcher:
                 time.sleep(self.delay)
             logger.info(f"S2: {query[:70]}...")
             offset = 0
+            backoff = self._retry_base
             while offset < self.max_results:
                 try:
                     r = requests.get(
@@ -66,10 +68,12 @@ class SemanticScholarFetcher:
                         timeout=30,
                     )
                     if r.status_code == 429:
-                        retry_after = int(r.headers.get('Retry-After', 10))
-                        logger.info(f"S2 rate-limited; waiting {retry_after}s")
-                        time.sleep(retry_after)
+                        wait = max(int(r.headers.get('Retry-After', backoff)), backoff)
+                        logger.info(f"S2 rate-limited; backing off {wait}s")
+                        time.sleep(wait)
+                        backoff = min(backoff * 2, 300)  # cap at 5 min
                         continue
+                    backoff = self._retry_base  # reset on success
                     r.raise_for_status()
                     batch = r.json().get('data', [])
                     if not batch:
@@ -125,6 +129,83 @@ class SemanticScholarFetcher:
                     break
 
         return papers
+
+    def enrich_citations(self, papers: list) -> int:
+        """Update citation_count for papers in-place using S2 batch lookup by external ID.
+
+        Returns the number of papers whose citation count was updated.
+        """
+        headers = {'x-api-key': self.api_key} if self.api_key else {}
+
+        def _strip_version(arxiv_id: str) -> str:
+            # S2 does not accept version suffixes like '2302.07842v1'
+            return arxiv_id.split('v')[0] if 'v' in arxiv_id else arxiv_id
+
+        # Build id list: prefer ArXiv, fall back to DOI, then PubMed
+        id_map: dict[str, object] = {}  # s2_id -> paper
+        for p in papers:
+            if p.arxiv_id:
+                id_map[f'ArXiv:{_strip_version(p.arxiv_id)}'] = p
+            elif p.doi:
+                id_map[f'DOI:{p.doi}'] = p
+            elif p.pubmed_id:
+                id_map[f'PMID:{p.pubmed_id}'] = p
+
+        if not id_map:
+            return 0
+
+        ids = list(id_map.keys())
+        updated = 0
+        BATCH = 500  # S2 max per batch call
+        for i in range(0, len(ids), BATCH):
+            chunk = ids[i:i + BATCH]
+            try:
+                r = requests.post(
+                    f'{BASE_URL}/paper/batch',
+                    headers=headers,
+                    params={'fields': 'citationCount,venue,externalIds,openAccessPdf'},
+                    json={'ids': chunk},
+                    timeout=30,
+                )
+                backoff = self._retry_base
+                while r.status_code == 429:
+                    wait = max(int(r.headers.get('Retry-After', backoff)), backoff)
+                    logger.info(f"S2 batch rate-limited; backing off {wait}s")
+                    time.sleep(wait)
+                    backoff = min(backoff * 2, 300)
+                    r = requests.post(
+                        f'{BASE_URL}/paper/batch',
+                        headers=headers,
+                        params={'fields': 'citationCount,venue,externalIds,openAccessPdf'},
+                        json={'ids': chunk},
+                        timeout=30,
+                    )
+                r.raise_for_status()
+                for result, s2_id in zip(r.json(), chunk):
+                    if result is None:
+                        continue
+                    paper = id_map[s2_id]
+                    new_count = result.get('citationCount')
+                    if new_count is not None and (new_count > (paper.citation_count or 0)):
+                        paper.citation_count = new_count
+                        updated += 1
+                    if not paper.venue:
+                        paper.venue = result.get('venue') or ''
+                    if not paper.url:
+                        oa = result.get('openAccessPdf') or {}
+                        paper.url = oa.get('url') or paper.url
+            except requests.HTTPError as e:
+                if e.response is not None and e.response.status_code == 400:
+                    logger.info(f"S2 batch: no valid IDs in chunk (papers not indexed yet)")
+                else:
+                    logger.warning(f"S2 batch enrich failed: {e}")
+            except Exception as e:
+                logger.warning(f"S2 batch enrich failed: {e}")
+            if i + BATCH < len(ids):
+                time.sleep(self.delay)
+
+        logger.info(f"S2 enrichment updated {updated}/{len(id_map)} papers")
+        return updated
 
     def _parse_date(self, item: dict) -> date | None:
         pd = item.get('publicationDate')
