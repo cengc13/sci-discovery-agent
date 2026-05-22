@@ -111,9 +111,12 @@ class OpenReviewFetcher:
 
         while checked < self.max_per_venue:
             batch = self._fetch_batch(venueid, limit=100, offset=offset)
-            if not batch:
-                # Empty batch with no prior error = venue fully paginated
-                return found, (offset > 0 or checked == 0)
+            if batch is None:
+                # Fetch failed (rate-limited / network error) — don't mark complete
+                return found, False
+            if len(batch) == 0:
+                # Legitimate end of pagination
+                return found, True
             for note in batch:
                 checked += 1
                 note_id = note.get('id', '')
@@ -134,7 +137,8 @@ class OpenReviewFetcher:
         # Hit max_per_venue cap before exhausting the venue
         return found, False
 
-    def _fetch_batch(self, venueid: str, limit: int, offset: int) -> list[dict]:
+    def _fetch_batch(self, venueid: str, limit: int, offset: int) -> list[dict] | None:
+        """Return notes list, empty list on legitimate end-of-results, or None on fetch failure."""
         backoff = 10.0
         for attempt in range(4):
             try:
@@ -154,14 +158,16 @@ class OpenReviewFetcher:
                 return r.json().get('notes', [])
             except requests.HTTPError as e:
                 logger.warning(f'OpenReview batch failed (offset={offset}): {e}')
-                return []
+                return None
             except Exception as e:
                 logger.warning(f'OpenReview batch error (offset={offset}): {e}')
                 if attempt < 3:
                     wait = _jitter(backoff)
                     time.sleep(wait)
                     backoff = min(backoff * 2, 120)
-        return []
+        # All retries exhausted (rate-limited or network error) — signal failure
+        logger.warning(f'OpenReview: gave up on {venueid} at offset={offset} after 4 attempts')
+        return None
 
     def _note_to_paper(self, note: dict, venue_name: str, year: int) -> Paper | None:
         c = note.get('content', {})

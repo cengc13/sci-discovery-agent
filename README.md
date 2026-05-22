@@ -21,6 +21,7 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · PubMe
 | [“DIVE” into hydrogen storage materials discovery with AI agents](https://arxiv.org/abs/2508.13251) | 2025 | Chem. Sci. | materials science |
 | [A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On …](https://doi.org/10.1021/jacs.4c17738) | 2025 | JACS | materials science |
 | [Rapid and automated alloy design with graph neural network-powered large languag…](https://doi.org/10.1557/s43577-025-00953-4) | 2025 | MRS bulletin | materials science |
+| [Towards Agentic AI for Science Hypothesis Generation, Comprehension, Quantificat…](https://doi.org/10.1145/3701716.3718485) | 2025 | The Web Conference | materials science |
 | [The Rise of Generative AI for Metal-Organic Framework Design and Synthesis](https://arxiv.org/abs/2508.13197) | 2025 | Matter | materials science |
 | [Generative Design of Functional Metal Complexes Utilizing the Internal Knowledge…](https://doi.org/10.1021/jacs.5c02097) | 2025 | JACS | materials science |
 | [A Self-Driving Lab for Nano- and Advanced Materials Synthesis](https://doi.org/10.1021/acsnano.4c17504) | 2025 | ACS Nano | materials science |
@@ -34,15 +35,14 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · PubMe
 | [Large language models to accelerate organic chemistry synthesis](https://arxiv.org/abs/2504.18340) | 2025 | Nat. Mach. Intell. | materials science |
 | [SciToolAgent: a knowledge-graph-driven scientific agent for multitool integratio…](https://arxiv.org/abs/2507.20280) | 2025 | Nat. Comput. Sci. | materials science |
 | [TopoMAS: Large Language Model Driven Topological Materials Multi‐Agent System](https://arxiv.org/abs/2507.04053) | 2025 | Materials Genome E… | materials science |
-| [Integrating Automated Electrochemistry and High‐Throughput Characterization with…](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202404961) | 2025 | Advanced Energy Ma… | materials science |
 
 #### Reviews & Surveys
 
 | Title | Year | Venue | Domain | Citations |
 | --- | --- | --- | --- | ---: |
+| [Recent Progress in Ferroptosis Inducers for Cancer Therapy](https://doi.org/10.1002/adma.201904197) | 2019 | Adv. Mater. | materials science | 1.3k |
+| [Application of Metal Coordination Chemistry to Explore and Manipulate Cell Biolo…](https://europepmc.org/articles/pmc2761982?pdf=render) | 2009 | Chem. Rev. | chemistry | 851 |
 | [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | materials science | 421 |
-| [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society R… | materials science | 252 |
-| [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nature | chemistry | 231 |
 | [QUASAR: A Universal Autonomous System for Atomistic Simulation and a Benchmark o…](https://arxiv.org/abs/2602.00185) | 2026 | JCIM | materials science | 5 |
 | [In Situ Analytical Chemistry Laboratory for the Exobiology Extant Life Surveyor.](https://pubmed.ncbi.nlm.nih.gov/42007066/) | 2026 | ACS Meas. Sci. Au | chemistry | 37 |
 | [Materials Informatics: Emergence to Autonomous Discovery in the Age of AI.](https://arxiv.org/abs/2601.00742) | 2026 | Adv. Mater. | materials science | 8 |
@@ -79,10 +79,10 @@ Updated weekly via GitHub Actions · Sources: arXiv · Semantic Scholar · PubMe
 | Title | Date | Source | Domain | Citations |
 | --- | --- | --- | --- | ---: |
 | [In Situ Analytical Chemistry Laboratory for the Exobiology Extant Life Surveyor.](https://pubmed.ncbi.nlm.nih.gov/42007066/) | 2026-04-15 | pubmed | chemistry | 37 |
+| [Bridging data and discovery: a survey on knowledge graphs in AI for science](https://doi.org/10.1093/nsr/nwag140) | 2026-03-05 | semantic_scholar | materials science | 1 |
 | [Rule2DRC: Benchmarking LLM Agents for DRC Script Synthesis with Execution-Guided…](http://arxiv.org/abs/2605.15669v1) | 2026-05-15 | arxiv | chemistry | — |
 | [Accelerating Discovery of Organic Molecular Crystals via Materials Informatics a…](https://doi.org/10.1002/aidi.70124) | 2026-04-27 | semantic_scholar | materials science | 0 |
 | [Artificial Intelligence in Chemistry: A Comprehensive Review of Methods, Applica…](https://doi.org/10.62643/ijerst.2026.v22.i1(s).2074) | 2026-03-21 | semantic_scholar | materials science | 0 |
 | [Overcoming Roadblocks for Implementing AI/ML Methods for Materials Advancement](https://doi.org/10.1146/annurev-matsci-072924-102951) | 2026-04-06 | semantic_scholar | materials science | 0 |
-| [PolyReal: A Benchmark for Real-World Polymer Science Workflows](https://arxiv.org/abs/2604.02934) | 2026-04-03 | semantic_scholar | materials science | 0 |
 
 <!-- PAPERS_END -->
