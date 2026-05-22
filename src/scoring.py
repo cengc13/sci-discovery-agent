@@ -5,7 +5,7 @@ from .models import Paper
 # Paper must contain at least one AI/agent term …
 AI_AGENT_TERMS = [
     # Agent / LLM core
-    'agent', 'agentic', 'multi-agent', 'multiagent',
+    'agentic', 'multi-agent', 'multiagent',
     'llm', 'large language model', 'language model',
     'gpt', 'chatgpt', 'foundation model', 'generative ai',
     'copilot', 'co-pilot', 'co-scientist',
