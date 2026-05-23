@@ -11,7 +11,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 *Auto-updated 2026-05-23 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
-### Top Papers (citation-ranked)
+### Top Papers (cited, ordered by recency)
 
 #### Articles
 
