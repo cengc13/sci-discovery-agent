@@ -27,12 +27,14 @@ jobs:
         env:
           S2_API_KEY:      ${{ secrets.S2_API_KEY }}
           CROSSREF_EMAIL:  ${{ secrets.CROSSREF_EMAIL }}
+          OPENAI_API_KEY:  ${{ secrets.OPENAI_API_KEY }}
         run: |
           python - <<'EOF'
           import yaml, os
           cfg = yaml.safe_load(open('config.example.yaml'))
           cfg['sources']['semantic_scholar']['api_key'] = os.environ.get('S2_API_KEY', '')
           cfg['sources']['chemrxiv']['mailto'] = os.environ.get('CROSSREF_EMAIL', 'user@example.com')
+          cfg.setdefault('llm', {})['openai_api_key'] = os.environ.get('OPENAI_API_KEY', '')
           yaml.dump(cfg, open('config.yaml', 'w'), default_flow_style=False)
           EOF
 
@@ -41,11 +43,13 @@ jobs:
           S2_API_KEY:     ${{ secrets.S2_API_KEY }}
           CROSSREF_EMAIL: ${{ secrets.CROSSREF_EMAIL }}
           GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python fetch_papers.py \
             --days 90 \
             --top-n 20 \
             --enrich-code \
+            --enrich-llm \
             --update-readme
 
       - name: Commit changes

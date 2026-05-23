@@ -35,6 +35,9 @@ def _paper_to_dict(p) -> dict:
         'citation_count': p.citation_count,
         'domains': p.domains,
         'code_url': p.code_url,
+        'paper_type': p.paper_type,
+        'llm_on_topic': p.llm_on_topic,
+        'venue_llm': p.venue_llm,
     }
 
 
@@ -57,6 +60,9 @@ def _dict_to_paper(d: dict):
         citation_count=d.get('citation_count'),
         domains=d.get('domains', []),
         code_url=d.get('code_url'),
+        paper_type=d.get('paper_type'),
+        llm_on_topic=d.get('llm_on_topic'),
+        venue_llm=d.get('venue_llm'),
     )
 
 
@@ -357,8 +363,14 @@ def merge(existing: list, new_papers: list) -> list:
               help='Fetch arXiv HTML to find GitHub links in Data/Code Availability sections')
 @click.option('--source', multiple=True, metavar='NAME',
               help='Restrict fetch to: arxiv, semantic_scholar, pubmed, biorxiv (repeatable)')
+@click.option('--enrich-llm/--no-enrich-llm', default=False, show_default=True,
+              help='Use Gemini Flash to classify paper type and verify on-topic status')
+@click.option('--llm-force', is_flag=True,
+              help='Re-classify all papers, even those already classified by LLM')
+@click.option('--llm-max-papers', default=0, show_default=True,
+              help='Cap papers classified per run (0 = no limit; safety guard for large backlogs)')
 @click.option('-v', '--verbose', is_flag=True)
-def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, enrich, enrich_code, source, verbose):
+def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, enrich, enrich_code, source, enrich_llm, llm_force, llm_max_papers, verbose):
     """Fetch, rank and render agentic-AI-for-science papers to markdown."""
     if verbose:
         logging.getLogger().setLevel(logging.DEBUG)
@@ -429,6 +441,21 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
             enricher = SemanticScholarFetcher(s2_cfg)
             n = enricher.enrich_citations(cached)
             click.echo(f'[Semantic Scholar] updated {n} citation counts')
+            save_cache(cached)
+
+    if enrich_llm:
+        import os
+        llm_cfg = cfg.get('llm', {})
+        openai_key = os.environ.get('OPENAI_API_KEY') or llm_cfg.get('openai_api_key', '')
+        if not openai_key:
+            click.echo('[LLM] ERROR: no OpenAI API key — set OPENAI_API_KEY or llm.openai_api_key in config', err=True)
+        else:
+            from src.llm_enricher import enrich_papers_llm, DEFAULT_MODEL
+            model = llm_cfg.get('model', DEFAULT_MODEL)
+            click.echo(f'[LLM] classifying papers with {model}...')
+            n = enrich_papers_llm(cached, api_key=openai_key, model=model,
+                                   force=llm_force, max_papers=llm_max_papers)
+            click.echo(f'[LLM] classified {n} papers')
             save_cache(cached)
 
     if enrich_code:

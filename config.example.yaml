@@ -23,3 +23,8 @@ sources:
     max_per_venue: 4000   # enough to cover NeurIPS/ICML (~3000 accepted papers per year)
     delay: 0.5            # seconds between paginated requests
     venue_delay: 3.0      # seconds between conference venues
+
+llm:
+  # In GitHub Actions, set as repo secret OPENAI_API_KEY
+  openai_api_key: ""
+  model: "gpt-4o-mini"  # cheap + fast; use gpt-4o for higher accuracy

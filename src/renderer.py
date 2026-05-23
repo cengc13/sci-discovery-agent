@@ -30,6 +30,10 @@ _VENUE_ABBREVS: dict[str, str] = {
     'nature': 'Nature',
     'science advances': 'Sci. Adv.',
     'science': 'Science',
+    'cell chemical biology': 'Cell Chem. Biol.',
+    'cell physical science': 'Cell Phys. Sci.',
+    'cell reports physical science': 'Cell Rep. Phys. Sci.',
+    'cell systems': 'Cell Syst.',
     'cell': 'Cell',
     'advanced materials': 'Adv. Mater.',
     'advances in materials': 'Adv. Mater.',
@@ -67,6 +71,8 @@ _DOMAIN_DISPLAY = {
 
 
 def _is_review(paper: Paper) -> bool:
+    if paper.paper_type is not None:
+        return paper.paper_type == 'review'
     title_lower = paper.title.lower()
     if any(s in title_lower for s in _REVIEW_TITLE_SIGNALS):
         return True
@@ -79,7 +85,15 @@ def _is_chem_or_materials(paper: Paper) -> bool:
     return 'chemistry' in paper.domains or 'materials' in paper.domains
 
 
-def _short_venue(venue: str) -> str:
+def _short_venue(paper_or_venue) -> str:
+    if isinstance(paper_or_venue, str):
+        venue_llm, venue_raw = None, paper_or_venue
+    else:
+        venue_llm = paper_or_venue.venue_llm
+        venue_raw = paper_or_venue.venue or ''
+
+    # Prefer LLM-corrected name; fall back to raw venue
+    venue = venue_llm or venue_raw
     if not venue:
         return '—'
     v = venue.split('(')[0].strip()
@@ -87,7 +101,9 @@ def _short_venue(venue: str) -> str:
     for key in sorted(_VENUE_ABBREVS, key=len, reverse=True):
         if v_lower.startswith(key) or key in v_lower:
             return _VENUE_ABBREVS[key]
-    return (v[:18] + '…') if len(v) > 18 else v
+    # For LLM-provided names with no abbreviation, return as-is (already clean)
+    fallback = venue_llm if venue_llm else v
+    return (fallback[:22] + '…') if len(fallback) > 22 else fallback
 
 
 def _primary_domain(paper: Paper) -> str:
@@ -142,7 +158,7 @@ def _top_table_articles(papers: list[tuple]) -> list[str]:
     lines = [_md_row(*cols), _md_row(*sep)]
     for paper, _ in papers:
         year = str(paper.published_date.year) if paper.published_date else '?'
-        lines.append(_md_row(_title_link(paper), year, _short_venue(paper.venue or ''), _code_cell(paper)))
+        lines.append(_md_row(_title_link(paper), year, _short_venue(paper), _code_cell(paper)))
     return lines
 
 
@@ -156,7 +172,7 @@ def _top_table_reviews(papers: list[tuple]) -> list[str]:
     for paper, _ in papers:
         year = str(paper.published_date.year) if paper.published_date else '?'
         lines.append(_md_row(
-            _title_link(paper), year, _short_venue(paper.venue or ''),
+            _title_link(paper), year, _short_venue(paper),
             _fmt_citations(paper.citation_count),
         ))
     return lines
@@ -201,7 +217,8 @@ def _top6_reviews(reviews: list[tuple]) -> list[tuple]:
 
 
 def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> str:
-    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)]
+    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)
+                and p.llm_on_topic is not False]
     scored = [(p, importance_score(p)) for p in on_topic]
 
     seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]
@@ -252,7 +269,8 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
 
 def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> list[Paper]:
     """Return the unique set of papers that would appear in the README tables."""
-    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)]
+    on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)
+                and p.llm_on_topic is not False]
     scored = [(p, importance_score(p)) for p in on_topic]
 
     seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]

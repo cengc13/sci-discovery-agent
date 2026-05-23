@@ -22,6 +22,9 @@ class Paper:
     citation_count: Optional[int] = None
     domains: list[str] = field(default_factory=list)
     code_url: Optional[str] = None
+    paper_type: Optional[str] = None   # "article" | "review" — set by LLM enricher
+    llm_on_topic: Optional[bool] = None  # True/False; None = not yet classified
+    venue_llm: Optional[str] = None    # LLM-corrected venue name
 
     @property
     def uid(self) -> str:
