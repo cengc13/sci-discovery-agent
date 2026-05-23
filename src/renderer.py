@@ -18,46 +18,70 @@ _REVIEW_VENUE_SIGNALS = [
 ]
 
 _VENUE_ABBREVS: dict[str, str] = {
+    # Nature portfolio — specific sub-journals must appear before 'nature'
     'nature machine intelligence': 'Nat. Mach. Intell.',
     'nature communications': 'Nat. Commun.',
     'nature computational science': 'Nat. Comput. Sci.',
     'nature reviews materials': 'Nat. Rev. Mater.',
+    'nature reviews chemistry': 'Nat. Rev. Chem.',
+    'nature reviews drug discovery': 'Nat. Rev. Drug Discov.',
     'nature biotechnology': 'Nat. Biotechnol.',
+    'nature chemical engineering': 'Nat. Chem. Eng.',
+    'nature chemical biology': 'Nat. Chem. Biol.',
     'nature chemistry': 'Nat. Chem.',
+    'nature catalysis': 'Nat. Catal.',
+    'nature electronics': 'Nat. Electron.',
+    'nature energy': 'Nat. Energy',
+    'nature nanotechnology': 'Nat. Nanotechnol.',
     'nature materials': 'Nat. Mater.',
     'nature methods': 'Nat. Methods.',
-    'nature chemical biology': 'Nat. Chem. Biol.',
+    'nature physics': 'Nat. Phys.',
+    'nature synthesis': 'Nat. Synth.',
     'nature': 'Nature',
+    # Science family
     'science advances': 'Sci. Adv.',
+    'science robotics': 'Sci. Robot.',
+    'science translational medicine': 'Sci. Transl. Med.',
     'science': 'Science',
+    # Cell Press — specific before 'cell'
     'cell chemical biology': 'Cell Chem. Biol.',
-    'cell physical science': 'Cell Phys. Sci.',
     'cell reports physical science': 'Cell Rep. Phys. Sci.',
+    'cell reports methods': 'Cell Rep. Methods',
+    'cell physical science': 'Cell Phys. Sci.',
     'cell systems': 'Cell Syst.',
     'cell': 'Cell',
+    # ACS
+    'acs central science': 'ACS Cent. Sci.',
+    'acs measurement science au': 'ACS Meas. Sci. Au',
+    'acs nano': 'ACS Nano',
+    'journal of the american chemical society': 'JACS',
+    'journal of chemical information and modeling': 'JCIM',
+    'chemical reviews': 'Chem. Rev.',
+    'chemical science': 'Chem. Sci.',
+    # Other chemistry/materials
     'advanced materials': 'Adv. Mater.',
     'advances in materials': 'Adv. Mater.',
     'advanced science': 'Adv. Sci.',
     'angewandte chemie': 'Angew. Chem.',
-    'journal of the american chemical society': 'JACS',
-    'acs nano': 'ACS Nano',
-    'acs central science': 'ACS Cent. Sci.',
-    'acs measurement science au': 'ACS Meas. Sci. Au',
-    'chemical reviews': 'Chem. Rev.',
-    'chemical science': 'Chem. Sci.',
-    'journal of chemical information and modeling': 'JCIM',
     'the innovation': 'The Innovation',
-    'pnas': 'PNAS',
     'proceedings of the national academy of sciences': 'PNAS',
+    'pnas': 'PNAS',
     'matter': 'Matter',
     'joule': 'Joule',
+    # IEEE
+    'ieee transactions on automation science and engineering': 'IEEE TASE',
+    'ieee transactions on neural networks and learning systems': 'IEEE TNNLS',
+    'ieee transactions on pattern analysis and machine intelligence': 'IEEE TPAMI',
+    # ML conferences
     'iclr': 'ICLR',
     'neurips': 'NeurIPS',
     'icml': 'ICML',
+    # Preprints
     'arxiv.org': 'arXiv',
     'arxiv': 'arXiv',
     'biorxiv': 'bioRxiv',
     'chemrxiv': 'chemRxiv',
+    # Other
     'frontiers in artificial intelligence': 'Front. Artif. Intell.',
 }
 
@@ -98,8 +122,9 @@ def _short_venue(paper_or_venue) -> str:
         return '—'
     v = venue.split('(')[0].strip()
     v_lower = v.lower()
+    # Sort longest-first so 'nature chemical engineering' beats 'nature'
     for key in sorted(_VENUE_ABBREVS, key=len, reverse=True):
-        if v_lower.startswith(key) or key in v_lower:
+        if v_lower.startswith(key):
             return _VENUE_ABBREVS[key]
     # For LLM-provided names with no abbreviation, return as-is (already clean)
     fallback = venue_llm if venue_llm else v

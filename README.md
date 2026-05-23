@@ -27,9 +27,9 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [Towards Agentic AI for Science Hypothesis Generation, Comprehension, Quantificat…](https://doi.org/10.1145/3701716.3718485) | 2025 | The Web Conference | [Code](https://github.com/yenanjing/awesome-ai-for-science) |
 | [Generative Design of Functional Metal Complexes Utilizing the Internal Knowledge…](https://doi.org/10.1021/jacs.5c02097) | 2025 | JACS | - |
 | [A Self-Driving Lab for Nano- and Advanced Materials Synthesis](https://doi.org/10.1021/acsnano.4c17504) | 2025 | ACS Nano | - |
-| [Flow-driven data intensification to accelerate autonomous inorganic materials di…](https://doi.org/10.1038/s44286-025-00249-z) | 2025 | Nature | - |
+| [Flow-driven data intensification to accelerate autonomous inorganic materials di…](https://doi.org/10.1038/s44286-025-00249-z) | 2025 | Nat. Chem. Eng. | - |
 | [Science acceleration and accessibility with self-driving labs](https://doi.org/10.1038/s41467-025-59231-1) | 2025 | Nat. Commun. | - |
-| [Autonomous Hyperspectral Characterisation Station: Robot Aided Measuring of Poly…](https://doi.org/10.1109/TASE.2024.3409186) | 2025 | Science | - |
+| [Autonomous Hyperspectral Characterisation Station: Robot Aided Measuring of Poly…](https://doi.org/10.1109/TASE.2024.3409186) | 2025 | IEEE TASE | - |
 | [Artificial intelligence/machine learning of polymer materials and discovery chem…](https://doi.org/10.1557/s43577-025-00986-9) | 2025 | MRS Bulletin | - |
 | [Autonomous multi-robot synthesis and optimization of metal halide perovskite nan…](https://doi.org/10.1038/s41467-025-63209-4) | 2025 | Nat. Commun. | - |
 | [Evaluating large language model agents for automation of atomic force microscopy](https://doi.org/10.1038/s41467-025-64105-7) | 2025 | Nat. Commun. | - |
@@ -44,7 +44,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | --- | --- | --- | ---: |
 | [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 424 |
 | [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society Revie… | 252 |
-| [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nature | 231 |
+| [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nat. Rev. Chem. | 231 |
 | [Materials Informatics: Emergence to Autonomous Discovery in the Age of AI.](https://arxiv.org/abs/2601.00742) | 2026 | Adv. Mater. | 8 |
 | [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 81 |
 | [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 55 |
