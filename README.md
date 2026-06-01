@@ -9,7 +9,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 <!-- PAPERS_START -->
 
-*Auto-updated 2026-05-28 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
+*Auto-updated 2026-06-01 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
 ### Top Papers (cited, ordered by recency)
 
@@ -42,12 +42,12 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 | Title | Year | Venue | Citations |
 | --- | --- | --- | ---: |
-| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 435 |
-| [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society Revie… | 255 |
+| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 442 |
+| [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society Revie… | 256 |
 | [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nat. Rev. Chem. | 231 |
 | [Materials Informatics: Emergence to Autonomous Discovery in the Age of AI.](https://arxiv.org/abs/2601.00742) | 2026 | Adv. Mater. | 8 |
-| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 85 |
-| [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 59 |
+| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 86 |
+| [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 60 |
 
 ### Recent Highlights (last 90 days)
 
@@ -57,7 +57,6 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | --- | --- | --- | --- |
 | [AIMBio-Mat: An AI-Native FAIR Platform for Closed-Loop Materials Discovery and B…](http://arxiv.org/abs/2605.21083v1) | 2026-05-20 | arxiv | - |
 | [Harnessing Autonomous AI Agents for the Next Generation of Scientific Discovery](https://doi.org/10.1002/smm2.70068) | 2026-03-19 | semantic_scholar | - |
-| [Catalyst-Agent: Autonomous heterogeneous catalyst screening and optimization wit…](https://arxiv.org/abs/2603.01311) | 2026-03-01 | semantic_scholar | - |
 | [Toward self-driving laboratory 2.0 for chemistry and materials discovery.](https://doi.org/10.1039/d5mh01984b) | 2026-03-10 | semantic_scholar | - |
 | [Autonomous Agents Coordinating Distributed Discovery Through Emergent Artifact E…](https://arxiv.org/abs/2603.14312) | 2026-03-15 | semantic_scholar | [Code](https://github.com/lamm-mit/scienceclaw) |
 | [Multi-Agent Orchestration for High-Throughput Materials Screening on a Leadershi…](https://arxiv.org/abs/2604.07681) | 2026-04-09 | semantic_scholar | [Code](https://github.com/argonne-lcf/ChemGraph) |
@@ -75,16 +74,17 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [An Agentic Active-Learning Framework for Simulation-Driven Optimization of Energ…](https://doi.org/10.1109/ICTMIM68190.2026.11506731) | 2026-04-08 | semantic_scholar | - |
 | [Multi-Agent Collaboration for Automated Design Exploration on High Performance C…](https://arxiv.org/abs/2603.11515) | 2026-03-12 | semantic_scholar | [Code](https://github.com/CEED/Laghos) |
 | [Smart Exploration of Perovskite Photovoltaics: From AI Driven Discovery to Auton…](https://doi.org/10.1002/aenm.202506803) | 2026-03-27 | semantic_scholar | - |
+| [LLM-Guided Open Hypothesis Learning from Autonomous Scanning Probe Microscopy Ex…](https://arxiv.org/abs/2605.06839) | 2026-05-07 | semantic_scholar | [Code](https://github.com/Slautin/2026_domain_growth_hypothesis_learning) |
 
 #### Reviews & Surveys
 
 | Title | Date | Source | Citations |
 | --- | --- | --- | ---: |
-| [Bridging data and discovery: a survey on knowledge graphs in AI for science](https://doi.org/10.1093/nsr/nwag140) | 2026-03-05 | semantic_scholar | 2 |
+| [Bridging data and discovery: a survey on knowledge graphs in AI for science](https://doi.org/10.1093/nsr/nwag140) | 2026-03-05 | semantic_scholar | 3 |
 | [Accelerating Discovery of Organic Molecular Crystals via Materials Informatics a…](https://doi.org/10.1002/aidi.70124) | 2026-04-27 | semantic_scholar | 0 |
-| [AI-Driven Discovery of New Materials: Breaking Data Bottlenecks and Transforming…](https://doi.org/10.1360/csb-2026-0182) | 2026-03-01 | semantic_scholar | 0 |
 | [Machine Learning‐Driven R&D of Perovskites and Spinels: From Traditional Models …](https://doi.org/10.1002/smtd.202502228) | 2026-03-04 | semantic_scholar | 0 |
 | [Artificial Intelligence in Chemistry: A Comprehensive Review of Methods, Applica…](https://doi.org/10.62643/ijerst.2026.v22.i1(s).2074) | 2026-03-21 | semantic_scholar | 0 |
 | [AUTONOMOUS POLYMER MATERIALS DISCOVERY: ARTIFICIAL INTELLIGENCE ARCHITECTURES FO…](https://doi.org/10.36868/ejmse.2026.11.01.003) | 2026-03-20 | semantic_scholar | 0 |
+| [Overcoming Roadblocks for Implementing AI/ML Methods for Materials Advancement](https://doi.org/10.1146/annurev-matsci-072924-102951) | 2026-04-06 | semantic_scholar | 0 |
 
 <!-- PAPERS_END -->

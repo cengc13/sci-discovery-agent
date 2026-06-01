@@ -434,7 +434,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1101/2025.04.03.646459",
     "venue": "bioRxiv",
-    "citation_count": 47,
+    "citation_count": 48,
     "domains": [
       "biology"
     ],
@@ -461,7 +461,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2503.08979",
     "venue": "arXiv.org",
-    "citation_count": 85,
+    "citation_count": 86,
     "domains": [
       "chemistry",
       "materials",
@@ -507,7 +507,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2508.14111",
     "venue": "arXiv.org",
-    "citation_count": 59,
+    "citation_count": 60,
     "domains": [
       "chemistry",
       "materials",
@@ -593,7 +593,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2510.26887",
     "venue": "arXiv.org",
-    "citation_count": 15,
+    "citation_count": 16,
     "domains": [
       "chemistry",
       "materials",
@@ -660,7 +660,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1109/ICAIQSA67794.2025.11440385",
     "venue": "2025 International Conference on Artificial Intelligence and Quantum Computation-Based Sensor Application (ICAIQSA)",
-    "citation_count": 0,
+    "citation_count": 1,
     "domains": [
       "materials",
       "biology"
@@ -863,7 +863,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2511.02824",
     "venue": "arXiv.org",
-    "citation_count": 48,
+    "citation_count": 52,
     "domains": [
       "materials",
       "biology"
@@ -942,7 +942,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/adma.202413523",
     "venue": "Advances in Materials",
-    "citation_count": 179,
+    "citation_count": 180,
     "domains": [
       "materials",
       "biology"
@@ -1038,7 +1038,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1101/2025.04.01.646731",
     "venue": "bioRxiv",
-    "citation_count": 12,
+    "citation_count": 14,
     "domains": [
       "chemistry",
       "biology"
@@ -1063,7 +1063,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2409.05556",
     "venue": "arXiv.org",
-    "citation_count": 77,
+    "citation_count": 78,
     "domains": [
       "materials",
       "biology"
@@ -1293,7 +1293,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2604.05018",
     "venue": "",
-    "citation_count": 2,
+    "citation_count": 3,
     "domains": [
       "chemistry",
       "materials",
@@ -1734,7 +1734,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1021/jacs.4c17738",
     "venue": "Journal of the American Chemical Society",
-    "citation_count": 121,
+    "citation_count": 123,
     "domains": [
       "chemistry",
       "materials"
@@ -1784,7 +1784,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1098/rsos.250646",
     "venue": "Royal Society Open Science",
-    "citation_count": 31,
+    "citation_count": 33,
     "domains": [
       "chemistry",
       "materials",
@@ -1943,7 +1943,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1557/s43577-025-00953-4",
     "venue": "MRS bulletin",
-    "citation_count": 10,
+    "citation_count": 11,
     "domains": [
       "materials",
       "biology"
@@ -2026,7 +2026,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2506.20743",
     "venue": "arXiv.org",
-    "citation_count": 13,
+    "citation_count": 14,
     "domains": [
       "materials",
       "biology"
@@ -2110,7 +2110,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2503.00096",
     "venue": "arXiv.org",
-    "citation_count": 65,
+    "citation_count": 66,
     "domains": [
       "biology"
     ],
@@ -2287,7 +2287,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1557/MRS.2019.158",
     "venue": "MRS bulletin",
-    "citation_count": 96,
+    "citation_count": 97,
     "domains": [
       "chemistry",
       "materials",
@@ -2428,7 +2428,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2512.23880",
     "venue": "arXiv.org",
-    "citation_count": 15,
+    "citation_count": 16,
     "domains": [
       "chemistry",
       "materials",
@@ -2698,7 +2698,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s42256-024-00832-8.pdf",
     "venue": "Nature Machine Intelligence",
-    "citation_count": 928,
+    "citation_count": 939,
     "domains": [
       "chemistry",
       "materials",
@@ -5157,7 +5157,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.3389/frai.2026.1820375",
     "venue": "Frontiers in Artificial Intelligence",
-    "citation_count": 1,
+    "citation_count": 2,
     "domains": [
       "AI/science"
     ],
@@ -5604,7 +5604,7 @@
       "materials",
       "biology"
     ],
-    "code_url": null,
+    "code_url": "https://github.com/Slautin/2026_domain_growth_hypothesis_learning",
     "paper_type": "article",
     "llm_on_topic": true,
     "venue_llm": null
@@ -6455,7 +6455,7 @@
     "biorxiv_id": null,
     "url": "https://pubmed.ncbi.nlm.nih.gov/41677392/",
     "venue": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
-    "citation_count": 627,
+    "citation_count": 629,
     "domains": [
       "chemistry",
       "materials",
@@ -6574,7 +6574,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2412.13667",
     "venue": "Annual Meeting of the Association for Computational Linguistics",
-    "citation_count": 10,
+    "citation_count": 11,
     "domains": [
       "biology"
     ],
@@ -6614,7 +6614,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2509.08736",
     "venue": "arXiv.org",
-    "citation_count": 2,
+    "citation_count": 3,
     "domains": [
       "chemistry",
       "biology"
@@ -6670,7 +6670,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1021/acsomega.4c08408",
     "venue": "ACS Omega",
-    "citation_count": 45,
+    "citation_count": 46,
     "domains": [
       "chemistry",
       "biology"
@@ -6744,7 +6744,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1101/2025.05.30.656746",
     "venue": "bioRxiv",
-    "citation_count": 154,
+    "citation_count": 157,
     "domains": [
       "biology"
     ],
@@ -6800,7 +6800,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2407.10362",
     "venue": "arXiv.org",
-    "citation_count": 122,
+    "citation_count": 124,
     "domains": [
       "biology"
     ],
@@ -7148,7 +7148,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/med.21780",
     "venue": "Medicinal research reviews (Print)",
-    "citation_count": 41,
+    "citation_count": 42,
     "domains": [
       "chemistry",
       "biology"
@@ -7276,7 +7276,7 @@
     "biorxiv_id": null,
     "url": "https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055",
     "venue": "Chemical Reviews",
-    "citation_count": 435,
+    "citation_count": 442,
     "domains": [
       "chemistry",
       "materials",
@@ -7356,7 +7356,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41467-024-45569-5.pdf",
     "venue": "Nature Communications",
-    "citation_count": 50,
+    "citation_count": 51,
     "domains": [
       "chemistry",
       "materials"
@@ -7503,7 +7503,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s44286-024-00033-5.pdf",
     "venue": "Nature Chemical Engineering",
-    "citation_count": 45,
+    "citation_count": 46,
     "domains": [
       "chemistry"
     ],
@@ -7593,7 +7593,7 @@
     "biorxiv_id": null,
     "url": "https://advances.sciencemag.org/content/advances/6/20/eaaz8867.full.pdf",
     "venue": "Science Advances",
-    "citation_count": 585,
+    "citation_count": 587,
     "domains": [
       "materials",
       "biology"
@@ -7650,7 +7650,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1016/j.matt.2024.06.003",
     "venue": "Matter",
-    "citation_count": 59,
+    "citation_count": 60,
     "domains": [
       "chemistry",
       "materials"
@@ -7739,7 +7739,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1021/acsnano.4c17504",
     "venue": "ACS Nano",
-    "citation_count": 19,
+    "citation_count": 21,
     "domains": [
       "chemistry",
       "materials",
@@ -7999,7 +7999,7 @@
     "biorxiv_id": null,
     "url": "https://www.mdpi.com/2079-4991/11/3/619/pdf?version=1615643976",
     "venue": "Nanomaterials",
-    "citation_count": 46,
+    "citation_count": 47,
     "domains": [
       "chemistry",
       "materials"
@@ -8091,7 +8091,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1021/acs.accounts.2c00220",
     "venue": "Accounts of Chemical Research",
-    "citation_count": 205,
+    "citation_count": 206,
     "domains": [
       "chemistry",
       "materials",
@@ -8211,7 +8211,7 @@
     "biorxiv_id": null,
     "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adma.201907801",
     "venue": "Advances in Materials",
-    "citation_count": 227,
+    "citation_count": 229,
     "domains": [
       "materials"
     ],
@@ -8378,7 +8378,7 @@
     "biorxiv_id": null,
     "url": "https://pubs.acs.org/doi/pdf/10.1021/acs.accounts.4c00095",
     "venue": "Accounts of Chemical Research",
-    "citation_count": 36,
+    "citation_count": 37,
     "domains": [
       "chemistry",
       "materials",
@@ -8509,7 +8509,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1016/j.copbio.2022.102881",
     "venue": "Current Opinion in Biotechnology",
-    "citation_count": 84,
+    "citation_count": 85,
     "domains": [
       "chemistry",
       "materials",
@@ -8913,7 +8913,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2406.13163",
     "venue": "arXiv.org",
-    "citation_count": 35,
+    "citation_count": 36,
     "domains": [
       "chemistry",
       "materials",
@@ -9093,7 +9093,7 @@
     "biorxiv_id": null,
     "url": "https://pubs.rsc.org/en/content/articlepdf/2024/sc/d3sc06206f",
     "venue": "Chemical Science",
-    "citation_count": 47,
+    "citation_count": 48,
     "domains": [
       "chemistry",
       "materials"
@@ -9539,7 +9539,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1039/c6cs00738d",
     "venue": "Chemical Society Reviews",
-    "citation_count": 255,
+    "citation_count": 256,
     "domains": [
       "materials"
     ],
@@ -9829,7 +9829,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41467-020-15728-5.pdf",
     "venue": "Nature Communications",
-    "citation_count": 133,
+    "citation_count": 134,
     "domains": [
       "chemistry",
       "materials"
@@ -9888,7 +9888,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1126/science.adj1817",
     "venue": "Science",
-    "citation_count": 201,
+    "citation_count": 204,
     "domains": [
       "chemistry",
       "materials",
@@ -10126,7 +10126,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1038/s41467-025-64105-7",
     "venue": "Nature Communications",
-    "citation_count": 28,
+    "citation_count": 29,
     "domains": [
       "materials",
       "biology"
@@ -10212,7 +10212,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.20517/jmi.2025.87",
     "venue": "Journal of Materials Informatics",
-    "citation_count": 2,
+    "citation_count": 3,
     "domains": [
       "chemistry",
       "materials"
@@ -10822,7 +10822,7 @@
     "biorxiv_id": null,
     "url": "https://www.frontiersin.org/articles/10.3389/frsc.2020.00038/pdf",
     "venue": "Frontiers in Sustainable Cities",
-    "citation_count": 207,
+    "citation_count": 209,
     "domains": [
       "materials",
       "biology"
@@ -10848,7 +10848,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2407.01603",
     "venue": "Chemical Science",
-    "citation_count": 197,
+    "citation_count": 201,
     "domains": [
       "chemistry"
     ],
@@ -10974,7 +10974,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1007/s11705-025-2587-5",
     "venue": "Frontiers of Chemical Science and Engineering",
-    "citation_count": 4,
+    "citation_count": 5,
     "domains": [
       "chemistry"
     ],
@@ -11063,7 +11063,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41586-023-06792-0.pdf",
     "venue": "Nature",
-    "citation_count": 937,
+    "citation_count": 948,
     "domains": [
       "chemistry",
       "biology"
@@ -11226,7 +11226,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2505.16477",
     "venue": "arXiv.org",
-    "citation_count": 8,
+    "citation_count": 10,
     "domains": [
       "chemistry",
       "biology"
@@ -11304,7 +11304,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1101/2024.06.27.601082",
     "venue": "bioRxiv",
-    "citation_count": 17,
+    "citation_count": 18,
     "domains": [
       "biology"
     ],
@@ -11684,7 +11684,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2507.20280",
     "venue": "Nature Computational Science",
-    "citation_count": 49,
+    "citation_count": 50,
     "domains": [
       "chemistry",
       "materials",
@@ -11773,7 +11773,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/aisy.202401086",
     "venue": "Advanced Intelligent Systems",
-    "citation_count": 4,
+    "citation_count": 5,
     "domains": [
       "AI/science"
     ],
@@ -12045,7 +12045,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1038/s41568-025-00900-0",
     "venue": "Nature Reviews. Cancer",
-    "citation_count": 7,
+    "citation_count": 8,
     "domains": [
       "AI/science"
     ],
@@ -12402,7 +12402,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2604.02934",
     "venue": "",
-    "citation_count": 0,
+    "citation_count": 2,
     "domains": [
       "chemistry",
       "materials",
@@ -12555,7 +12555,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2410.09403",
     "venue": "Annual Meeting of the Association for Computational Linguistics",
-    "citation_count": 60,
+    "citation_count": 62,
     "domains": [
       "biology"
     ],
@@ -12604,7 +12604,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2505.15047",
     "venue": "arXiv.org",
-    "citation_count": 11,
+    "citation_count": 12,
     "domains": [
       "biology"
     ],
@@ -12665,7 +12665,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2507.09023",
     "venue": "arXiv.org",
-    "citation_count": 9,
+    "citation_count": 10,
     "domains": [
       "chemistry",
       "biology"
@@ -12915,7 +12915,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2509.13782",
     "venue": "arXiv.org",
-    "citation_count": 17,
+    "citation_count": 18,
     "domains": [
       "AI/science"
     ],
@@ -13121,7 +13121,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2505.18397",
     "venue": "arXiv.org",
-    "citation_count": 12,
+    "citation_count": 13,
     "domains": [
       "biology"
     ],
@@ -13377,7 +13377,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2502.06472",
     "venue": "arXiv.org",
-    "citation_count": 26,
+    "citation_count": 27,
     "domains": [
       "AI/science"
     ],
@@ -13825,7 +13825,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2604.20548",
     "venue": "International Conference on Scientometrics &amp; Informetrics",
-    "citation_count": 0,
+    "citation_count": 1,
     "domains": [
       "biology"
     ],
@@ -13990,7 +13990,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.48550/arXiv.2406.09098",
     "venue": "arXiv.org",
-    "citation_count": 33,
+    "citation_count": 36,
     "domains": [
       "AI/science"
     ],
@@ -14210,7 +14210,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2510.26144",
     "venue": "arXiv.org",
-    "citation_count": 11,
+    "citation_count": 12,
     "domains": [
       "biology"
     ],
@@ -14466,7 +14466,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2508.21148",
     "venue": "arXiv.org",
-    "citation_count": 23,
+    "citation_count": 24,
     "domains": [
       "chemistry",
       "biology"
@@ -14832,7 +14832,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2602.05665",
     "venue": "arXiv.org",
-    "citation_count": 7,
+    "citation_count": 8,
     "domains": [
       "AI/science"
     ],
@@ -15086,7 +15086,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2502.18864",
     "venue": "arXiv.org",
-    "citation_count": 290,
+    "citation_count": 294,
     "domains": [
       "biology"
     ],
@@ -15585,7 +15585,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2412.19994",
     "venue": "International Conference on Computational Linguistics",
-    "citation_count": 13,
+    "citation_count": 14,
     "domains": [
       "chemistry",
       "biology"
@@ -15785,7 +15785,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/s41467-023-37139-y.pdf",
     "venue": "Nature Communications",
-    "citation_count": 144,
+    "citation_count": 146,
     "domains": [
       "chemistry",
       "materials",
@@ -16104,7 +16104,7 @@
     "biorxiv_id": null,
     "url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6435f8c5a41dec1a56e64577/original/autonomous-multi-property-driven-molecular-discovery-from-predictions-to-measurements-and-back.pdf",
     "venue": "Science",
-    "citation_count": 124,
+    "citation_count": 125,
     "domains": [
       "chemistry",
       "materials",
@@ -16442,7 +16442,7 @@
     "biorxiv_id": null,
     "url": "https://www.nature.com/articles/npjcompumats201631.pdf",
     "venue": "",
-    "citation_count": 339,
+    "citation_count": 340,
     "domains": [
       "chemistry",
       "materials"
@@ -16493,7 +16493,7 @@
     "biorxiv_id": null,
     "url": "https://www.mdpi.com/1420-3049/26/22/6761/pdf?version=1636454537",
     "venue": "Molecules",
-    "citation_count": 30,
+    "citation_count": 31,
     "domains": [
       "chemistry",
       "biology"
@@ -16850,7 +16850,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2503.13399",
     "venue": "Computer Vision and Pattern Recognition",
-    "citation_count": 25,
+    "citation_count": 27,
     "domains": [
       "biology"
     ],
@@ -16881,7 +16881,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2411.16955",
     "venue": "Nature Computational Science",
-    "citation_count": 46,
+    "citation_count": 48,
     "domains": [
       "chemistry",
       "materials"
@@ -16980,7 +16980,7 @@
     "biorxiv_id": null,
     "url": "http://www.cell.com/article/S2666675821001041/pdf",
     "venue": "The Innovation",
-    "citation_count": 1412,
+    "citation_count": 1414,
     "domains": [
       "chemistry",
       "materials"
@@ -17037,7 +17037,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2601.21165",
     "venue": "arXiv.org",
-    "citation_count": 21,
+    "citation_count": 22,
     "domains": [
       "chemistry",
       "biology"
@@ -17318,7 +17318,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.2174/0115734110373957250516113853",
     "venue": "Current Analytical Chemistry",
-    "citation_count": 12,
+    "citation_count": 13,
     "domains": [
       "chemistry",
       "materials",
@@ -17940,7 +17940,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2512.15567",
     "venue": "arXiv.org",
-    "citation_count": 18,
+    "citation_count": 19,
     "domains": [
       "chemistry",
       "materials",
@@ -17996,7 +17996,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.3390/jox15010006",
     "venue": "Journal of Xenobiotics",
-    "citation_count": 44,
+    "citation_count": 45,
     "domains": [
       "chemistry",
       "materials",
@@ -18158,7 +18158,7 @@
     "biorxiv_id": null,
     "url": "https://www.biorxiv.org/content/biorxiv/early/2024/11/12/2024.11.11.623004.full.pdf",
     "venue": "bioRxiv",
-    "citation_count": 97,
+    "citation_count": 99,
     "domains": [
       "biology"
     ],
@@ -18584,7 +18584,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2409.13740",
     "venue": "arXiv.org",
-    "citation_count": 126,
+    "citation_count": 127,
     "domains": [
       "chemistry",
       "biology"
@@ -18923,7 +18923,7 @@
     "biorxiv_id": null,
     "url": "http://arxiv.org/abs/2604.11790v2",
     "venue": "arXiv",
-    "citation_count": 4,
+    "citation_count": 6,
     "domains": [
       "AI/science"
     ],
@@ -19083,7 +19083,7 @@
     "biorxiv_id": null,
     "url": "http://arxiv.org/abs/2602.20867v1",
     "venue": "arXiv",
-    "citation_count": 38,
+    "citation_count": 40,
     "domains": [
       "biology"
     ],
@@ -19214,7 +19214,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1093/nsr/nwag140",
     "venue": "National Science Review",
-    "citation_count": 2,
+    "citation_count": 3,
     "domains": [
       "chemistry",
       "materials",
@@ -19370,7 +19370,7 @@
     "biorxiv_id": null,
     "url": "https://pubmed.ncbi.nlm.nih.gov/41907258/",
     "venue": "Frontiers in medicine",
-    "citation_count": 80,
+    "citation_count": 81,
     "domains": [
       "biology"
     ],
@@ -19395,7 +19395,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2504.19678",
     "venue": "arXiv.org",
-    "citation_count": 153,
+    "citation_count": 156,
     "domains": [
       "chemistry",
       "materials",
@@ -19919,7 +19919,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1055/s-0042-1751497",
     "venue": "Synthesis",
-    "citation_count": 3,
+    "citation_count": 4,
     "domains": [
       "chemistry",
       "materials",
@@ -20107,7 +20107,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/wnan.1746",
     "venue": "Wiley Interdisciplinary Reviews: Nanomedicine and Nanobiotechnology",
-    "citation_count": 21,
+    "citation_count": 22,
     "domains": [
       "chemistry",
       "biology"
@@ -20319,7 +20319,7 @@
     "biorxiv_id": null,
     "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202302303",
     "venue": "Advanced Energy Materials",
-    "citation_count": 36,
+    "citation_count": 37,
     "domains": [
       "chemistry",
       "materials",
@@ -21081,7 +21081,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2501.13411",
     "venue": "arXiv.org",
-    "citation_count": 40,
+    "citation_count": 41,
     "domains": [
       "biology"
     ],
@@ -21377,7 +21377,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2505.19443",
     "venue": "arXiv.org",
-    "citation_count": 58,
+    "citation_count": 59,
     "domains": [
       "AI/science"
     ],
@@ -21465,7 +21465,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2509.03890",
     "venue": "arXiv.org",
-    "citation_count": 4,
+    "citation_count": 5,
     "domains": [
       "biology"
     ],
@@ -21802,7 +21802,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2504.06196",
     "venue": "arXiv.org",
-    "citation_count": 55,
+    "citation_count": 56,
     "domains": [
       "chemistry",
       "biology"
@@ -21914,7 +21914,7 @@
     "biorxiv_id": null,
     "url": "https://arxiv.org/abs/2512.00403",
     "venue": "",
-    "citation_count": 0,
+    "citation_count": 1,
     "domains": [
       "biology"
     ],
@@ -22573,7 +22573,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1186/s13321-025-00978-6",
     "venue": "Journal of Cheminformatics",
-    "citation_count": 11,
+    "citation_count": 12,
     "domains": [
       "chemistry",
       "materials",
@@ -22687,7 +22687,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1007/s44371-025-00152-9",
     "venue": "Discover Chemistry",
-    "citation_count": 101,
+    "citation_count": 102,
     "domains": [
       "chemistry",
       "materials"
@@ -22841,7 +22841,7 @@
     "biorxiv_id": null,
     "url": "https://doi.org/10.1002/adma.201904197",
     "venue": "Advances in Materials",
-    "citation_count": 1289,
+    "citation_count": 1292,
     "domains": [
       "chemistry",
       "materials",
@@ -25149,6 +25149,563 @@
     "code_url": null,
     "paper_type": "article",
     "llm_on_topic": false,
+    "venue_llm": null
+  },
+  {
+    "title": "Automated Synthesis of Lyapunov Functions for Multi-Agent Systems under Jointly Connected Topology",
+    "authors": [
+      "Shuyuan Zhang",
+      "Lei Wang",
+      "Qing-Guo Wang"
+    ],
+    "abstract": "This article investigates the consensus tracking problem of multi-agent systems under jointly connected topology through automated synthesis of Lyapunov functions. Based on the proposed distributed nonlinear control protocol, several consensus criteria for first-order multi-agent systems are established and certified by the construction and synthesis of more general polynomial Lyapunov functions. By employing sum-of-squares decomposition for multivariate polynomials, we can efficiently synthesize polynomial Lyapunov functions to achieve consensus verification in polynomial time, although the widely used quadratic Lyapunov functions do not exist. Moreover, polynomial coupling functions for our proposed protocol are concomitantly generated. Furthermore, the distributed nonlinear control prot",
+    "source": "arxiv",
+    "published_date": "2026-05-26",
+    "doi": null,
+    "arxiv_id": "2605.27576v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.27576v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "GENESIS: Harnessing AI Agents for Autonomous 6G RAN Synthesis, Research, and Testing",
+    "authors": [
+      "Tamerlan Aghayev",
+      "Maxime Elkael",
+      "Michele Polese",
+      "Minh Dat Nguyen",
+      "Gabriele Gemmi",
+      "Andrea Lacava",
+      "Ali Saeizadeh",
+      "Reshma Prasad",
+      "Paolo Testolina",
+      "Angelo Feraudo",
+      "Soumendra Nanda",
+      "Pedram Johari",
+      "Salvatore D'Oro",
+      "Tommaso Melodia"
+    ],
+    "abstract": "Cellular research and development (R&D) is throttled by six structural processes that each consume months of manual engineering work per iteration: (i) synthesizing new features from standards or research papers into production code; (ii) conformance and interoperability testing; (iii) hardening against field anomalies and diverse deployment environments; (iv) data-driven optimization of network functionalities; (v) discovering and prototyping novel waveforms, functionalities, and capabilities for future standards; and (vi) securing the stack against vulnerabilities. Although Large Language Models (LLMs) have compressed comparable R&D work in general software engineering from days to minutes, their known pitfalls worsen on Radio Access Network (RAN) use cases: they hallucinate Application ",
+    "source": "arxiv",
+    "published_date": "2026-05-26",
+    "doi": null,
+    "arxiv_id": "2605.27360v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.27360v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "EvoSci: A Bio-Inspired Multi-Agent Framework for the Evolution of Scientific Discovery",
+    "authors": [
+      "Xiaoyu Xiong",
+      "Yuqi Ren",
+      "Deyi Xiong"
+    ],
+    "abstract": "Large language models (LLMs), have shown strong potential in scientific discovery, yet existing methods still face substantial challenges in the design of research workflows and multi-role collaboration mechanisms. To mitigate these issues, we propose EvoSci, a multi-agent scientific collaboration framework, which integrates bio-inspired evolution with knowledge graph modeling. To iteratively generate, evaluate, and refine research ideas, EvoSci incorporates multiple role-based agents, including mentor, researcher, and reviewer. By combining collaborative reasoning, shared memory, and evolutionary feedback, EvoSci significantly enhances the coherence and creativity of scientific exploration. Experiments on real-world research topics demonstrate that EvoSci significantly outperforms strong ",
+    "source": "arxiv",
+    "published_date": "2026-05-20",
+    "doi": null,
+    "arxiv_id": "2605.24018v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.24018v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "When Does Memory Help Multi-Trajectory Inference for Tool-Use LLM Agents?",
+    "authors": [
+      "Xinzhe Li",
+      "Yaguang Tao"
+    ],
+    "abstract": "Multi-trajectory inference for tool-use LLM agents - generating multiple reasoning attempts and selecting among them - benefits from transferring knowledge across attempts so that later ones avoid the pitfalls of earlier ones. Existing cross-trajectory memory methods (trajectory-level reflection, atomic fact extraction, raw observation injection) are each evaluated under a single inference strategy on a single task, making it unclear whether reported gains reflect properties of the memory abstraction or of the inference method. We propose a unified framework that decomposes memory along two axes -- the scope of transfer (within an expansion vs. across trajectories) and the abstraction of the transferred content -- and evaluate four methods under three inference strategies (best-of-N, beam ",
+    "source": "arxiv",
+    "published_date": "2026-05-27",
+    "doi": null,
+    "arxiv_id": "2605.28224v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.28224v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "TADDLE: A Tool-Augmented Agent for Detecting Deficient LLM-Generated Peer Reviews",
+    "authors": [
+      "Hanqi Duan",
+      "Xiang Li"
+    ],
+    "abstract": "LLM-generated peer reviews are increasingly common at major venues, yet their deficiencies are hard to detect because they are uniformly fluent and well-structured. Existing work either classifies authorship without judging quality, or scores quality with features designed for human-written reviews; no prior system detects deficiencies in LLM-generated reviews at the level of individual defect types. To bridge the gap, we introduce TADDLE, a Tool-Augmented Agent for Detecting Deficient LLM-Generated Peer Reviews, together with the first expert-annotated benchmark for this task. Our benchmark comprises 1,800 reviews on 50 ICLR 2025 papers, multi-label-annotated by 18 domain experts against a taxonomy of six defect categories (plus a non-deficient label). TADDLE decomposes detection into fou",
+    "source": "arxiv",
+    "published_date": "2026-05-26",
+    "doi": null,
+    "arxiv_id": "2605.26911v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.26911v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ],
+    "code_url": "https://github.com/AquariusAQ/TADDLE",
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "AgentSecBench: Measuring Prompt Injection, Privacy Leakage, and Tool-Use Integrity in LLM Agents",
+    "authors": [
+      "Faruk Alpay",
+      "Taylan Alpay"
+    ],
+    "abstract": "LLM agents process trusted instructions, retrieved records, and tool observations through a common generative channel. This conflates data flow with authority: an untrusted string can affect a secret-bearing response or an action proposal even when no application policy authorizes that influence. We introduce AgentSecBench as an empirical instantiation of a formal security framework for this problem. The framework defines three games-instruction-integrity, retrieval-confidentiality, and capability-integrity-under a common notion of intent-to-execution noninterference with permitted leakage. It represents an application policy as a projection onto authorized observations and capabilities, distinguishes prompt annotations from enforcing projections, and measures both adversarial advantage an",
+    "source": "arxiv",
+    "published_date": "2026-05-25",
+    "doi": null,
+    "arxiv_id": "2605.26269v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.26269v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "MolLingo: Molecule-Native Representations for LLM-Powered Scientific Agents",
+    "authors": [
+      "Thao Nguyen",
+      "Heng Ji"
+    ],
+    "abstract": "We present MolLingo, a multi-agent system that emulates the reasoning process of a chemist to automate molecular design. Existing LLM-based approaches either operate as standalone generative models without access to external tools or lack the multi-agent coordination and shared memory needed for iterative, evidence-driven reasoning across the molecular design pipeline. MolLingo addresses this by coordinating a Literature Agent, a Chemist Agent, and an Orchestrator through a shared memory module, with each agent equipped with domain-specific tools. To enable effective molecular reasoning, we introduce BRICS-based Fragment Enumeration (BFE), a synthesis-aware molecular fragmentation method that decomposes molecules into chemically meaningful building blocks represented as block-based SMILES ",
+    "source": "arxiv",
+    "published_date": "2026-05-27",
+    "doi": null,
+    "arxiv_id": "2605.27853v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.27853v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "LLM-AutoSciLab: Closed-Loop Scientific Discovery via Active Experimentation with LLMs",
+    "authors": [
+      "Sanchit Kabra",
+      "Nikhil Abhyankar",
+      "Saaketh Desai",
+      "Prasad Iyer",
+      "Chandan K Reddy"
+    ],
+    "abstract": "Scientific discovery is a closed-loop process in which hypotheses guide data acquisition and observations refine the hypothesis space. Yet most approaches reduce discovery to supervised learning over fixed datasets, where limited observations can support multiple plausible mechanisms that fit locally but fail to generalize. Thus, the key challenge is selecting informative observations to resolve uncertainty, shifting the focus from static inference to adaptive data acquisition. To address this, we propose LLM-AutoSciLab, a closed-loop framework that couples hypothesis generation with hypothesis-conditioned experiment selection and mechanism refinement. Rather than fitting models to passively collected data, LLM-AutoSciLab iteratively proposes plausible hypotheses, selects informative exper",
+    "source": "arxiv",
+    "published_date": "2026-05-21",
+    "doi": null,
+    "arxiv_id": "2605.24043v1",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "http://arxiv.org/abs/2605.24043v1",
+    "venue": "arXiv",
+    "citation_count": null,
+    "domains": [
+      "biology"
+    ],
+    "code_url": "https://github.com/scientific-discovery/LLM-AutoSciLab",
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "Autonomous Chemistry and Materials Innovation Driven by Scientific Agents",
+    "authors": [
+      "Zikai Xie",
+      "Man Luo",
+      "Zixin Ye",
+      "Linjiang Chen",
+      "Zhuoying Zhu",
+      "Jun Jiang"
+    ],
+    "abstract": "Large language model (LLM)-based agents are reshaping how self-driving laboratories (SDLs) may support autonomous chemical and materials research. Although SDLs have enabled major advances in mechanized experimentation and closed-loop optimization, their scientific utility remains limited when tasks require literature-grounded reasoning, adaptive coordination, and interpretation beyond predefined search spaces. In this perspective, we examine how LLM-based agents may help bridge this gap by translating scientific intent into machine-executable workflows. We propose a five-module framework\ue5f8Comprehension, Design, Execution, Analysis, and Optimization\ue5f8to organize the capabilities required for agent-enabled SDLs, and we discuss representative systems, including Coscientist, ChemCrow, LLM-RDF, ",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-08",
+    "doi": "10.1021/jacsau.6c00213",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.1021/jacsau.6c00213",
+    "venue": "JACS Au",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "materials"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "JACS Au"
+  },
+  {
+    "title": "TeLLAgent: a dual-agent framework for reliable scientific discovery with tool-enhanced LLMs",
+    "authors": [
+      "Jinyu Sun",
+      "Jibin Zhou",
+      "Huabei Wang",
+      "Wei Liu",
+      "Jun Yuan",
+      "Yue Wang",
+      "Ting Xie",
+      "Lin Tan",
+      "Hailiang Zhang",
+      "Yingping Zou",
+      "Zhimin Zhang",
+      "Hongmei Lu"
+    ],
+    "abstract": "Large language model agents hold immense promise for automating scientific discovery, yet their real-world application is hindered by an inability to reliably orchestrate tools and execute complex, multi-step plans without encountering hallucinations or logical inconsistencies. Here, we present TeLLAgent, a novel supervisor-executor dual-agent framework that explicitly separates strategic reasoning from precise tool operation to overcome these limitations. The global planning agent, powered by DeepSeek-R1, performs iterative chain-of-thought reasoning to decompose problems and formulate dynamic plans. The local execution agent, leveraging DeepSeek-V3.1, then accurately invokes a curated suite of 30 specialized tools. A critical self-correction loop, mediated by the Model Context Protocol, ",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-22",
+    "doi": "10.1039/d5sc09883a",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.1039/d5sc09883a",
+    "venue": "Chemical Science",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "materials",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "Chemical Science"
+  },
+  {
+    "title": "AIBuildAI-2: A Knowledge-Enhanced Agent for Automatically Building AI Models",
+    "authors": [
+      "Ruiyi Zhang",
+      "Peijia Qin",
+      "Qinli Cao",
+      "Li Zhang",
+      "Pengtao Xie"
+    ],
+    "abstract": "AI models underpin data-centric applications from image and text processing to scientific discovery in biology, physics, and chemistry. Yet developing them remains heavily manual, requiring practitioners to design architectures, build training pipelines, and iteratively refine solutions, making it challenging for natural scientists without specialized AI engineering expertise to build the high-performing models their research demands. To reduce this burden and broaden access to AI for scientific discovery, agents that automatically build AI models have been proposed. However, the performance of these agents is largely limited by the parametric knowledge of their underlying large language models, which is static, often outdated, and sparse on practical AI model engineering know-how. To addr",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-27",
+    "doi": null,
+    "arxiv_id": "2605.27873",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://arxiv.org/abs/2605.27873",
+    "venue": "",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "A survey of agentic materials science and engineering: where are we and where are we going?",
+    "authors": [
+      "Jiayi Zhu",
+      "Longhan Zhang",
+      "Yizhang Zhu",
+      "Xiaotian Lin",
+      "Yifan Wu",
+      "Shimin Di",
+      "Bang Liu",
+      "Yuyu Luo",
+      "Tong Zhang"
+    ],
+    "abstract": "Agents, primarily built upon large language models (LLMs) and equipped with planning, tool use, memory, and self-re\ufb02ection capabilities, are revolutionizing all aspects of materials science and engineering (MSE), from materials design and experimental execution to industrial manufacturing and deployment, thereby opening the age of agentic MSE. Rather than functioning as isolated artificial intelligence (AI) predictive models, these agents coordinate multi-step scienti\ufb01c work\ufb02ows by retrieving and structuring knowledge, proposing and re\ufb01ning hypotheses, planning experiments, combining multimodal simulations and characterizations, and, when integrated with AI materials laboratories, closing the loop toward autonomous materials discovery. However, agentic systems exhibit varying degrees of au",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-26",
+    "doi": "10.20517/jmi.2026.07",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.20517/jmi.2026.07",
+    "venue": "Journal of Materials Informatics",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "materials"
+    ],
+    "code_url": null,
+    "paper_type": "review",
+    "llm_on_topic": true,
+    "venue_llm": "Journal of Materials Informatics"
+  },
+  {
+    "title": "RareCure: An Open-Source Artificial Intelligence Pipeline for Context-Adaptive Treatment Discovery in Rare Solid Tumors",
+    "authors": [
+      "Danielmartin Arogyasami"
+    ],
+    "abstract": "Background Rare cancers account for approximately 25-30% of cancer diagnoses in the United States, yet precision-oncology infrastructure has been built primarily for common tumor types. Soft tissue sarcomas exemplify this national gap: over 50 histological subtypes affect approximately 13,000 Americans each year, fewer than 5% of subtypes have dedicated clinical trials, and five-year metastatic survival has remained below 20% for decades. The National Cancer Institute has identified acceleration of precision approaches for understudied cancers as a federal strategic priority. This work introduces RareCure, an open-source artificial intelligence pipeline that automatically generates evidence-ranked therapeutic option dossiers for rare solid tumors, released under the Massachusetts Institute",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-01",
+    "doi": "10.7759/cureus.109744",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.7759/cureus.109744",
+    "venue": "Cureus",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "Cureus"
+  },
+  {
+    "title": "Hierarchical Agentic AI Framework for Autonomous Task Planning using Large Language Model Reasoning",
+    "authors": [
+      "Nagaraju Tanguturi",
+      "R. P. Kumar"
+    ],
+    "abstract": "Large Language Models (LLMs) have brought major improvements in natural language understanding, reasoning, and intelligent content generation. Although these models perform well in many applications, most existing AI systems still face difficulties while handling complex multi-step tasks that require planning, coordination, and adaptability. The standard single-agent systems do not work for tasks with multiple dependencies, changing objectives, or long execution workflows. Hierarchical Agentic AI Framework For Autonomous Task Planning With Large Language Model Reasoning This paper The proposed framework is structured as a hierarchical multi-agent architecture comprising Supervisor Agent, Planning Agent, specialized execution agents and validation layer. The framework aims at analyzing user",
+    "source": "semantic_scholar",
+    "published_date": "2026-06-01",
+    "doi": "10.55524/ijirem.2026.13.2.23",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.55524/ijirem.2026.13.2.23",
+    "venue": "International Journal of Innovative Research in Engineering & Management",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "International Journal of Innovative Research in Engineering & Management"
+  },
+  {
+    "title": "Large Language Models in Respiratory Care: Safety and Clinical Integration",
+    "authors": [
+      "Alessandro Porcella",
+      "A. Fabozzi",
+      "Matteo Bonini",
+      "P. Palange"
+    ],
+    "abstract": "\n \n Large language models (LLMs) are rapidly entering respiratory medicine workflows. Their clinical role remains unclear. A central concern is whether they function as autonomous decision makers or as tools that depend on clinician input.\n \n \n \n We conducted a structured narrative review across three domains aligned with respiratory practice. Bedside clinical decision support and triage, pulmonary function test (PFT)/spirometry interpretation, and chest X-ray (CXR) reporting. We included quantitative studies comparing LLMs or specialised AI systems with clinician performance, and extracted accuracy, agreement, and safety-critical failure modes.\n \n \n \n At bedside, LLMs approached expert diagnosis in straightforward cases, but performance fell in highly-complex or multi-step management task",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-28",
+    "doi": "10.1183/23120541.01699-2025",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.1183/23120541.01699-2025",
+    "venue": "ERJ Open Research",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "review",
+    "llm_on_topic": false,
+    "venue_llm": "ERJ Open Research"
+  },
+  {
+    "title": "Exploring Autonomous Agentic Data Engineering for Model Specialization",
+    "authors": [
+      "Yujie Luo",
+      "Xiangyuan Ru",
+      "Jingsheng Zheng",
+      "Jingjing Wang",
+      "Yuqi Zhu",
+      "Jintian Zhang",
+      "Runnan Fang",
+      "Kewei Xu",
+      "Ye Liu",
+      "Zheng Wei",
+      "Jiang Bian",
+      "Zang Li",
+      "Shumin Deng"
+    ],
+    "abstract": "Large Language Models (LLMs) have demonstrated strong performance on general tasks, while often struggling to adapt to specialized domains without high-quality domain-specific data. Existing LLM-based data curation methods primarily rely on human-designed workflows, leaving it unexamined whether LLMs can autonomously execute an end-to-end data engineering pipeline for model specialization. We formalize \\textbf{Autonomous Agentic Data Engineering}, a novel task designed to evaluate LLMs as autonomous data engineers that drive model specialization through end-to-end data curation. We frame data as an optimizable component and study agents that plan, generate, and iteratively optimize training data across multiple domains, guided by post-training performance improvement. Experiments show that",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-28",
+    "doi": null,
+    "arxiv_id": "2605.30407",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://arxiv.org/abs/2605.30407",
+    "venue": "",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": "https://github.com/zjunlp/DataAgent.}",
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "OncoSphere AI: An agentic AI multidisciplinary clinical workflow support tool.",
+    "authors": [
+      "Aakash Desai",
+      "E. McNeeley",
+      "S. Alhushki",
+      "Arnab Basu",
+      "R. Thawani",
+      "Arthi Sridhar",
+      "Karan Jatwani",
+      "U. Grewal",
+      "N. Hornstein",
+      "Arya Mariam Roy",
+      "A. Elkhanany",
+      "R. Pillay",
+      "S. Bodduluri"
+    ],
+    "abstract": "\n e13656\n \n \n Background:\n Effective multidisciplinary cancer care is bottlenecked by the cognitive burden of synthesizing fragmented electronic health records across different specialties. Current AI tools often function as isolated chatbots rather than integrated workflow assistants. We developed and validated \"OncoSphere AI,\" an Agentic AI multidisciplinary clinical workflow support tool designed to autonomously orchestrate the multidisciplinary review process by deconstructing complex cases into domain-specific insights.\n Methods:\n OncoSphere AI is a novel, multi-agent large language model\u2013driven platform that simulates a multidisciplinary tumor board for cancer care. The architecture uses a parallel reasoning framework in which eight virtual specialty agents\u2014Medical Oncology, Radiatio",
+    "source": "semantic_scholar",
+    "published_date": "2026-06-01",
+    "doi": "10.1200/jco.2026.44.16_suppl.e13656",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.1200/jco.2026.44.16_suppl.e13656",
+    "venue": "Journal of Clinical Oncology",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "Journal of Clinical Oncology"
+  },
+  {
+    "title": "SPHINX: An Agentic AI System for Automated Scientific Discovery in Computational Biology",
+    "authors": [
+      "Aditya Sengupta",
+      "M. Kellis"
+    ],
+    "abstract": "The rapid growth of biomedical data and analysis techniques has created a critical research bottleneck, leading to inefficient discovery workflows. We introduce SPHINX (Scientific Progressive Hypothesis Iteration and Organized Novel In-silico eXperiments), a multi-agent AI system designed to accelerate discovery by automating computational biology. SPHINX integrates specialized agents for literature synthesis, hypothesis generation, data analysis and visualization, and in-silico experimentation within a \u201cLab-in-the-Loop\u201d framework. Through rigorous case studies in Alzheimer's Disease and immunology, SPHINX replicated findings and performed complex analyses by autonomously reasoning, writing code, and self-correcting errors, demonstrating its end-to-end capability to accelerate biomedical r",
+    "source": "semantic_scholar",
+    "published_date": "2025-10-10",
+    "doi": "10.1109/URTC68753.2025.11533138",
+    "arxiv_id": null,
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://doi.org/10.1109/URTC68753.2025.11533138",
+    "venue": "2025 IEEE MIT Undergraduate Research Technology Conference (URTC)",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": "2025 IEEE MIT Undergraduate Research Technology Conference (URTC)"
+  },
+  {
+    "title": "Towards Verifiable Multimodal Deep Research: A Multi-Agent Harness for Interleaved Report Generation",
+    "authors": [
+      "Chenghao Zhang",
+      "Guanting Dong",
+      "Yufan Liu",
+      "Tong Zhao",
+      "Zhicheng Dou"
+    ],
+    "abstract": "Large Language Models (LLMs) have advanced autonomous agents from deep search, which retrieves concise factual answers, to deep research, which synthesizes scattered evidence into long-form reports. However, verifiable multimodal deep research remains challenging due to open-ended synthesis without deterministic ground truth and the need to interleave textual arguments with visual evidence. We propose \\textsc{Ptah}, a multi-agent harness for interleaved report generation. \\textsc{Ptah} orchestrates the lifecycle from user query to rendered web report through planning, research, and writing stages, where specialized agents construct visual-aware plans, collect claim-grounded evidence, maintain source-aligned images in a \\textit{Visual Working Memory}, and compose reports through declarative",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-28",
+    "doi": null,
+    "arxiv_id": "2605.29861",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://arxiv.org/abs/2605.29861",
+    "venue": "",
+    "citation_count": 0,
+    "domains": [
+      "chemistry",
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
+    "venue_llm": null
+  },
+  {
+    "title": "Decoupled Intelligence: A Multi-Agent LLM Framework for Controllable Traffic Scenario Generation in SUMO",
+    "authors": [
+      "Shuyang Li",
+      "Ruimin Ke"
+    ],
+    "abstract": "The integration of Large Language Models (LLMs) with microscopic traffic simulation offers a promising path toward autonomous urban planning and intelligent transportation analysis. However, existing monolithic agent architectures often struggle with the complexity of end-to-end simulation workflows, leading to reasoning failures, parameter inconsistency, and a lack of systematic state management. This paper proposes a novel multi-agent collaborative framework designed to automate the entire lifecycle of traffic simulation in SUMO (Simulation of Urban Mobility). Our approach decouples the simulation pipeline into specialized roles, including Planner, Builder, Demand, Runner, and Analyst, coordinated by a high-level reasoning engine. We introduce a state-persistent Orchestrator leveraging t",
+    "source": "semantic_scholar",
+    "published_date": "2026-05-26",
+    "doi": null,
+    "arxiv_id": "2605.27685",
+    "pubmed_id": null,
+    "biorxiv_id": null,
+    "url": "https://arxiv.org/abs/2605.27685",
+    "venue": "",
+    "citation_count": 0,
+    "domains": [
+      "biology"
+    ],
+    "code_url": null,
+    "paper_type": "article",
+    "llm_on_topic": true,
     "venue_llm": null
   }
 ]
