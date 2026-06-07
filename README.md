@@ -9,7 +9,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 <!-- PAPERS_START -->
 
-*Auto-updated 2026-06-01 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
+*Auto-updated 2026-06-07 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
 ### Top Papers (cited, ordered by recency)
 
@@ -17,6 +17,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 | Title | Year | Venue | Code |
 | --- | --- | --- | --- |
+| [Digital materials ecosystem: from databases to AI agents for autonomous discover…](https://doi.org/10.1039/d5sc09229a) | 2026 | Chem. Sci. | - |
 | [QUASAR: A Universal Autonomous System for Atomistic Simulation and a Benchmark o…](https://arxiv.org/abs/2602.00185) | 2026 | JCIM | [Code](https://github.com/fengxuyy/QUASAR) |
 | [AP-Lab: An AI-Driven Autonomous Pilot-Scale Platform Bridging Materials Discover…](https://pubmed.ncbi.nlm.nih.gov/41677392/) | 2026 | Adv. Sci. | - |
 | [ChemGraph as an agentic framework for computational chemistry workflows](https://doi.org/10.1038/s42004-025-01776-9) | 2026 | Communications Chemist… | [Code](https://github.com/argonne-lcf/ChemGraph) |
@@ -26,6 +27,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [Rapid and automated alloy design with graph neural network-powered large languag…](https://doi.org/10.1557/s43577-025-00953-4) | 2025 | MRS bulletin | - |
 | [Towards Agentic AI for Science Hypothesis Generation, Comprehension, Quantificat…](https://doi.org/10.1145/3701716.3718485) | 2025 | The Web Conference | [Code](https://github.com/yenanjing/awesome-ai-for-science) |
 | [Generative Design of Functional Metal Complexes Utilizing the Internal Knowledge…](https://doi.org/10.1021/jacs.5c02097) | 2025 | JACS | - |
+| [AutoSciLab: A Self-Driving Laboratory for Interpretable Scientific Discovery](https://doi.org/10.1609/aaai.v39i1.31990) | 2025 | AAAI Conference on Art… | - |
 | [Self-Driving Laboratory for Accelerated On-Surface Synthesis under Ultrahigh Vac…](https://doi.org/10.1021/acs.nanolett.5c02445) | 2025 | Nano Letters | - |
 | [A Self-Driving Lab for Nano- and Advanced Materials Synthesis](https://doi.org/10.1021/acsnano.4c17504) | 2025 | ACS Nano | - |
 | [Flow-driven data intensification to accelerate autonomous inorganic materials di…](https://doi.org/10.1038/s44286-025-00249-z) | 2025 | Nat. Chem. Eng. | - |
@@ -35,18 +37,16 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [Autonomous multi-robot synthesis and optimization of metal halide perovskite nan…](https://doi.org/10.1038/s41467-025-63209-4) | 2025 | Nat. Commun. | - |
 | [Evaluating large language model agents for automation of atomic force microscopy](https://doi.org/10.1038/s41467-025-64105-7) | 2025 | Nat. Commun. | - |
 | [Accelerating aqueous electrolyte design with automated full-cell battery experim…](https://doi.org/10.1016/j.xcrp.2025.102548) | 2025 | Cell Rep. Phys. Sci. | - |
-| [Large language models to accelerate organic chemistry synthesis](https://arxiv.org/abs/2504.18340) | 2025 | Nat. Mach. Intell. | - |
-| [SciToolAgent: a knowledge-graph-driven scientific agent for multitool integratio…](https://arxiv.org/abs/2507.20280) | 2025 | Nat. Comput. Sci. | [Code](https://github.com/hicai-zju/scitoolagent) |
 
 #### Reviews & Surveys
 
 | Title | Year | Venue | Citations |
 | --- | --- | --- | ---: |
-| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 442 |
+| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 447 |
 | [Materials learning from life: concepts for active, adaptive and autonomous molec…](https://doi.org/10.1039/c6cs00738d) | 2017 | Chemical Society Revie… | 256 |
 | [Synthetic organic chemistry driven by artificial intelligence](https://www.nature.com/articles/s41570-019-0124-0.pdf) | 2019 | Nat. Rev. Chem. | 231 |
 | [Materials Informatics: Emergence to Autonomous Discovery in the Age of AI.](https://arxiv.org/abs/2601.00742) | 2026 | Adv. Mater. | 8 |
-| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 86 |
+| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 89 |
 | [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 60 |
 
 ### Recent Highlights (last 90 days)
@@ -80,11 +80,11 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 | Title | Date | Source | Citations |
 | --- | --- | --- | ---: |
-| [Bridging data and discovery: a survey on knowledge graphs in AI for science](https://doi.org/10.1093/nsr/nwag140) | 2026-03-05 | semantic_scholar | 3 |
 | [Accelerating Discovery of Organic Molecular Crystals via Materials Informatics a…](https://doi.org/10.1002/aidi.70124) | 2026-04-27 | semantic_scholar | 0 |
-| [Machine Learning‐Driven R&D of Perovskites and Spinels: From Traditional Models …](https://doi.org/10.1002/smtd.202502228) | 2026-03-04 | semantic_scholar | 0 |
 | [Artificial Intelligence in Chemistry: A Comprehensive Review of Methods, Applica…](https://doi.org/10.62643/ijerst.2026.v22.i1(s).2074) | 2026-03-21 | semantic_scholar | 0 |
 | [AUTONOMOUS POLYMER MATERIALS DISCOVERY: ARTIFICIAL INTELLIGENCE ARCHITECTURES FO…](https://doi.org/10.36868/ejmse.2026.11.01.003) | 2026-03-20 | semantic_scholar | 0 |
 | [Overcoming Roadblocks for Implementing AI/ML Methods for Materials Advancement](https://doi.org/10.1146/annurev-matsci-072924-102951) | 2026-04-06 | semantic_scholar | 0 |
+| [A Comprehensive Review of Large Language Models and Agentic AI Systems for Chemi…](https://doi.org/10.26434/chemrxiv.15001659/v1) | 2026-04-06 | chemrxiv | — |
+| [Recent Advances and Perspectives of Artificial Intelligence in the Discovery of …](https://doi.org/10.26434/chemrxiv.15001219/v1) | 2026-03-25 | chemrxiv | — |
 
 <!-- PAPERS_END -->

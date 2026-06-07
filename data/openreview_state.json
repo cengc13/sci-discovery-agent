@@ -18,5 +18,10 @@
     "completed": true,
     "papers_found": 0,
     "completed_at": "2026-05-22"
+  },
+  "ICML.cc/2025/Conference": {
+    "completed": true,
+    "papers_found": 1063,
+    "completed_at": "2026-06-07"
   }
 }
