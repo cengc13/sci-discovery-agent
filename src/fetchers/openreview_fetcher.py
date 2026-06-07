@@ -28,9 +28,10 @@ _CONFERENCES = ('ICLR', 'NeurIPS', 'ICML')
 
 
 def _target_venues() -> list[tuple[str, str, int]]:
+    # Start from prior year — current-year conferences may not yet have published.
     current_year = date.today().year
     venues: list[tuple[str, str, int]] = []
-    for year in range(current_year, current_year - 3, -1):
+    for year in range(current_year - 1, current_year - 3, -1):
         for conf in _CONFERENCES:
             venues.append((f'{conf}.cc/{year}/Conference', f'{conf} {year}', year))
     return venues
@@ -158,6 +159,9 @@ class OpenReviewFetcher:
                     time.sleep(wait)
                     backoff = min(backoff * 2, 120)
                     continue
+                if r.status_code in (404, 410):
+                    # Venue doesn't exist — cache as empty so it isn't retried every run
+                    return []
                 r.raise_for_status()
                 return r.json().get('notes', [])
             except requests.HTTPError as e:
