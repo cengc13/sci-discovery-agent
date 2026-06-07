@@ -3,7 +3,20 @@ name: Update papers
 on:
   schedule:
     - cron: '0 6 * * 1'   # every Monday 06:00 UTC
-  workflow_dispatch:        # manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      fetch_seminal:
+        description: 'Run the extra Semantic Scholar seminal search'
+        type: boolean
+        default: false
+      enrich_code:
+        description: 'Run arXiv/GitHub code enrichment'
+        type: boolean
+        default: false
+      enrich_llm:
+        description: 'Run LLM-based paper classification'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -44,12 +57,18 @@ jobs:
           CROSSREF_EMAIL: ${{ secrets.CROSSREF_EMAIL }}
           GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          FETCH_SEMINAL: ${{ github.event_name == 'workflow_dispatch' && inputs.fetch_seminal && 'true' || 'false' }}
+          ENRICH_CODE: ${{ github.event_name == 'workflow_dispatch' && inputs.enrich_code && 'true' || 'false' }}
+          ENRICH_LLM: ${{ github.event_name == 'workflow_dispatch' && inputs.enrich_llm && 'true' || 'false' }}
         run: |
+          EXTRA_FLAGS="--no-fetch-seminal"
+          [ "$FETCH_SEMINAL" = "true" ] && EXTRA_FLAGS="$EXTRA_FLAGS --fetch-seminal"
+          [ "$ENRICH_CODE" = "true" ] && EXTRA_FLAGS="$EXTRA_FLAGS --enrich-code"
+          [ "$ENRICH_LLM" = "true" ] && EXTRA_FLAGS="$EXTRA_FLAGS --enrich-llm"
           python fetch_papers.py \
             --days 90 \
             --top-n 20 \
-            --enrich-code \
-            --enrich-llm \
+            $EXTRA_FLAGS \
             --update-readme
 
       - name: Commit changes
