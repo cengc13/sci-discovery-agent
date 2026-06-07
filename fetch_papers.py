@@ -107,6 +107,30 @@ def _extract_code_urls(papers: list) -> int:
     return count
 
 
+def _merge_paper_metadata(dst, src) -> None:
+    """Copy missing metadata from src into dst and keep the strongest signals."""
+    if (src.citation_count or 0) > (dst.citation_count or 0):
+        dst.citation_count = src.citation_count
+    if not dst.venue and src.venue:
+        dst.venue = src.venue
+    if not dst.url and src.url:
+        dst.url = src.url
+    if not dst.code_url and src.code_url:
+        dst.code_url = src.code_url
+    if dst.paper_type is None and src.paper_type is not None:
+        dst.paper_type = src.paper_type
+    if dst.llm_on_topic is None and src.llm_on_topic is not None:
+        dst.llm_on_topic = src.llm_on_topic
+    if not dst.venue_llm and src.venue_llm:
+        dst.venue_llm = src.venue_llm
+    if src.domains:
+        dst.domains = list(dict.fromkeys(dst.domains + src.domains))
+    if not dst.abstract and src.abstract:
+        dst.abstract = src.abstract
+    if not dst.authors and src.authors:
+        dst.authors = src.authors
+
+
 _STOPWORDS = {
     'a', 'an', 'the', 'of', 'for', 'in', 'on', 'to', 'and', 'or', 'with',
     'via', 'from', 'by', 'at', 'as', 'is', 'are', 'we', 'our', 'this',
@@ -321,12 +345,7 @@ def merge(existing: list, new_papers: list) -> list:
             existing_paper = pubmed_map[p.pubmed_id]
 
         if existing_paper is not None:
-            if (p.citation_count or 0) > (existing_paper.citation_count or 0):
-                existing_paper.citation_count = p.citation_count
-            if not existing_paper.venue and p.venue:
-                existing_paper.venue = p.venue
-            if not existing_paper.url and p.url:
-                existing_paper.url = p.url
+            _merge_paper_metadata(existing_paper, p)
             continue
 
         # Fall back to title-based dedup
@@ -344,12 +363,7 @@ def merge(existing: list, new_papers: list) -> list:
         else:
             # Title match: prefer higher citation count, fill missing fields
             prev = title_map[k]
-            if (p.citation_count or 0) > (prev.citation_count or 0):
-                prev.citation_count = p.citation_count
-            if not prev.venue and p.venue:
-                prev.venue = p.venue
-            if not prev.url and p.url:
-                prev.url = p.url
+            _merge_paper_metadata(prev, p)
 
     logger.info(f"Merged {added} new; {len(existing)} unique total")
     return existing
@@ -366,7 +380,7 @@ def merge(existing: list, new_papers: list) -> list:
               help='Output file (use - for stdout)')
 @click.option('--update-readme', is_flag=True,
               help='Inject the block into README.md between <!-- PAPERS_START/END --> markers')
-@click.option('--fetch-seminal', is_flag=True, default=True, show_default=True,
+@click.option('--fetch-seminal/--no-fetch-seminal', default=True, show_default=True,
               help='Also query Semantic Scholar without a date filter to surface high-citation papers')
 @click.option('--no-fetch', is_flag=True,
               help='Skip fetching; just re-render from the cached data/papers.json')
@@ -375,7 +389,7 @@ def merge(existing: list, new_papers: list) -> list:
 @click.option('--enrich-code/--no-enrich-code', default=False, show_default=True,
               help='Fetch arXiv HTML to find GitHub links in Data/Code Availability sections')
 @click.option('--source', multiple=True, metavar='NAME',
-              help='Restrict fetch to: arxiv, semantic_scholar, pubmed, biorxiv (repeatable)')
+              help='Restrict fetch to: arxiv, semantic_scholar, pubmed, chemrxiv/biorxiv (repeatable)')
 @click.option('--enrich-llm/--no-enrich-llm', default=False, show_default=True,
               help='Use Gemini Flash to classify paper type and verify on-topic status')
 @click.option('--llm-force', is_flag=True,
@@ -390,7 +404,8 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
 
     cfg = yaml.safe_load(open(config))
     sources_cfg = cfg.get('sources', {})
-    active = set(source) if source else {'arxiv', 'semantic_scholar', 'chemrxiv', 'openreview'}
+    source_aliases = {'biorxiv': 'chemrxiv', 'chemrxiv': 'chemrxiv'}
+    active = {source_aliases.get(s, s) for s in source} if source else {'arxiv', 'semantic_scholar', 'chemrxiv', 'openreview'}
 
     cached = load_cache()
 
@@ -402,10 +417,11 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
 
         until_date = date.today()
         since_date = until_date - timedelta(days=days)
+        chemrxiv_cfg = sources_cfg.get('chemrxiv', sources_cfg.get('biorxiv', {}))
         fetcher_map = [
             ('arxiv',            'arXiv',      ArxivFetcher,           sources_cfg.get('arxiv', {})),
             ('semantic_scholar', 'Semantic Scholar', SemanticScholarFetcher, sources_cfg.get('semantic_scholar', {})),
-            ('chemrxiv',         'chemRxiv',   BiorxivFetcher,         sources_cfg.get('chemrxiv', {})),
+            ('chemrxiv',         'chemRxiv',   BiorxivFetcher,         chemrxiv_cfg),
             ('openreview',       'OpenReview', OpenReviewFetcher,      sources_cfg.get('openreview', {})),
         ]
         new_papers = []

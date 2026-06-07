@@ -23,13 +23,17 @@ _DOMAIN_KEYWORDS = {
     'biology': ['biology', 'protein', 'drug', 'cell', 'gene', 'biolog', 'biochem', 'enzyme', 'genomic'],
 }
 
-# Static conferences: once fully scanned they never change, so we skip on subsequent runs.
-_TARGET_VENUES = [
-    ('ICLR.cc/2025/Conference', 'ICLR 2025', 2025),
-    ('ICLR.cc/2024/Conference', 'ICLR 2024', 2024),
-    ('NeurIPS.cc/2024/Conference', 'NeurIPS 2024', 2024),
-    ('ICML.cc/2024/Conference', 'ICML 2024', 2024),
-]
+# Scan the current and recent conference seasons so new years do not go stale.
+_CONFERENCES = ('ICLR', 'NeurIPS', 'ICML')
+
+
+def _target_venues() -> list[tuple[str, str, int]]:
+    current_year = date.today().year
+    venues: list[tuple[str, str, int]] = []
+    for year in range(current_year, current_year - 3, -1):
+        for conf in _CONFERENCES:
+            venues.append((f'{conf}.cc/{year}/Conference', f'{conf} {year}', year))
+    return venues
 
 
 def _jitter(base: float, frac: float = 0.2) -> float:
@@ -77,7 +81,7 @@ class OpenReviewFetcher:
         papers: list[Paper] = []
         seen: set[str] = set()
 
-        for i, (venueid, venue_name, year) in enumerate(_TARGET_VENUES):
+        for i, (venueid, venue_name, year) in enumerate(_target_venues()):
             if not self.force_rescan and state.get(venueid, {}).get('completed'):
                 logger.info(f'OpenReview: {venue_name} already scanned — skipping '
                             f'(found {state[venueid].get("papers_found", "?")} papers on '
