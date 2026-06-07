@@ -139,8 +139,8 @@ class OpenReviewFetcher:
                 return found, True
             time.sleep(_jitter(self.delay))
 
-        # Hit max_per_venue cap before exhausting the venue
-        return found, False
+        # Hit max_per_venue cap — mark complete so we don't rescan every run
+        return found, True
 
     def _fetch_batch(self, venueid: str, limit: int, offset: int) -> list[dict] | None:
         """Return notes list, empty list on legitimate end-of-results, or None on fetch failure."""

@@ -56,7 +56,7 @@ class ArxivFetcher:
             logger.error("arxiv package not installed. Run: pip install arxiv")
             return []
 
-        client = arxiv.Client(page_size=50, delay_seconds=3, num_retries=3)
+        client = arxiv.Client(page_size=100, delay_seconds=1, num_retries=3)
         seen_ids: set[str] = set()
         papers: list[Paper] = []
 
