@@ -9,7 +9,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 
 <!-- PAPERS_START -->
 
-*Auto-updated 2026-06-07 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
+*Auto-updated 2026-06-08 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
 ### Top Papers (cited, ordered by recency)
 
@@ -64,7 +64,6 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [From Data to Theory: Autonomous Large Language Model Agents for Materials Scienc…](https://arxiv.org/abs/2604.19789) | 2026-04-01 | semantic_scholar | [Code](https://github.com/samoalfred/LLM-based-Agent) |
 | [Epistemic Closure: Autonomous Mechanism Completion for Physically Consistent Sim…](https://arxiv.org/abs/2603.09756) | 2026-03-10 | semantic_scholar | [Code](https://github.com/shuWuYue123/Neuro-Symbolic-Auto-Coupling) |
 | [Logos: An evolvable reasoning engine for rational molecular design](https://arxiv.org/abs/2603.09268) | 2026-03-10 | semantic_scholar | - |
-| [Human-Aware Robot Behaviour in Self-Driving Labs](https://arxiv.org/abs/2603.08420) | 2026-03-09 | semantic_scholar | - |
 | [MatClaw: An Autonomous Code-First LLM Agent for End-to-End Materials Exploration](http://arxiv.org/abs/2604.02688v2) | 2026-04-03 | arxiv | [Code](https://github.com/cz2014/MatClaw) |
 | [OpenQlaw: An Agentic AI Assistant for Analysis of 2D Quantum Materials](http://arxiv.org/abs/2603.17043v1) | 2026-03-17 | arxiv | [Code](https://github.com/HKUDS/nanobot) |
 | [Agentic LLM Reasoning in a Self-Driving Laboratory for Air-Sensitive Lithium Hal…](http://arxiv.org/abs/2604.11957v1) | 2026-04-13 | arxiv | - |
@@ -75,6 +74,7 @@ Classification (article vs. review), on-topic filtering, and venue normalisation
 | [Multi-Agent Collaboration for Automated Design Exploration on High Performance C…](https://arxiv.org/abs/2603.11515) | 2026-03-12 | semantic_scholar | [Code](https://github.com/CEED/Laghos) |
 | [Smart Exploration of Perovskite Photovoltaics: From AI Driven Discovery to Auton…](https://doi.org/10.1002/aenm.202506803) | 2026-03-27 | semantic_scholar | - |
 | [LLM-Guided Open Hypothesis Learning from Autonomous Scanning Probe Microscopy Ex…](https://arxiv.org/abs/2605.06839) | 2026-05-07 | semantic_scholar | [Code](https://github.com/Slautin/2026_domain_growth_hypothesis_learning) |
+| [Solving the inverse problem of X-ray absorption spectroscopy via physics-informe…](https://arxiv.org/abs/2603.27684) | 2026-03-29 | semantic_scholar | [Code](https://github.com/zsy-suyang/SPT) |
 
 #### Reviews & Surveys
 
