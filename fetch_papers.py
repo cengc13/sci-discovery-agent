@@ -83,8 +83,28 @@ def save_cache(papers: list):
 
 
 _CODE_URL_BLOCKLIST = {
-    # arXiv's own "report missing HTML" link — appears on every HTML-unavailable page
-    'github.com/arxiv/html_feedback',
+    # arXiv infrastructure links present on every HTML page (feedback form, the
+    # LaTeXML renderer attribution) — never the paper's own code
+    'github.com/arxiv/html_feedback', 'github.com/arxiv/',
+    'github.com/brucemiller/latexml',
+    # Pure-framework orgs — only host libraries/tooling, never a paper's own repo
+    'github.com/pytorch/', 'github.com/tensorflow/', 'github.com/keras-team/',
+    'github.com/huggingface/', 'github.com/langchain-ai/', 'github.com/meta-llama/',
+    'github.com/scikit-learn/', 'github.com/numpy/', 'github.com/scipy/',
+    'github.com/pandas-dev/', 'github.com/matplotlib/', 'github.com/jupyter/',
+    # Specific framework/example repos inside orgs that ALSO publish paper code
+    # (so the org itself is not blocked — only these dependency repos are)
+    'github.com/openai/swarm', 'github.com/openai/openai-python',
+    'github.com/openai/openai-cookbook', 'github.com/openai/gym',
+    'github.com/openai/baselines',
+}
+
+# GitHub paths that are site features, not user repositories.
+_GH_RESERVED = {
+    'features', 'about', 'search', 'topics', 'sponsors', 'collections',
+    'marketplace', 'login', 'join', 'settings', 'notifications', 'explore',
+    'trending', 'orgs', 'pricing', 'readme', 'site', 'security', 'apps',
+    'contact', 'enterprise', 'customer-stories', 'pulls', 'issues',
 }
 
 
@@ -92,20 +112,57 @@ def _is_blocked_code_url(url: str) -> bool:
     return any(b in url.lower() for b in _CODE_URL_BLOCKLIST)
 
 
+def _normalize_repo_url(url: str) -> str | None:
+    """Canonicalise a GitHub link to ``https://github.com/{owner}/{repo}``.
+
+    Trims sub-paths (blob/tree/...), trailing junk and ``.git``; rejects
+    owner-only links, reserved site paths and blocklisted dependency repos.
+    """
+    m = re.search(r'github\.com/([A-Za-z0-9._-]+)/([A-Za-z0-9._-]+)', url)
+    if not m:
+        return None
+    owner, repo = m.group(1), m.group(2)
+    repo = re.sub(r'\.git$', '', repo).rstrip('.,;:)"\'')
+    if not repo or owner.lower() in _GH_RESERVED:
+        return None
+    canonical = f'https://github.com/{owner}/{repo}'
+    return None if _is_blocked_code_url(canonical) else canonical
+
+
+def _extract_github_repos(text: str) -> list[str]:
+    """All normalised, de-duplicated GitHub repo URLs in ``text`` (in order)."""
+    seen, out = set(), []
+    for m in re.finditer(r'https?://github\.com/[\w.\-]+/[\w.\-]+[^\s\)>\]"<]*', text or ''):
+        repo = _normalize_repo_url(m.group(0))
+        if repo and repo.lower() not in seen:
+            seen.add(repo.lower())
+            out.append(repo)
+    return out
+
+
+def _best_repo_for(paper, repos: list[str]) -> str | None:
+    """Pick the repo most likely to belong to ``paper``: prefer one whose name
+    matches the paper's tool name, else the most frequently linked, else first."""
+    if not repos:
+        return None
+    tool = (_extract_tool_name(paper.title, paper.abstract or '') or '').lower()
+    if tool:
+        for r in repos:
+            if r.rsplit('/', 1)[-1].lower() == tool or tool in r.rsplit('/', 1)[-1].lower():
+                return r
+    return repos[0]
+
+
 def _extract_code_urls(papers: list) -> int:
     """Backfill code_url from GitHub links found in paper abstracts."""
-    import re
-    gh_pat = re.compile(r'https?://github\.com/[\w\-][^/\s\)>\]]+/[\w\-][^\s\)>\]]*')
     count = 0
     for p in papers:
         if p.code_url:
             continue
-        m = gh_pat.search(p.abstract or '')
-        if m:
-            url = m.group(0).rstrip('.,;:)')
-            if not _is_blocked_code_url(url):
-                p.code_url = url
-                count += 1
+        repo = _best_repo_for(p, _extract_github_repos(p.abstract or ''))
+        if repo:
+            p.code_url = repo
+            count += 1
     return count
 
 
@@ -197,104 +254,128 @@ def _enrich_code_urls_github(papers: list, github_token: str | None = None,
     if github_token:
         headers['Authorization'] = f'Bearer {github_token}'
 
+    def _search(query: str) -> list:
+        try:
+            r = requests.get('https://api.github.com/search/repositories',
+                             params={'q': query, 'sort': 'stars', 'per_page': 20},
+                             headers=headers, timeout=10)
+            if r.status_code in (403, 429):
+                return ['RATE_LIMIT']
+            r.raise_for_status()
+            return r.json().get('items', [])
+        except Exception as e:
+            logger.debug(f"GitHub search failed for '{query}': {e}")
+            return []
+
     count = 0
     for p in candidates:
         tool = _extract_tool_name(p.title, p.abstract or '')
-        if not tool:
-            continue
-
         keywords = _title_keywords(p.title)
-        query = f'{tool} in:name,description {" ".join(keywords[:3])}'
+        # Tool-name query when available; always a keyword-only query so that
+        # descriptive-title papers (no acronym) still get candidates.
+        queries = []
+        if tool:
+            queries.append(f'{tool} in:name,description {" ".join(keywords[:3])}')
+        if keywords:
+            queries.append(f'{" ".join(keywords[:4])} in:name,description,readme')
 
-        try:
-            r = requests.get('https://api.github.com/search/repositories',
-                             params={'q': query, 'sort': 'updated', 'per_page': 30},
-                             headers=headers, timeout=10)
-            if r.status_code == 403 or r.status_code == 429:
-                logger.warning('GitHub search rate-limited; stopping early')
+        items: list = []
+        rate_limited = False
+        for q in queries:
+            res = _search(q)
+            if res == ['RATE_LIMIT']:
+                rate_limited = True
                 break
-            r.raise_for_status()
-            items = r.json().get('items', [])
-        except Exception as e:
-            logger.debug(f"GitHub search failed for '{query}': {e}")
-            time.sleep(delay)
+            items.extend(res)
+            time.sleep(delay * (1 + random.uniform(-0.15, 0.15)))
+        if rate_limited:
+            logger.warning('GitHub search rate-limited; stopping early')
+            break
+        if not items:
             continue
 
-        paper_kws = set(_title_keywords(p.title))
+        paper_kws = set(keywords)
         best_score, best_repo = 0, None
         for repo in items:
-            repo_name = repo.get('name', '').lower()
+            repo_name = (repo.get('name') or '').lower()
             repo_text = ' '.join(filter(None, [
                 repo_name, repo.get('description') or '',
                 ' '.join(repo.get('topics') or []),
             ])).lower()
-            exact_name = repo_name == tool.lower()
-            tool_hit   = tool.lower() in repo_text
+            exact_name = bool(tool) and repo_name == tool.lower()
+            tool_hit   = bool(tool) and tool.lower() in repo_text
             kw_hits    = sum(1 for kw in paper_kws if kw in repo_text)
-            # Score: exact name match = 4, tool anywhere = 2, each keyword = 1
             score = (4 if exact_name else 2 if tool_hit else 0) + kw_hits
             if score > best_score:
                 best_score, best_repo = score, repo
-        # Accept: exact name + any keyword (score≥5), or strong keyword overlap (score≥4)
-        if best_repo and best_score >= 4:
-            if llm_api_key:
-                from src.llm_enricher import verify_code_url
-                if not verify_code_url(llm_api_key, llm_model,
-                                       p.title, p.abstract or '', best_repo):
-                    logger.info(f"  LLM rejected match (score={best_score}): "
-                                f"{p.title[:45]} → {best_repo['html_url']}")
-                    jitter = delay * (1 + random.uniform(-0.15, 0.15))
-                    time.sleep(jitter)
-                    continue
-            p.code_url = best_repo['html_url']
+
+        # A strong tool-name match (>=4) can stand on keyword evidence alone;
+        # weaker/keyword-only matches must be confirmed by the LLM. With no LLM
+        # key available, only the strong tool-name matches are accepted.
+        if not best_repo or best_score < 2:
+            continue
+        strong = best_score >= 4
+        if llm_api_key:
+            from src.llm_enricher import verify_code_url
+            if not verify_code_url(llm_api_key, llm_model,
+                                   p.title, p.abstract or '', best_repo):
+                logger.info(f"  LLM rejected match (score={best_score}): "
+                            f"{p.title[:45]} → {best_repo['html_url']}")
+                time.sleep(delay * (1 + random.uniform(-0.15, 0.15)))
+                continue
+        elif not strong:
+            continue
+
+        repo_url = _normalize_repo_url(best_repo['html_url'])
+        if repo_url:
+            p.code_url = repo_url
             count += 1
             logger.info(f"  GitHub match (score={best_score}): {p.title[:50]} → {p.code_url}")
-
-        jitter = delay * (1 + random.uniform(-0.15, 0.15))
-        time.sleep(jitter)
+        time.sleep(delay * (1 + random.uniform(-0.15, 0.15)))
 
     return count
 
 
 def _enrich_code_urls_arxiv(papers: list, delay: float = 2.0) -> int:
-    """Fetch arXiv HTML for papers missing code_url and search for GitHub links.
+    """Fetch arXiv pages for papers missing code_url and search for GitHub links.
 
-    Targets the Data/Code Availability sections that aren't in the abstract.
-    Only attempts papers with an arxiv_id; skips if HTML version doesn't exist.
+    Reads the full-text HTML (``/html/{id}``), falling back to the abstract page
+    (``/abs/{id}``, which carries the author "Comments" field), collects *all*
+    repo links and picks the one most likely to be the paper's own.
+    Only attempts papers with an arxiv_id.
     """
-    import re
     import time
     import random
     import requests
 
-    gh_pat = re.compile(r'https?://github\.com/[\w\-][^/\s\)>\]"<]+/[\w\-][^\s\)>\]"<]*')
     candidates = [p for p in papers if p.arxiv_id and not p.code_url]
-    logger.info(f"arXiv HTML code enrichment: {len(candidates)} candidates")
+    logger.info(f"arXiv code enrichment: {len(candidates)} candidates")
     count = 0
+    headers = {'User-Agent': 'paper-fetcher/1.0 (code-enrichment)'}
 
     for p in candidates:
         arxiv_id = re.sub(r'v\d+$', '', p.arxiv_id)
-        url = f'https://arxiv.org/html/{arxiv_id}'
-        try:
-            r = requests.get(url, timeout=15,
-                             headers={'User-Agent': 'paper-fetcher/1.0 (code-enrichment)'})
-            if r.status_code == 404:
-                continue
-            if r.status_code == 429:
-                logger.warning("arXiv HTML rate-limited; stopping code enrichment early")
-                break
-            r.raise_for_status()
-            m = gh_pat.search(r.text)
-            if m:
-                url = m.group(0).rstrip('.,;:)"\'')
-                if not _is_blocked_code_url(url):
-                    p.code_url = url
-                    count += 1
-                    logger.info(f"  found code: {p.title[:60]} → {p.code_url}")
-        except Exception as e:
-            logger.debug(f"arXiv HTML fetch failed for {arxiv_id}: {e}")
-        jitter = delay * (1 + random.uniform(-0.2, 0.2))
-        time.sleep(jitter)
+        repos: list[str] = []
+        for page in (f'https://arxiv.org/html/{arxiv_id}', f'https://arxiv.org/abs/{arxiv_id}'):
+            try:
+                r = requests.get(page, timeout=15, headers=headers)
+                if r.status_code == 429:
+                    logger.warning("arXiv rate-limited; stopping code enrichment early")
+                    return count
+                if r.status_code == 404 or not r.ok:
+                    continue
+                repos = _extract_github_repos(r.text)
+                if repos:
+                    break
+            except Exception as e:
+                logger.debug(f"arXiv fetch failed for {arxiv_id} ({page}): {e}")
+            time.sleep(delay * (1 + random.uniform(-0.2, 0.2)))
+        repo = _best_repo_for(p, repos)
+        if repo:
+            p.code_url = repo
+            count += 1
+            logger.info(f"  found code: {p.title[:60]} → {p.code_url}")
+        time.sleep(delay * (1 + random.uniform(-0.2, 0.2)))
 
     return count
 
