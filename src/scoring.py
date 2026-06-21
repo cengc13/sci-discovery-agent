@@ -143,6 +143,9 @@ _PREDATORY_VENUE_TERMS = [
     'journal of information systems engineering',
     'international journal of innovative research',
     'universal library of innovative research',
+    # Meeting-abstract collections (extended abstracts, not full papers)
+    'meeting abstracts',
+    'meeting abstract',
 ]
 # Predatory-publisher DOI prefixes (registrant codes).
 _PREDATORY_DOI_PREFIXES = (
