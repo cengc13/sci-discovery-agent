@@ -108,6 +108,25 @@ _GH_RESERVED = {
 }
 
 
+# Manual code-link overrides for papers the automatic search gets wrong or can't
+# find. Keyed by Paper.uid → canonical repo URL. Enforced on every run.
+_CODE_OVERRIDES = {
+    # Coscientist (Boiko/Gomes, Nature 2023) — keyword search mis-matched Robochem
+    'doi:10.1038/s41586-023-06792-0': 'https://github.com/gomesgroup/coscientist',
+}
+
+
+def _apply_code_overrides(papers: list) -> int:
+    """Force manual code-link overrides, replacing any wrong auto-detected link."""
+    count = 0
+    for p in papers:
+        want = _CODE_OVERRIDES.get(p.uid)
+        if want and p.code_url != want:
+            p.code_url = want
+            count += 1
+    return count
+
+
 def _is_blocked_code_url(url: str) -> bool:
     return any(b in url.lower() for b in _CODE_URL_BLOCKLIST)
 
@@ -306,7 +325,7 @@ def _enrich_code_urls_github(papers: list, github_token: str | None = None,
             continue
 
         paper_kws = set(keywords)
-        best_score, best_repo = 0, None
+        best_score, best_repo, best_is_tool = 0, None, False
         for repo in items:
             repo_name = (repo.get('name') or '').lower()
             repo_text = ' '.join(filter(None, [
@@ -318,13 +337,20 @@ def _enrich_code_urls_github(papers: list, github_token: str | None = None,
             kw_hits    = sum(1 for kw in paper_kws if kw in repo_text)
             score = (4 if exact_name else 2 if tool_hit else 0) + kw_hits
             if score > best_score:
-                best_score, best_repo = score, repo
+                best_score, best_repo, best_is_tool = score, repo, (exact_name or tool_hit)
 
-        # A strong tool-name match (>=4) can stand on keyword evidence alone;
-        # weaker/keyword-only matches must be confirmed by the LLM. With no LLM
-        # key available, only the strong tool-name matches are accepted.
         if not best_repo or best_score < 2:
             continue
+        # Keyword-only matches (no tool-name hit) are the false-positive risk: a
+        # topical query can surface an unrelated repo the LLM still rubber-stamps.
+        # Require a *distinctive* paper token (len>=5) in the repo NAME — not just
+        # its description — before such a match is even considered.
+        if not best_is_tool:
+            best_name = (best_repo.get('name') or '').lower()
+            if not any(kw in best_name for kw in paper_kws if len(kw) >= 5):
+                continue
+        # A strong tool-name match (>=4) can stand on keyword evidence alone;
+        # everything else must be confirmed by the LLM (or skipped without a key).
         strong = best_score >= 4
         if llm_api_key:
             from src.llm_enricher import verify_code_url
@@ -514,6 +540,10 @@ def main(days, top_n, config, output, update_readme, fetch_seminal, no_fetch, en
     active = {source_aliases.get(s, s) for s in source} if source else {'arxiv', 'semantic_scholar', 'chemrxiv', 'openreview'}
 
     cached = load_cache()
+
+    # Enforce manual code-link overrides every run, regardless of flags.
+    if _apply_code_overrides(cached):
+        save_cache(cached)
 
     if not no_fetch:
         from src.fetchers.arxiv_fetcher import ArxivFetcher

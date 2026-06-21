@@ -41,7 +41,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On …](https://doi.org/10.1021/jacs.4c17738) | 2025-03-08 | JACS | - |
 | [Real-time experiment-theory closed-loop interaction for autonomous materials sci…](https://arxiv.org/abs/2410.17430) | 2024-10-22 | Sci. Adv. | - |
 | [Autonomous, multiproperty-driven molecular discovery: From predictions to measur…](https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/6435f8c5a41dec1a56e64577/original/autonomous-multi-property-driven-molecular-discovery-from-predictions-to-measurements-and-back.pdf) | 2023-12-22 | Science | - |
-| [Autonomous chemical research with large language models](https://www.nature.com/articles/s41586-023-06792-0.pdf) | 2023-12-01 | Nature | [Code](https://github.com/Noel-Research-Group/Robochem_Flex) |
+| [Autonomous chemical research with large language models](https://www.nature.com/articles/s41586-023-06792-0.pdf) | 2023-12-01 | Nature | [Code](https://github.com/gomesgroup/coscientist) |
 | [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s44286-023-00002-4.pdf) | 2023-05-20 | bioRxiv | - |
 | [AlphaFlow: autonomous discovery and optimization of multi-step chemistry using a…](https://www.nature.com/articles/s41467-023-37139-y.pdf) | 2023-03-14 | Nat. Commun. | - |
 | [On-the-fly Closed-loop Autonomous Materials Discovery via Bayesian Active Learni…](https://arxiv.org/abs/2006.06141) | 2020-06-11 | arXiv | - |
