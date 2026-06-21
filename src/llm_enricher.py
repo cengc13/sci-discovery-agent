@@ -153,15 +153,18 @@ def enrich_papers_llm(papers: list, api_key: str, model: str = DEFAULT_MODEL,
 
 
 _VERIFY_PROMPT = """\
-Does the GitHub repository below contain the code released for this paper?
-Answer with a single word — "yes" or "no".
+Is this GitHub repository plausibly the official code release for the paper?
+Answer "yes" if the repository name matches the paper's system/method name, OR \
+the description/README describes the same method. Answer "no" only if it is \
+clearly about something unrelated. Reply with a single word — "yes" or "no".
 
 Paper: {title}
 Abstract: {abstract}
 
 Repository: {full_name}
 Description: {description}
-Topics: {topics}"""
+Topics: {topics}
+README (excerpt): {readme}"""
 
 
 def verify_code_url(api_key: str, model: str,
@@ -176,6 +179,7 @@ def verify_code_url(api_key: str, model: str,
         full_name=repo.get('full_name', ''),
         description=repo.get('description') or 'none',
         topics=', '.join(repo.get('topics') or []) or 'none',
+        readme=(repo.get('readme') or 'none')[:600],
     )
     try:
         resp = client.chat.completions.create(

@@ -222,6 +222,16 @@ def _extract_tool_name(title: str, abstract: str) -> str | None:
     hy = _HYBRID_PAT.findall(short_title)
     if hy:
         return hy[0]
+    # Fall back to the abstract: "we present/introduce/propose <Name>", but only
+    # accept tool-shaped tokens (acronym/CamelCase/hybrid), not ordinary words.
+    m = re.search(r'\b(?:present|introduce|propose|develop(?:ed)?|call(?:ed)?|'
+                  r'named|dubbed|build|built)\s+([A-Za-z][A-Za-z0-9\-]{2,15})\b',
+                  abstract or '')
+    if m:
+        cand = m.group(1)
+        if (_ACRONYM_PAT.fullmatch(cand) or _CAMEL_PAT.fullmatch(cand)
+                or _HYBRID_PAT.fullmatch(cand)):
+            return cand
     return None
 
 
@@ -271,13 +281,14 @@ def _enrich_code_urls_github(papers: list, github_token: str | None = None,
     for p in candidates:
         tool = _extract_tool_name(p.title, p.abstract or '')
         keywords = _title_keywords(p.title)
-        # Tool-name query when available; always a keyword-only query so that
-        # descriptive-title papers (no acronym) still get candidates.
+        # Match the tool name in the repo NAME (repos rarely repeat title keywords
+        # in their short description, so ANDing keywords there finds nothing).
+        # Keep a keyword fallback for descriptive-title papers with no tool name.
         queries = []
         if tool:
-            queries.append(f'{tool} in:name,description {" ".join(keywords[:3])}')
+            queries.append(f'{tool} in:name')
         if keywords:
-            queries.append(f'{" ".join(keywords[:4])} in:name,description,readme')
+            queries.append(f'{" ".join(keywords[:2])} in:name,description')
 
         items: list = []
         rate_limited = False
@@ -317,6 +328,16 @@ def _enrich_code_urls_github(papers: list, github_token: str | None = None,
         strong = best_score >= 4
         if llm_api_key:
             from src.llm_enricher import verify_code_url
+            # Give the verifier real content: many repos have an empty description.
+            try:
+                rr = requests.get(
+                    f"https://api.github.com/repos/{best_repo['full_name']}/readme",
+                    headers={**headers, 'Accept': 'application/vnd.github.raw+json'},
+                    timeout=10)
+                if rr.ok:
+                    best_repo['readme'] = rr.text[:800]
+            except Exception:
+                pass
             if not verify_code_url(llm_api_key, llm_model,
                                    p.title, p.abstract or '', best_repo):
                 logger.info(f"  LLM rejected match (score={best_score}): "
