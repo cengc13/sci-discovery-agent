@@ -200,6 +200,39 @@ def _adaptive_cap(sorted_items: list, min_n: int, max_n: int) -> list:
     return sorted_items[:n]
 
 
+# Articles at/above this relevance are surfaced regardless of age — landmark and
+# conference work (ICLR/NeurIPS/ICML, whose submission dates fall outside the
+# recency window) would otherwise never appear in the recency-tiebroken ranking.
+EVERGREEN_CUTOFF = 90
+EVERGREEN_N = 10
+
+
+def _evergreen_articles(scored: list, exclude_ids: set, recent_days: int,
+                        cutoff: int = EVERGREEN_CUTOFF, cap: int = EVERGREEN_N) -> list:
+    """High-relevance articles outside the recency window, not already shown.
+
+    Every candidate is tied near the top of the relevance scale, so breaking
+    ties by date alone would bury conference papers (older submission dates)
+    behind preprints. Instead we round-robin across sources, keeping each
+    source ordered by relevance then recency, so the reserve stays diverse.
+    """
+    pool = [(p, s) for p, s in scored
+            if relevance_value(p) >= cutoff
+            and not is_recent(p, recent_days)
+            and id(p) not in exclude_ids]
+    by_source: dict[str, list] = {}
+    for item in sorted(pool, key=_relevance_key):
+        by_source.setdefault(item[0].source, []).append(item)
+    # Deterministic source order: richest/highest-ranked source first.
+    queues = sorted(by_source.values(), key=lambda q: (_relevance_key(q[0]), -len(q)))
+    result: list = []
+    while len(result) < cap and any(queues):
+        for q in queues:
+            if q and len(result) < cap:
+                result.append(q.pop(0))
+    return result
+
+
 def _top_table_articles(papers: list[tuple]) -> list[str]:
     """Title | Year | Venue | Code."""
     if not papers:
@@ -284,6 +317,8 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
     # Articles: relevance desc → publication date desc, with an adaptive length
     max_n = top_n + 15
     sem_articles = _adaptive_cap(sorted(sem_articles_raw, key=_relevance_key), top_n, max_n)
+    # Evergreen: top-relevance work outside the recency window (incl. conferences)
+    evergreen = _evergreen_articles(sem_articles_raw, {id(p) for p, _ in sem_articles}, recent_days)
     # Reviews: 3 most cited + 3 most recent
     sem_reviews  = _top6_reviews(sem_reviews_raw)
 
@@ -302,6 +337,9 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
     if sem_articles:
         lines += ['#### Articles', '']
         lines += _top_table_articles(sem_articles)
+    if evergreen:
+        lines += ['', '#### High-Relevance · Earlier Work & Conferences', '']
+        lines += _top_table_articles(evergreen)
     if sem_reviews:
         lines += ['', '#### Reviews & Surveys', '']
         lines += _top_table_reviews(sem_reviews)
@@ -329,8 +367,9 @@ def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 
     recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
 
     max_n = top_n + 15
-    sem_articles = _adaptive_cap(sorted([(p, s) for p, s in scored if not _is_review(p) and is_published(p)],
-                                        key=_relevance_key), top_n, max_n)
+    sem_articles_raw = [(p, s) for p, s in scored if not _is_review(p) and is_published(p)]
+    sem_articles = _adaptive_cap(sorted(sem_articles_raw, key=_relevance_key), top_n, max_n)
+    evergreen = _evergreen_articles(sem_articles_raw, {id(p) for p, _ in sem_articles}, recent_days)
     sem_reviews  = _top6_reviews([(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5])
     rec_articles = _adaptive_cap(sorted([(p, s) for p, s in recent_all if not _is_review(p)],
                                         key=_relevance_key), top_n, max_n)
@@ -339,7 +378,7 @@ def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 
 
     seen: set[int] = set()
     result: list[Paper] = []
-    for p, _ in sem_articles + sem_reviews + rec_articles + rec_reviews:
+    for p, _ in sem_articles + evergreen + sem_reviews + rec_articles + rec_reviews:
         if id(p) not in seen:
             seen.add(id(p))
             result.append(p)

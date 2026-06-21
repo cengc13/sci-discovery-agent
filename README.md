@@ -53,6 +53,21 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Nikolas: Autonomous Discovery of Novel EGFR Kinase Inhibitors via the PRISM Meta…](https://doi.org/10.26434/chemrxiv.15000704/v1) | 2026 | chemRxiv | - |
 | [Democratising real-world drug discovery through agentic AI.](https://pubmed.ncbi.nlm.nih.gov/41548711/) | 2026 | Drug Discovery Today | - |
 
+#### High-Relevance · Earlier Work & Conferences
+
+| Title | Year | Venue | Code |
+| --- | --- | --- | --- |
+| [A Closed-Loop Chemical Reaction Network for Autonomous, Dual-Window Temporal Pro…](https://doi.org/10.1002/anie.202524255) | 2026 | Angew. Chem. | - |
+| [Agentic Retrieval for Bio-Based Recovery of Critical and Near-Critical Minerals](https://doi.org/10.26434/chemrxiv.15000355/v1) | 2026 | chemRxiv | - |
+| [Aligning Transformers with Continuous Feedback via Energy Rank Alignment](https://openreview.net/forum?id=SXxlb1miXS) | 2025 | NeurIPS | - |
+| [Digital materials ecosystem: from databases to AI agents for autonomous discover…](https://doi.org/10.1039/d5sc09229a) | 2026 | Chem. Sci. | - |
+| [A reaction-aware autonomous platform co-optimizing formulation and execution for…](https://doi.org/10.26434/chemrxiv.15000333/v1) | 2026 | chemRxiv | - |
+| [JAMUN: Bridging Smoothed Molecular Dynamics and Score-Based Learning for Conform…](https://openreview.net/forum?id=8Z3KnaYtw9) | 2025 | NeurIPS | [Code](https://github.com/prescient-design/jamun) |
+| [ChemGraph as an agentic framework for computational chemistry workflows](https://doi.org/10.1038/s42004-025-01776-9) | 2026 | Communications Chemist… | [Code](https://github.com/argonne-lcf/ChemGraph) |
+| [Discovery Science with Autonomous ML-Driven Continuous Flow Chemistry](https://doi.org/10.26434/chemrxiv.15000295/v1) | 2026 | chemRxiv | - |
+| [Training a Scientific Reasoning Model for Chemistry](https://openreview.net/forum?id=Mr5Pyb3MLk) | 2025 | NeurIPS | - |
+| [Autonomous AI Agents in Scientific Discovery – How Agentic AI Accelerates Resear…](https://doi.org/10.1109/ICAIQSA67794.2025.11440385) | 2025 | 2025 International Con… | - |
+
 #### Reviews & Surveys
 
 | Title | Year | Venue | Citations |
