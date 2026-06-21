@@ -53,7 +53,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Autonomous Discovery of Multi-Step Reaction Networks for Fe2O3 Reduction: Step-w…](https://doi.org/10.26434/chemrxiv.15004451/v1) | 2026-06-08 | chemRxiv | - |
 | [AutoDFT: A Closed-Loop Multi-Agent Framework for Autonomous DFT Calculations](https://arxiv.org/abs/2605.26179) | 2026-05-25 | arXiv | - |
 | [FlowPilot: A Multi-Agent AI System for Continuous Flow Chemistry Process Design](https://doi.org/10.26434/chemrxiv.15003445/v1) | 2026-05-18 | chemRxiv | - |
-| [Harnessing AtomisticSkills for Agentic Atomistic Research](https://arxiv.org/abs/2605.24002) | 2026-05-18 | arXiv | - |
+| [Harnessing AtomisticSkills for Agentic Atomistic Research](https://arxiv.org/abs/2605.24002) | 2026-05-18 | arXiv | [Code](https://github.com/learningmatter-mit/AtomisticSkills) |
 | [Autonomous Chemistry and Materials Innovation Driven by Scientific Agents](https://doi.org/10.1021/jacsau.6c00213) | 2026-05-08 | JACS Au | - |
 | [Autonomous Computational Catalysis Research via Agentic Systems](https://doi.org/10.26434/chemrxiv.15001654/v1) | 2026-04-06 | chemRxiv | - |
 | [ARES OS 2.0: An Orchestration Software Suite for Autonomous Experimentation Syst…](http://arxiv.org/abs/2604.03440v1) | 2026-04-03 | arXiv | [Code](https://github.com/AFRL-ARES/ARES/releases) |
