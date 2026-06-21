@@ -19,7 +19,6 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | --- | --- | --- | --- |
 | [Autonomous microfluidic experimentation for exploring reaction inference and syn…](https://doi.org/10.1038/s41467-026-72765-2) | 2026 | Nat. Commun. | - |
 | [Bridging electron microscopy and materials analysis with an autonomous agentic p…](https://doi.org/10.1126/sciadv.aed0583) | 2026 | Sci. Adv. | - |
-| [Accelerating Drug Discovery: How Agentic AI and Multi-Agent Collaboration Transf…](https://doi.org/10.52783/jisem.v10i59s.12898) | 2025 | Journal of Information… | - |
 | [Autonomous multi-robot synthesis and optimization of metal halide perovskite nan…](https://doi.org/10.1038/s41467-025-63209-4) | 2025 | Nat. Commun. | - |
 | [A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On …](https://doi.org/10.1021/jacs.4c17738) | 2025 | JACS | - |
 | [Autonomous chemical research with large language models](https://www.nature.com/articles/s41586-023-06792-0.pdf) | 2023 | Nature | - |
@@ -31,7 +30,6 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Smart Dope: A Self‐Driving Fluidic Lab for Accelerated Development of Doped Pero…](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202302303) | 2023 | Advanced Energy Materi… | - |
 | [Large language models for chemistry robotics](https://link.springer.com/content/pdf/10.1007/s10514-023-10136-2.pdf) | 2023 | Autonomous Robots | - |
 | [A Vision-Language Agentic Pipeline for Lead Optimization: Defence-in-Depth Chemi…](https://doi.org/10.26434/chemrxiv.15004729/v1) | 2026 | chemRxiv | - |
-| [Matter - AI A Multimodal AI Framework for Accelerated Materials Discovery in Phy…](https://doi.org/10.37082/ijirmps.v14.i3.233155) | 2026 | International Journal … | - |
 | [Harness Engineered LLM Agents for Material Science: A Case Study on Perovskite M…](https://doi.org/10.26434/chemrxiv.15004684/v1) | 2026 | chemRxiv | - |
 | [PeLED Agent: an evidence-grounded agentic workflow for additive discovery in per…](https://doi.org/10.26434/chemrxiv.15004608/v1) | 2026 | chemRxiv | - |
 | [Small Science Agentic Models for Automated Perovskite Thin Film Exploration via …](https://doi.org/10.26434/chemrxiv.15004310/v1) | 2026 | chemRxiv | - |
@@ -44,7 +42,6 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [ZeoAgent: An LLM-Driven Agent for Automated Zeolite Design and Property Predicti…](https://doi.org/10.26434/chemrxiv.15001701/v1) | 2026 | chemRxiv | - |
 | [Supervised multi-agent discovery of high-entropy layered double hydroxides for s…](https://doi.org/10.26434/chemrxiv.15001644/v1) | 2026 | chemRxiv | - |
 | [Autonomous Computational Catalysis Research via Agentic Systems](https://doi.org/10.26434/chemrxiv.15001654/v1) | 2026 | chemRxiv | - |
-| [Abstract 31: Charles: A self-critical agentic AI drug discovery analyst for canc…](https://doi.org/10.1158/1538-7445.am2026-31) | 2026 | Cancer Research | - |
 | [Smart Exploration of Perovskite Photovoltaics: From AI Driven Discovery to Auton…](https://doi.org/10.1002/aenm.202506803) | 2026 | Advanced Energy Materi… | - |
 | [AI agents in drug discovery: applications and case studies.](https://pubmed.ncbi.nlm.nih.gov/41887499/) | 2026 | Drug Discovery Today | [Code](https://github.com/scalable-ml-systems/molecular-evidence-engine) |
 | [STALAgent: A Multi-Agent System Based on Large Language Model (LLM) for Steel an…](https://doi.org/10.26434/chemrxiv.15001153/v1) | 2026 | chemRxiv | - |
@@ -52,21 +49,24 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Human-Aware Robot Behaviour in Self-Driving Labs](https://arxiv.org/abs/2603.08420) | 2026 | HRI Companion | - |
 | [Nikolas: Autonomous Discovery of Novel EGFR Kinase Inhibitors via the PRISM Meta…](https://doi.org/10.26434/chemrxiv.15000704/v1) | 2026 | chemRxiv | - |
 | [Democratising real-world drug discovery through agentic AI.](https://pubmed.ncbi.nlm.nih.gov/41548711/) | 2026 | Drug Discovery Today | - |
+| [A Closed-Loop Chemical Reaction Network for Autonomous, Dual-Window Temporal Pro…](https://doi.org/10.1002/anie.202524255) | 2026 | Angew. Chem. | - |
+| [Agentic Retrieval for Bio-Based Recovery of Critical and Near-Critical Minerals](https://doi.org/10.26434/chemrxiv.15000355/v1) | 2026 | chemRxiv | - |
+| [Digital materials ecosystem: from databases to AI agents for autonomous discover…](https://doi.org/10.1039/d5sc09229a) | 2026 | Chem. Sci. | - |
 
 #### High-Relevance · Earlier Work & Conferences
 
 | Title | Year | Venue | Code |
 | --- | --- | --- | --- |
-| [A Closed-Loop Chemical Reaction Network for Autonomous, Dual-Window Temporal Pro…](https://doi.org/10.1002/anie.202524255) | 2026 | Angew. Chem. | - |
-| [Agentic Retrieval for Bio-Based Recovery of Critical and Near-Critical Minerals](https://doi.org/10.26434/chemrxiv.15000355/v1) | 2026 | chemRxiv | - |
-| [Aligning Transformers with Continuous Feedback via Energy Rank Alignment](https://openreview.net/forum?id=SXxlb1miXS) | 2025 | NeurIPS | - |
-| [Digital materials ecosystem: from databases to AI agents for autonomous discover…](https://doi.org/10.1039/d5sc09229a) | 2026 | Chem. Sci. | - |
 | [A reaction-aware autonomous platform co-optimizing formulation and execution for…](https://doi.org/10.26434/chemrxiv.15000333/v1) | 2026 | chemRxiv | - |
-| [JAMUN: Bridging Smoothed Molecular Dynamics and Score-Based Learning for Conform…](https://openreview.net/forum?id=8Z3KnaYtw9) | 2025 | NeurIPS | [Code](https://github.com/prescient-design/jamun) |
 | [ChemGraph as an agentic framework for computational chemistry workflows](https://doi.org/10.1038/s42004-025-01776-9) | 2026 | Communications Chemist… | [Code](https://github.com/argonne-lcf/ChemGraph) |
+| [Aligning Transformers with Continuous Feedback via Energy Rank Alignment](https://openreview.net/forum?id=SXxlb1miXS) | 2025 | NeurIPS | - |
 | [Discovery Science with Autonomous ML-Driven Continuous Flow Chemistry](https://doi.org/10.26434/chemrxiv.15000295/v1) | 2026 | chemRxiv | - |
-| [Training a Scientific Reasoning Model for Chemistry](https://openreview.net/forum?id=Mr5Pyb3MLk) | 2025 | NeurIPS | - |
 | [Autonomous AI Agents in Scientific Discovery – How Agentic AI Accelerates Resear…](https://doi.org/10.1109/ICAIQSA67794.2025.11440385) | 2025 | 2025 International Con… | - |
+| [JAMUN: Bridging Smoothed Molecular Dynamics and Score-Based Learning for Conform…](https://openreview.net/forum?id=8Z3KnaYtw9) | 2025 | NeurIPS | [Code](https://github.com/prescient-design/jamun) |
+| [Agentic Synthesis: Autonomous Recipe Discovery via a System of AI Agents and Rob…](https://doi.org/10.1149/ma2025-02243579mtgabs) | 2025 | ECS Meeting Abstracts | - |
+| [Training a Scientific Reasoning Model for Chemistry](https://openreview.net/forum?id=Mr5Pyb3MLk) | 2025 | NeurIPS | - |
+| [Flexible Autonomous Platforms for Accelerating Material Discovery in Battery R&D](https://doi.org/10.1149/ma2025-026897mtgabs) | 2025 | ECS Meeting Abstracts | - |
+| [Retro-R1: LLM-based Agentic Retrosynthesis](https://openreview.net/forum?id=30iBKSQMXn) | 2025 | NeurIPS | - |
 
 #### Reviews & Surveys
 
@@ -95,7 +95,6 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [SimMOF: AI agent for Automated MOF Simulations](https://arxiv.org/abs/2603.29152) | 2026-03-31 | semantic_scholar | - |
 | [A Vision-Language Agentic Pipeline for Lead Optimization: Defence-in-Depth Chemi…](https://doi.org/10.26434/chemrxiv.15004729/v1) | 2026-06-15 | chemrxiv | - |
 | [NIMO: A Software Platform for Closed-Loop Materials Exploration with Diverse AI …](http://arxiv.org/abs/2606.15522v1) | 2026-06-14 | arxiv | [Code](https://github.com/NIMS-DA/nimo) |
-| [Matter - AI A Multimodal AI Framework for Accelerated Materials Discovery in Phy…](https://doi.org/10.37082/ijirmps.v14.i3.233155) | 2026-06-14 | semantic_scholar | - |
 | [Harness Engineered LLM Agents for Material Science: A Case Study on Perovskite M…](https://doi.org/10.26434/chemrxiv.15004684/v1) | 2026-06-12 | chemrxiv | - |
 | [PeLED Agent: an evidence-grounded agentic workflow for additive discovery in per…](https://doi.org/10.26434/chemrxiv.15004608/v1) | 2026-06-10 | chemrxiv | - |
 | [Small Science Agentic Models for Automated Perovskite Thin Film Exploration via …](https://doi.org/10.26434/chemrxiv.15004310/v1) | 2026-06-04 | chemrxiv | - |
@@ -119,7 +118,8 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Supervised multi-agent discovery of high-entropy layered double hydroxides for s…](https://doi.org/10.26434/chemrxiv.15001644/v1) | 2026-04-06 | chemrxiv | - |
 | [Autonomous Computational Catalysis Research via Agentic Systems](https://doi.org/10.26434/chemrxiv.15001654/v1) | 2026-04-06 | chemrxiv | - |
 | [ARES OS 2.0: An Orchestration Software Suite for Autonomous Experimentation Syst…](http://arxiv.org/abs/2604.03440v1) | 2026-04-03 | arxiv | [Code](https://github.com/AFRL-ARES/ARES/releases) |
-| [Abstract 31: Charles: A self-critical agentic AI drug discovery analyst for canc…](https://doi.org/10.1158/1538-7445.am2026-31) | 2026-04-03 | semantic_scholar | - |
+| [Self-evolving AI agents for protein discovery and directed evolution](http://arxiv.org/abs/2603.27303v1) | 2026-03-28 | arxiv | - |
+| [Smart Exploration of Perovskite Photovoltaics: From AI Driven Discovery to Auton…](https://doi.org/10.1002/aenm.202506803) | 2026-03-27 | semantic_scholar | - |
 
 #### Reviews & Surveys
 

@@ -1,4 +1,5 @@
 from __future__ import annotations
+import re as _re
 from datetime import date
 from .models import Paper
 
@@ -136,13 +137,46 @@ def is_on_topic(paper: Paper) -> bool:
     )
 
 
+# Known predatory / pay-to-publish outlets whose papers the LLM scores highly on
+# title wording alone. Matched as case-insensitive venue substrings.
+_PREDATORY_VENUE_TERMS = [
+    'journal of information systems engineering',
+    'international journal of innovative research',
+    'universal library of innovative research',
+]
+# Predatory-publisher DOI prefixes (registrant codes).
+_PREDATORY_DOI_PREFIXES = (
+    '10.52783/',   # JISEM
+    '10.37082/',   # IJIRMPS
+    '10.70315/',   # Universal Library of Innovative Research
+    '10.55524/',   # IJIREM
+)
+# Conference/meeting abstracts (not full papers), e.g. "Abstract 31: ...".
+_ABSTRACT_TITLE_RE = _re.compile(r'^\s*abstract\s+\d+\s*:', _re.IGNORECASE)
+
+
+def is_reputable_venue(paper: Paper) -> bool:
+    """False for clearly predatory venues and meeting abstracts, True otherwise.
+
+    Deliberately conservative — only drops known pay-to-publish outlets and
+    numbered conference abstracts, so legitimate preprints and journals pass.
+    """
+    if _ABSTRACT_TITLE_RE.match(paper.title or ''):
+        return False
+    v = (paper.venue or '').lower()
+    if any(term in v for term in _PREDATORY_VENUE_TERMS):
+        return False
+    doi = (paper.doi or '').lower()
+    if doi.startswith(_PREDATORY_DOI_PREFIXES):
+        return False
+    return True
+
+
 def is_recent(paper: Paper, days: int) -> bool:
     if not paper.published_date:
         return False
     return (date.today() - paper.published_date).days <= days
 
-
-import re as _re
 
 _PREPRINT_VENUES = {'', 'arxiv', 'arxiv.org', 'biorxiv', 'chemrxiv', 'medrxiv'}
 

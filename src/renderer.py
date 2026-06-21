@@ -1,7 +1,8 @@
 from __future__ import annotations
 from datetime import date, datetime
 from .models import Paper
-from .scoring import importance_score, is_recent, is_on_topic, is_published, relevance_value
+from .scoring import (importance_score, is_recent, is_on_topic, is_published,
+                      relevance_value, is_reputable_venue)
 
 README_START = '<!-- PAPERS_START -->'
 README_END = '<!-- PAPERS_END -->'
@@ -302,7 +303,7 @@ def _top6_reviews(reviews: list[tuple]) -> list[tuple]:
 
 def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> str:
     on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)
-                and p.llm_on_topic is not False]
+                and p.llm_on_topic is not False and is_reputable_venue(p)]
     scored = [(p, importance_score(p)) for p in on_topic]
 
     recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
@@ -361,7 +362,7 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
 def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 20) -> list[Paper]:
     """Return the unique set of papers that would appear in the README tables."""
     on_topic = [p for p in papers if is_on_topic(p) and _is_chem_or_materials(p)
-                and p.llm_on_topic is not False]
+                and p.llm_on_topic is not False and is_reputable_venue(p)]
     scored = [(p, importance_score(p)) for p in on_topic]
 
     recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
