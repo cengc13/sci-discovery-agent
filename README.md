@@ -74,11 +74,11 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 
 | Title | Year | Venue | Citations |
 | --- | --- | --- | ---: |
-| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 472 |
+| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 473 |
 | [Next-Generation Experimentation with Self-Driving Laboratories](https://doi.org/10.1016/J.TRECHM.2019.02.007) | 2019 | Trends in Chemistry | 299 |
 | [Autonomous Chemical Experiments: Challenges and Perspectives on Establishing a S…](https://doi.org/10.1021/acs.accounts.2c00220) | 2022 | Accounts of Chemical R… | 212 |
 | [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 92 |
 | [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 60 |
-| [Autonomous ‘self-driving’ laboratories: a review of technology and policy implic…](https://doi.org/10.1098/rsos.250646) | 2025 | Royal Society Open Sci… | 40 |
+| [Autonomous ‘self-driving’ laboratories: a review of technology and policy implic…](https://doi.org/10.1098/rsos.250646) | 2025 | Royal Society Open Sci… | 41 |
 
 <!-- PAPERS_END -->
