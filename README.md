@@ -20,10 +20,10 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [NIMO: A Software Platform for Closed-Loop Materials Exploration with Diverse AI …](http://arxiv.org/abs/2606.15522v1) | 2026-06-14 | arXiv | [Code](https://github.com/NIMS-DA/nimo) |
 | [Synthesis and modelling of chemically cross-linked hydrogels with a semi-self-dr…](https://doi.org/10.26434/chemrxiv.15004569/v1) | 2026-06-10 | chemRxiv | - |
 | [Autonomous computational catalysis through an agentic research system](https://doi.org/10.26434/chemrxiv.15001654/v2) | 2026-06-08 | chemRxiv | - |
-| [Autonomous heterogeneous catalyst discovery with a self-evolving multi-agent dig…](https://arxiv.org/abs/2606.05050) | 2026-06-03 | — | [Code](https://github.com/AI4QC/catdt) |
+| [Autonomous heterogeneous catalyst discovery with a self-evolving multi-agent dig…](https://arxiv.org/abs/2606.05050) | 2026-06-03 | arXiv | [Code](https://github.com/AI4QC/catdt) |
 | [Iterative LLM-driven de novo drug design with multi-method consensus scoring: a …](https://doi.org/10.26434/chemrxiv.15003690/v1) | 2026-05-21 | chemRxiv | - |
 | [End-to-end discovery of MOFs for ambient CH4 adsorption](https://doi.org/10.26434/chemrxiv.15003500/v1) | 2026-05-18 | chemRxiv | - |
-| [Qumus: Realization of An Embodied AI Quantum Material Experimentalist](https://arxiv.org/abs/2605.18407) | 2026-05-18 | — | - |
+| [Qumus: Realization of An Embodied AI Quantum Material Experimentalist](https://arxiv.org/abs/2605.18407) | 2026-05-18 | arXiv | - |
 | [Autonomous microfluidic experimentation for exploring reaction inference and syn…](https://doi.org/10.1038/s41467-026-72765-2) | 2026-05-04 | Nat. Commun. | - |
 | [Agentic LLM Reasoning in a Self-Driving Laboratory for Air-Sensitive Lithium Hal…](http://arxiv.org/abs/2604.11957v1) | 2026-04-13 | arXiv | - |
 | [ChemVLMate: a multimodal, dual-arm, seeing robotic chemist for adaptive synthesi…](https://doi.org/10.26434/chemrxiv.15001727/v1) | 2026-04-08 | chemRxiv | - |
@@ -36,7 +36,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Hierarchical Multi-agent Large Language Model Reasoning for Autonomous Functiona…](https://arxiv.org/abs/2512.13930) | 2025-12-15 | arXiv | - |
 | [ChemCoScientist: LLM-Based Multi-Agent Assistant for Automated Solving of Chemic…](https://doi.org/10.1109/ICDMW69685.2025.00325) | 2025-11-12 | 2025 IEEE Internationa… | - |
 | [Autonomous multi-robot synthesis and optimization of metal halide perovskite nan…](https://doi.org/10.1038/s41467-025-63209-4) | 2025-08-22 | Nat. Commun. | - |
-| [FROGENT: An End-to-End Full-process Drug Design Multi-Agent System](https://arxiv.org/abs/2508.10760) | 2025-08-14 | — | - |
+| [FROGENT: An End-to-End Full-process Drug Design Multi-Agent System](https://arxiv.org/abs/2508.10760) | 2025-08-14 | arXiv | - |
 | [Autonomous De Novo Lead Halide CsPbBr3 Perovskite Quantum Dots Synthesis Platfor…](https://doi.org/10.1002/smll.202504547) | 2025-07-20 | Small | - |
 | [A Multiagent-Driven Robotic AI Chemist Enabling Autonomous Chemical Research On …](https://doi.org/10.1021/jacs.4c17738) | 2025-03-08 | JACS | - |
 | [Real-time experiment-theory closed-loop interaction for autonomous materials sci…](https://arxiv.org/abs/2410.17430) | 2024-10-22 | Sci. Adv. | - |
@@ -44,16 +44,16 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Autonomous chemical research with large language models](https://www.nature.com/articles/s41586-023-06792-0.pdf) | 2023-12-01 | Nature | - |
 | [Self-driving laboratories to autonomously navigate the protein fitness landscape](https://www.nature.com/articles/s44286-023-00002-4.pdf) | 2023-05-20 | bioRxiv | - |
 | [AlphaFlow: autonomous discovery and optimization of multi-step chemistry using a…](https://www.nature.com/articles/s41467-023-37139-y.pdf) | 2023-03-14 | Nat. Commun. | - |
-| [On-the-fly Closed-loop Autonomous Materials Discovery via Bayesian Active Learni…](https://arxiv.org/abs/2006.06141) | 2020-06-11 | — | - |
+| [On-the-fly Closed-loop Autonomous Materials Discovery via Bayesian Active Learni…](https://arxiv.org/abs/2006.06141) | 2020-06-11 | arXiv | - |
 | [Self-driving laboratory for accelerated discovery of thin-film materials](https://advances.sciencemag.org/content/advances/6/20/eaaz8867.full.pdf) | 2019-06-12 | Sci. Adv. | - |
 | [Autonomy in materials research: a case study in carbon nanotube growth](https://www.nature.com/articles/npjcompumats201631.pdf) | 2016-10-21 | — | - |
-| [Real-time Multi-instrument Autonomous Discovery of Novel Phase-change Memory Mat…](https://arxiv.org/abs/2605.18033) | 2026-05-18 | — | - |
-| [An LLM System for Autonomous Variational Quantum Circuit Design](https://arxiv.org/abs/2606.13380) | 2026-06-11 | — | - |
+| [Real-time Multi-instrument Autonomous Discovery of Novel Phase-change Memory Mat…](https://arxiv.org/abs/2605.18033) | 2026-05-18 | arXiv | - |
+| [An LLM System for Autonomous Variational Quantum Circuit Design](https://arxiv.org/abs/2606.13380) | 2026-06-11 | arXiv | - |
 | [PeLED Agent: an evidence-grounded agentic workflow for additive discovery in per…](https://doi.org/10.26434/chemrxiv.15004608/v1) | 2026-06-10 | chemRxiv | - |
 | [Autonomous Discovery of Multi-Step Reaction Networks for Fe2O3 Reduction: Step-w…](https://doi.org/10.26434/chemrxiv.15004451/v1) | 2026-06-08 | chemRxiv | - |
-| [AutoDFT: A Closed-Loop Multi-Agent Framework for Autonomous DFT Calculations](https://arxiv.org/abs/2605.26179) | 2026-05-25 | — | - |
+| [AutoDFT: A Closed-Loop Multi-Agent Framework for Autonomous DFT Calculations](https://arxiv.org/abs/2605.26179) | 2026-05-25 | arXiv | - |
 | [FlowPilot: A Multi-Agent AI System for Continuous Flow Chemistry Process Design](https://doi.org/10.26434/chemrxiv.15003445/v1) | 2026-05-18 | chemRxiv | - |
-| [Harnessing AtomisticSkills for Agentic Atomistic Research](https://arxiv.org/abs/2605.24002) | 2026-05-18 | — | - |
+| [Harnessing AtomisticSkills for Agentic Atomistic Research](https://arxiv.org/abs/2605.24002) | 2026-05-18 | arXiv | - |
 | [Autonomous Chemistry and Materials Innovation Driven by Scientific Agents](https://doi.org/10.1021/jacsau.6c00213) | 2026-05-08 | JACS Au | - |
 | [Autonomous Computational Catalysis Research via Agentic Systems](https://doi.org/10.26434/chemrxiv.15001654/v1) | 2026-04-06 | chemRxiv | - |
 | [ARES OS 2.0: An Orchestration Software Suite for Autonomous Experimentation Syst…](http://arxiv.org/abs/2604.03440v1) | 2026-04-03 | arXiv | [Code](https://github.com/AFRL-ARES/ARES/releases) |

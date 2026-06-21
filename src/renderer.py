@@ -120,6 +120,10 @@ def _short_venue(paper_or_venue) -> str:
     # Prefer LLM-corrected name; fall back to raw venue
     venue = venue_llm or venue_raw
     if not venue:
+        # arXiv preprints often arrive with no venue string — label them as such
+        if not isinstance(paper_or_venue, str):
+            if paper_or_venue.arxiv_id or 'arxiv.org' in (paper_or_venue.url or '').lower():
+                return 'arXiv'
         return '—'
     v = venue.split('(')[0].strip()
     v_lower = v.lower()
