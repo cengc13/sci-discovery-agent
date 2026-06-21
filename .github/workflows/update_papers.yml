@@ -61,7 +61,7 @@ jobs:
           GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           FETCH_SEMINAL: ${{ github.event_name == 'workflow_dispatch' && inputs.fetch_seminal && 'true' || 'false' }}
-          ENRICH_CODE: ${{ github.event_name == 'workflow_dispatch' && inputs.enrich_code && 'true' || 'false' }}
+          ENRICH_CODE: ${{ github.event_name == 'schedule' && 'true' || (inputs.enrich_code && 'true' || 'false') }}
           ENRICH_LLM: ${{ github.event_name == 'schedule' && 'true' || (inputs.enrich_llm && 'true' || 'false') }}
         run: |
           EXTRA_FLAGS="--no-fetch-seminal"
