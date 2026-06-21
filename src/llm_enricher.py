@@ -21,19 +21,26 @@ For each paper below, classify four fields:
 to conduct scientific research (chemistry, materials science, biology, drug discovery, etc.); \
 false otherwise (instrument papers, pure chemistry/biology without AI, exobiology missions, \
 space-hardware papers that only mention "autonomous" for robotic navigation)
-- relevance: an integer 0-100 rating how central the paper is to the topic of \
-AI AGENTS / autonomous systems / LLM agents applied to chemistry and materials science. \
-The defining criterion for a high score is an explicit AGENT or AUTONOMOUS DECISION-MAKING LOOP \
-(an AI agent, LLM agent, multi-agent system, or self-driving/autonomous laboratory that plans, \
-acts, and iterates) — NOT merely the use of AI/ML. Use the rubric: \
-90-100 = core agentic/autonomous AI running chemistry or materials research (self-driving labs, \
-LLM/multi-agent systems that autonomously plan and execute experiments or computations); \
-70-89 = agentic/autonomous AI for adjacent science (drug discovery, biology), OR chemistry/materials \
-work with a clear but secondary agentic component; \
-40-69 = AI/ML for chemistry or materials WITHOUT an agent or autonomous loop (e.g. a generative model, \
-property predictor, molecular-dynamics or score-based method, or general AI-for-science); \
-0-39 = off-topic. A paper that applies machine learning to chemistry/materials but has NO agent or \
-autonomous component must not exceed 69. If on_topic is false, relevance must be below 40.
+- relevance: an integer 0-100 (use the FULL range and avoid clustering at round multiples of 5 — \
+give each paper a precise, discriminating score) rating how central the paper is to: \
+AI AGENTS / autonomous systems / LLM agents that CONDUCT chemistry and materials research. \
+The decisive factor is an explicit AGENT or AUTONOMOUS DECISION-MAKING LOOP — an AI/LLM agent, \
+multi-agent system, or self-driving/autonomous laboratory that plans, acts, observes and iterates \
+to drive the science — NOT merely the use of AI/ML. Score with this scale: \
+95-100 = landmark, complete agentic/autonomous systems that autonomously run chemistry or materials \
+research end-to-end (self-driving labs closing the loop on real experiments; flagship LLM/multi-agent \
+chemists; autonomous computational or atomistic research agents); \
+85-94 = strong, clearly agentic/autonomous systems for chemistry or materials where an explicit agent \
+or autonomous loop IS the core contribution, even if simulation-only or narrower in scope; \
+70-84 = agentic/autonomous AI where chemistry/materials is the application but the agentic element is \
+partial or early-stage, OR agentic/autonomous AI for ADJACENT science (drug discovery, biology); \
+50-69 = AI/ML for chemistry or materials WITHOUT an agent or autonomous loop (generative models, \
+property/structure predictors, molecular-dynamics or score-based methods), or general AI-for-science \
+not specific to chemistry/materials; \
+30-49 = tangential (AI with only incidental chemistry/materials, or chemistry/materials with only \
+incidental AI); 0-29 = off-topic. \
+A paper with NO agent or autonomous component must not exceed 69. If on_topic is false, relevance < 40. \
+Reserve 95+ for the most central and complete works; most genuinely agentic papers belong in 70-90.
 - venue_normalized: the standard journal/conference name if you can confidently identify it \
 (e.g. "Cell Physical Science", "Nature Communications"); null if uncertain
 
@@ -53,7 +60,7 @@ def _call_openai(api_key: str, papers_batch: list[dict], model: str) -> tuple[li
         {
             "id": i,
             "title": p["title"],
-            "abstract": (p.get("abstract") or "")[:300],
+            "abstract": (p.get("abstract") or "")[:700],
             "venue": p.get("venue") or "",
         }
         for i, p in enumerate(papers_batch)

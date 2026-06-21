@@ -1,8 +1,8 @@
 from __future__ import annotations
 from datetime import date, datetime
 from .models import Paper
-from .scoring import (importance_score, is_recent, is_on_topic, is_published,
-                      relevance_value, is_reputable_venue)
+from .scoring import (importance_score, is_on_topic, relevance_value,
+                      is_reputable_venue)
 
 README_START = '<!-- PAPERS_START -->'
 README_END = '<!-- PAPERS_END -->'
@@ -185,65 +185,29 @@ def _relevance_key(item: tuple) -> tuple:
     return (-relevance_value(paper), -_date_ord(paper))
 
 
-# Articles scoring at or above this relevance (0-100) are worth listing beyond
-# the baseline count — the list grows with the amount of genuinely relevant work.
-RELEVANCE_CUTOFF = 70
+# The single Top Papers list shows every article at/above this relevance, across
+# all sources and any age — never fewer than ``min_n`` so the table isn't sparse.
+RELEVANCE_CUTOFF = 92
 
 
-def _adaptive_cap(sorted_items: list, min_n: int, max_n: int) -> list:
-    """Return the leading slice of a relevance-sorted list, sized adaptively.
-
-    Show every item at/above RELEVANCE_CUTOFF, but never fewer than ``min_n``
-    (so the table isn't sparse) nor more than ``max_n`` (so it isn't bloated).
-    """
-    above = sum(1 for it in sorted_items if relevance_value(it[0]) >= RELEVANCE_CUTOFF)
-    n = min(max(above, min_n), max_n)
-    return sorted_items[:n]
-
-
-# Articles at/above this relevance are surfaced regardless of age — landmark and
-# conference work (ICLR/NeurIPS/ICML, whose submission dates fall outside the
-# recency window) would otherwise never appear in the recency-tiebroken ranking.
-EVERGREEN_CUTOFF = 90
-EVERGREEN_N = 10
-
-
-def _evergreen_articles(scored: list, exclude_ids: set, recent_days: int,
-                        cutoff: int = EVERGREEN_CUTOFF, cap: int = EVERGREEN_N) -> list:
-    """High-relevance articles outside the recency window, not already shown.
-
-    Every candidate is tied near the top of the relevance scale, so breaking
-    ties by date alone would bury conference papers (older submission dates)
-    behind preprints. Instead we round-robin across sources, keeping each
-    source ordered by relevance then recency, so the reserve stays diverse.
-    """
-    pool = [(p, s) for p, s in scored
-            if relevance_value(p) >= cutoff
-            and not is_recent(p, recent_days)
-            and id(p) not in exclude_ids]
-    by_source: dict[str, list] = {}
-    for item in sorted(pool, key=_relevance_key):
-        by_source.setdefault(item[0].source, []).append(item)
-    # Deterministic source order: richest/highest-ranked source first.
-    queues = sorted(by_source.values(), key=lambda q: (_relevance_key(q[0]), -len(q)))
-    result: list = []
-    while len(result) < cap and any(queues):
-        for q in queues:
-            if q and len(result) < cap:
-                result.append(q.pop(0))
-    return result
+def _relevance_list(sorted_items: list, min_n: int, cutoff: int = RELEVANCE_CUTOFF) -> list:
+    """Leading slice of a relevance-sorted list: every item at/above ``cutoff``
+    (no upper bound — the list grows with genuinely relevant work), but at least
+    ``min_n`` so a thin crop still yields a usable table."""
+    above = sum(1 for it in sorted_items if relevance_value(it[0]) >= cutoff)
+    return sorted_items[:max(above, min_n)]
 
 
 def _top_table_articles(papers: list[tuple]) -> list[str]:
-    """Title | Year | Venue | Code."""
+    """Title | Date | Venue | Code."""
     if not papers:
         return []
-    cols = ['Title', 'Year', 'Venue', 'Code']
+    cols = ['Title', 'Date', 'Venue', 'Code']
     sep = ['---'] * len(cols)
     lines = [_md_row(*cols), _md_row(*sep)]
     for paper, _ in papers:
-        year = str(paper.published_date.year) if paper.published_date else '?'
-        lines.append(_md_row(_title_link(paper), year, _short_venue(paper), _code_cell(paper)))
+        d = str(paper.published_date) if paper.published_date else '?'
+        lines.append(_md_row(_title_link(paper), d, _short_venue(paper), _code_cell(paper)))
     return lines
 
 
@@ -263,35 +227,6 @@ def _top_table_reviews(papers: list[tuple]) -> list[str]:
     return lines
 
 
-def _recent_table_articles(papers: list[tuple]) -> list[str]:
-    """Title | Date | Source | Code."""
-    if not papers:
-        return []
-    cols = ['Title', 'Date', 'Source', 'Code']
-    sep = ['---'] * len(cols)
-    lines = [_md_row(*cols), _md_row(*sep)]
-    for paper, _ in papers:
-        d = str(paper.published_date) if paper.published_date else '?'
-        lines.append(_md_row(_title_link(paper), d, paper.source, _code_cell(paper)))
-    return lines
-
-
-def _recent_table_reviews(papers: list[tuple]) -> list[str]:
-    """Title | Date | Source | Citations."""
-    if not papers:
-        return []
-    cols = ['Title', 'Date', 'Source', 'Citations']
-    sep = ['---', '---', '---', '---:']
-    lines = [_md_row(*cols), _md_row(*sep)]
-    for paper, _ in papers:
-        d = str(paper.published_date) if paper.published_date else '?'
-        lines.append(_md_row(
-            _title_link(paper), d, paper.source,
-            _fmt_citations(paper.citation_count),
-        ))
-    return lines
-
-
 def _top6_reviews(reviews: list[tuple]) -> list[tuple]:
     """3 most cited + 3 most recent, deduped, max 6."""
     by_cited  = sorted(reviews, key=lambda x: -(x[0].citation_count or 0))[:3]
@@ -306,25 +241,14 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
                 and p.llm_on_topic is not False and is_reputable_venue(p)]
     scored = [(p, importance_score(p)) for p in on_topic]
 
-    recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
-
-    # Top articles: published, peer-reviewed work ranked by relevance (date tiebreak).
-    sem_articles_raw = [(p, s) for p, s in scored if not _is_review(p) and is_published(p)]
+    # One unified list across all sources (journals, conferences, chemRxiv, arXiv),
+    # ranked by relevance with publication date as tiebreak, any age.
+    articles_raw = [(p, s) for p, s in scored if not _is_review(p)]
     # Reviews stay citation-gated — surveys earn their place by influence.
-    sem_reviews_raw  = [(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5]
-    rec_articles_raw = [(p, s) for p, s in recent_all  if not _is_review(p)]
-    rec_reviews_raw  = [(p, s) for p, s in recent_all  if     _is_review(p)]
+    reviews_raw  = [(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5]
 
-    # Articles: relevance desc → publication date desc, with an adaptive length
-    max_n = top_n + 15
-    sem_articles = _adaptive_cap(sorted(sem_articles_raw, key=_relevance_key), top_n, max_n)
-    # Evergreen: top-relevance work outside the recency window (incl. conferences)
-    evergreen = _evergreen_articles(sem_articles_raw, {id(p) for p, _ in sem_articles}, recent_days)
-    # Reviews: 3 most cited + 3 most recent
-    sem_reviews  = _top6_reviews(sem_reviews_raw)
-
-    rec_articles = _adaptive_cap(sorted(rec_articles_raw, key=_relevance_key), top_n, max_n)
-    rec_reviews  = sorted(rec_reviews_raw,  key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
+    articles = _relevance_list(sorted(articles_raw, key=_relevance_key), top_n)
+    reviews  = _top6_reviews(reviews_raw)
 
     lines: list[str] = [
         README_START,
@@ -335,25 +259,12 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
     ]
 
     lines += ['### Top Papers (by relevance)', '']
-    if sem_articles:
+    if articles:
         lines += ['#### Articles', '']
-        lines += _top_table_articles(sem_articles)
-    if evergreen:
-        lines += ['', '#### High-Relevance · Earlier Work & Conferences', '']
-        lines += _top_table_articles(evergreen)
-    if sem_reviews:
+        lines += _top_table_articles(articles)
+    if reviews:
         lines += ['', '#### Reviews & Surveys', '']
-        lines += _top_table_reviews(sem_reviews)
-
-    lines += ['']
-
-    lines += [f'### Recent Highlights (last {recent_days} days)', '']
-    if rec_articles:
-        lines += ['#### Articles', '']
-        lines += _recent_table_articles(rec_articles)
-    if rec_reviews:
-        lines += ['', '#### Reviews & Surveys', '']
-        lines += _recent_table_reviews(rec_reviews)
+        lines += _top_table_reviews(reviews)
 
     lines += ['', README_END]
     return '\n'.join(lines)
@@ -365,21 +276,13 @@ def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 
                 and p.llm_on_topic is not False and is_reputable_venue(p)]
     scored = [(p, importance_score(p)) for p in on_topic]
 
-    recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
-
-    max_n = top_n + 15
-    sem_articles_raw = [(p, s) for p, s in scored if not _is_review(p) and is_published(p)]
-    sem_articles = _adaptive_cap(sorted(sem_articles_raw, key=_relevance_key), top_n, max_n)
-    evergreen = _evergreen_articles(sem_articles_raw, {id(p) for p, _ in sem_articles}, recent_days)
-    sem_reviews  = _top6_reviews([(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5])
-    rec_articles = _adaptive_cap(sorted([(p, s) for p, s in recent_all if not _is_review(p)],
-                                        key=_relevance_key), top_n, max_n)
-    rec_reviews  = sorted([(p, s) for p, s in recent_all if _is_review(p)],
-                          key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
+    articles_raw = [(p, s) for p, s in scored if not _is_review(p)]
+    articles = _relevance_list(sorted(articles_raw, key=_relevance_key), top_n)
+    reviews  = _top6_reviews([(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5])
 
     seen: set[int] = set()
     result: list[Paper] = []
-    for p, _ in sem_articles + evergreen + sem_reviews + rec_articles + rec_reviews:
+    for p, _ in articles + reviews:
         if id(p) not in seen:
             seen.add(id(p))
             result.append(p)
