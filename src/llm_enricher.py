@@ -22,13 +22,18 @@ to conduct scientific research (chemistry, materials science, biology, drug disc
 false otherwise (instrument papers, pure chemistry/biology without AI, exobiology missions, \
 space-hardware papers that only mention "autonomous" for robotic navigation)
 - relevance: an integer 0-100 rating how central the paper is to the topic of \
-AI agents / autonomous systems / LLMs applied to chemistry and materials science \
-(adjacent drug-discovery and biology work counts but scores lower). Use the rubric: \
-90-100 = core agentic/autonomous AI for chemistry or materials (self-driving labs, LLM agents \
-running chemical/materials research, multi-agent discovery pipelines); \
-70-89 = strongly related (AI/ML-driven chemistry or materials discovery without an explicit agent, \
-or agentic AI for adjacent science); 40-69 = tangential (general AI-for-science, or chemistry/materials \
-with only incidental AI); 0-39 = off-topic. If on_topic is false, relevance must be below 40.
+AI AGENTS / autonomous systems / LLM agents applied to chemistry and materials science. \
+The defining criterion for a high score is an explicit AGENT or AUTONOMOUS DECISION-MAKING LOOP \
+(an AI agent, LLM agent, multi-agent system, or self-driving/autonomous laboratory that plans, \
+acts, and iterates) — NOT merely the use of AI/ML. Use the rubric: \
+90-100 = core agentic/autonomous AI running chemistry or materials research (self-driving labs, \
+LLM/multi-agent systems that autonomously plan and execute experiments or computations); \
+70-89 = agentic/autonomous AI for adjacent science (drug discovery, biology), OR chemistry/materials \
+work with a clear but secondary agentic component; \
+40-69 = AI/ML for chemistry or materials WITHOUT an agent or autonomous loop (e.g. a generative model, \
+property predictor, molecular-dynamics or score-based method, or general AI-for-science); \
+0-39 = off-topic. A paper that applies machine learning to chemistry/materials but has NO agent or \
+autonomous component must not exceed 69. If on_topic is false, relevance must be below 40.
 - venue_normalized: the standard journal/conference name if you can confidently identify it \
 (e.g. "Cell Physical Science", "Nature Communications"); null if uncertain
 
