@@ -79,6 +79,50 @@ def importance_score(paper: Paper) -> float:
     return citations_per_year + venue_bonus + recency_boost
 
 
+# Strong agentic/autonomous signals — their presence pushes relevance up
+_STRONG_TERMS = [
+    'agentic', 'multi-agent', 'multiagent', 'ai agent', 'llm agent',
+    'self-driving lab', 'self-driving laboratory', 'autonomous laboratory',
+    'autonomous experiment', 'robot chemist', 'robot scientist', 'co-scientist',
+    'closed-loop', 'tool-augmented',
+]
+_CHEM_MAT_TERMS = [
+    'chemistry', 'chemical', 'synthesis', 'molecule', 'reaction', 'catalyst',
+    'reagent', 'material', 'crystal', 'alloy', 'polymer', 'battery',
+    'semiconductor', 'perovskite', 'nanomaterial',
+    # computational chemistry / materials (atomistic simulation subfield)
+    'atomistic', 'molecular dynamics', 'density functional', 'first-principles',
+    'computational chemistry', 'computational materials',
+]
+
+
+def _heuristic_relevance(paper: Paper) -> int:
+    """Cheap 0-100 relevance estimate used until the LLM assigns a graded score.
+
+    Rewards agentic/autonomous signals and chemistry/materials grounding, with
+    title hits weighted above abstract hits. Deliberately conservative so that
+    LLM scores (when present) dominate ordering.
+    """
+    if not is_on_topic(paper):
+        return 0
+    title = paper.title.lower()
+    abstract = (paper.abstract or '').lower()
+    score = 40  # on-topic floor
+    score += 20 * sum(1 for t in _STRONG_TERMS if t in title)
+    score += 8 * sum(1 for t in _STRONG_TERMS if t in abstract and t not in title)
+    score += 10 * sum(1 for t in _CHEM_MAT_TERMS if t in title)
+    score += 3 * sum(1 for t in _CHEM_MAT_TERMS if t in abstract and t not in title)
+    return max(0, min(100, score))
+
+
+def relevance_value(paper: Paper) -> int:
+    """Primary ranking signal: LLM-assigned relevance (0-100), with a keyword
+    heuristic fallback for papers not yet classified by the LLM."""
+    if paper.relevance is not None:
+        return paper.relevance
+    return _heuristic_relevance(paper)
+
+
 def is_on_topic(paper: Paper) -> bool:
     """Return True if the paper is about agentic/autonomous AI applied to science.
 

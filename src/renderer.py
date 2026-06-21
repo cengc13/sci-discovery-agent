@@ -1,7 +1,7 @@
 from __future__ import annotations
 from datetime import date, datetime
 from .models import Paper
-from .scoring import importance_score, is_recent, is_on_topic, is_published
+from .scoring import importance_score, is_recent, is_on_topic, is_published, relevance_value
 
 README_START = '<!-- PAPERS_START -->'
 README_END = '<!-- PAPERS_END -->'
@@ -174,6 +174,32 @@ def _pub_year(paper: Paper) -> int:
     return paper.published_date.year if paper.published_date else 0
 
 
+def _date_ord(paper: Paper) -> int:
+    return paper.published_date.toordinal() if paper.published_date else 0
+
+
+def _relevance_key(item: tuple) -> tuple:
+    """Sort key: relevance first (desc), publication date as tiebreak (desc)."""
+    paper = item[0]
+    return (-relevance_value(paper), -_date_ord(paper))
+
+
+# Articles scoring at or above this relevance (0-100) are worth listing beyond
+# the baseline count — the list grows with the amount of genuinely relevant work.
+RELEVANCE_CUTOFF = 70
+
+
+def _adaptive_cap(sorted_items: list, min_n: int, max_n: int) -> list:
+    """Return the leading slice of a relevance-sorted list, sized adaptively.
+
+    Show every item at/above RELEVANCE_CUTOFF, but never fewer than ``min_n``
+    (so the table isn't sparse) nor more than ``max_n`` (so it isn't bloated).
+    """
+    above = sum(1 for it in sorted_items if relevance_value(it[0]) >= RELEVANCE_CUTOFF)
+    n = min(max(above, min_n), max_n)
+    return sorted_items[:n]
+
+
 def _top_table_articles(papers: list[tuple]) -> list[str]:
     """Title | Year | Venue | Code."""
     if not papers:
@@ -246,20 +272,22 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
                 and p.llm_on_topic is not False]
     scored = [(p, importance_score(p)) for p in on_topic]
 
-    seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]
     recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
 
-    sem_articles_raw = [(p, s) for p, s in seminal_all if not _is_review(p) and is_published(p)]
-    sem_reviews_raw  = [(p, s) for p, s in seminal_all if     _is_review(p)]
+    # Top articles: published, peer-reviewed work ranked by relevance (date tiebreak).
+    sem_articles_raw = [(p, s) for p, s in scored if not _is_review(p) and is_published(p)]
+    # Reviews stay citation-gated — surveys earn their place by influence.
+    sem_reviews_raw  = [(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5]
     rec_articles_raw = [(p, s) for p, s in recent_all  if not _is_review(p)]
     rec_reviews_raw  = [(p, s) for p, s in recent_all  if     _is_review(p)]
 
-    # Articles: year desc → domain priority
-    sem_articles = sorted(sem_articles_raw, key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
+    # Articles: relevance desc → publication date desc, with an adaptive length
+    max_n = top_n + 15
+    sem_articles = _adaptive_cap(sorted(sem_articles_raw, key=_relevance_key), top_n, max_n)
     # Reviews: 3 most cited + 3 most recent
     sem_reviews  = _top6_reviews(sem_reviews_raw)
 
-    rec_articles = sorted(rec_articles_raw, key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
+    rec_articles = _adaptive_cap(sorted(rec_articles_raw, key=_relevance_key), top_n, max_n)
     rec_reviews  = sorted(rec_reviews_raw,  key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
 
     lines: list[str] = [
@@ -270,7 +298,7 @@ def render_markdown(papers: list[Paper], recent_days: int = 90, top_n: int = 20)
         '',
     ]
 
-    lines += ['### Top Papers (cited, ordered by recency)', '']
+    lines += ['### Top Papers (by relevance)', '']
     if sem_articles:
         lines += ['#### Articles', '']
         lines += _top_table_articles(sem_articles)
@@ -298,14 +326,14 @@ def get_display_papers(papers: list[Paper], recent_days: int = 90, top_n: int = 
                 and p.llm_on_topic is not False]
     scored = [(p, importance_score(p)) for p in on_topic]
 
-    seminal_all = [(p, s) for p, s in scored if (p.citation_count or 0) >= 5]
     recent_all  = [(p, s) for p, s in scored if is_recent(p, recent_days)]
 
-    sem_articles = sorted([(p, s) for p, s in seminal_all if not _is_review(p) and is_published(p)],
-                          key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
-    sem_reviews  = _top6_reviews([(p, s) for p, s in seminal_all if _is_review(p)])
-    rec_articles = sorted([(p, s) for p, s in recent_all if not _is_review(p)],
-                          key=lambda x: (-_pub_year(x[0]), _domain_sort_key(x[0])))[:top_n]
+    max_n = top_n + 15
+    sem_articles = _adaptive_cap(sorted([(p, s) for p, s in scored if not _is_review(p) and is_published(p)],
+                                        key=_relevance_key), top_n, max_n)
+    sem_reviews  = _top6_reviews([(p, s) for p, s in scored if _is_review(p) and (p.citation_count or 0) >= 5])
+    rec_articles = _adaptive_cap(sorted([(p, s) for p, s in recent_all if not _is_review(p)],
+                                        key=_relevance_key), top_n, max_n)
     rec_reviews  = sorted([(p, s) for p, s in recent_all if _is_review(p)],
                           key=lambda x: (-_pub_year(x[0]), -(x[0].citation_count or 0)))[:6]
 

@@ -38,6 +38,7 @@ def _paper_to_dict(p) -> dict:
         'paper_type': p.paper_type,
         'llm_on_topic': p.llm_on_topic,
         'venue_llm': p.venue_llm,
+        'relevance': p.relevance,
     }
 
 
@@ -63,6 +64,7 @@ def _dict_to_paper(d: dict):
         paper_type=d.get('paper_type'),
         llm_on_topic=d.get('llm_on_topic'),
         venue_llm=d.get('venue_llm'),
+        relevance=d.get('relevance'),
     )
 
 
@@ -123,6 +125,8 @@ def _merge_paper_metadata(dst, src) -> None:
         dst.llm_on_topic = src.llm_on_topic
     if not dst.venue_llm and src.venue_llm:
         dst.venue_llm = src.venue_llm
+    if dst.relevance is None and src.relevance is not None:
+        dst.relevance = src.relevance
     if src.domains:
         dst.domains = list(dict.fromkeys(dst.domains + src.domains))
     if not dst.abstract and src.abstract:

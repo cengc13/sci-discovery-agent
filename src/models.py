@@ -25,6 +25,7 @@ class Paper:
     paper_type: Optional[str] = None   # "article" | "review" — set by LLM enricher
     llm_on_topic: Optional[bool] = None  # True/False; None = not yet classified
     venue_llm: Optional[str] = None    # LLM-corrected venue name
+    relevance: Optional[int] = None    # 0-100 topical relevance, set by LLM enricher
 
     @property
     def uid(self) -> str:

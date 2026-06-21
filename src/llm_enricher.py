@@ -15,12 +15,20 @@ _SYSTEM = (
 )
 
 _USER_TMPL = """\
-For each paper below, classify three fields:
+For each paper below, classify four fields:
 - paper_type: "review" for review/survey/perspective/overview articles; "article" for original research
 - on_topic: true only if the paper's PRIMARY contribution is using AI/ML/LLM/autonomous-agent methods \
 to conduct scientific research (chemistry, materials science, biology, drug discovery, etc.); \
 false otherwise (instrument papers, pure chemistry/biology without AI, exobiology missions, \
 space-hardware papers that only mention "autonomous" for robotic navigation)
+- relevance: an integer 0-100 rating how central the paper is to the topic of \
+AI agents / autonomous systems / LLMs applied to chemistry and materials science \
+(adjacent drug-discovery and biology work counts but scores lower). Use the rubric: \
+90-100 = core agentic/autonomous AI for chemistry or materials (self-driving labs, LLM agents \
+running chemical/materials research, multi-agent discovery pipelines); \
+70-89 = strongly related (AI/ML-driven chemistry or materials discovery without an explicit agent, \
+or agentic AI for adjacent science); 40-69 = tangential (general AI-for-science, or chemistry/materials \
+with only incidental AI); 0-39 = off-topic. If on_topic is false, relevance must be below 40.
 - venue_normalized: the standard journal/conference name if you can confidently identify it \
 (e.g. "Cell Physical Science", "Nature Communications"); null if uncertain
 
@@ -28,7 +36,7 @@ Papers:
 {papers_json}
 
 Return a JSON array:
-[{{"id": 0, "paper_type": "article", "on_topic": true, "venue_normalized": null}}, ...]"""
+[{{"id": 0, "paper_type": "article", "on_topic": true, "relevance": 85, "venue_normalized": null}}, ...]"""
 
 
 def _call_openai(api_key: str, papers_batch: list[dict], model: str) -> tuple[list[dict], int, int]:
@@ -83,7 +91,8 @@ def enrich_papers_llm(papers: list, api_key: str, model: str = DEFAULT_MODEL,
         count of classified papers
     """
     from .scoring import is_on_topic
-    candidates = [p for p in papers if is_on_topic(p) and (force or p.llm_on_topic is None)]
+    candidates = [p for p in papers if is_on_topic(p)
+                  and (force or p.llm_on_topic is None or p.relevance is None)]
     if not candidates:
         logger.info("LLM enrichment: all on-topic papers already classified")
         return 0
@@ -110,6 +119,9 @@ def enrich_papers_llm(papers: list, api_key: str, model: str = DEFAULT_MODEL,
                 p = batch[idx]
                 p.paper_type = r.get("paper_type")
                 p.llm_on_topic = r.get("on_topic")
+                rel = r.get("relevance")
+                if isinstance(rel, (int, float)):
+                    p.relevance = max(0, min(100, int(rel)))
                 if r.get("venue_normalized"):
                     p.venue_llm = r["venue_normalized"]
                 classified += 1
