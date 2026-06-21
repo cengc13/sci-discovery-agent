@@ -180,21 +180,39 @@ def _date_ord(paper: Paper) -> int:
 
 
 def _relevance_key(item: tuple) -> tuple:
-    """Sort key: relevance first (desc), publication date as tiebreak (desc)."""
+    """Sort key: relevance first (desc), publication date as tiebreak (desc).
+    Landmark papers rank by their floored (cutoff) relevance — see _display_relevance."""
     paper = item[0]
-    return (-relevance_value(paper), -_date_ord(paper))
+    return (-_display_relevance(paper), -_date_ord(paper))
 
 
 # The single Top Papers list shows every article at/above this relevance, across
 # all sources and any age — never fewer than ``min_n`` so the table isn't sparse.
 RELEVANCE_CUTOFF = 92
 
+# Landmark papers the LLM underrates but that belong in the list regardless of
+# score. Matched by Paper.uid (e.g. "arxiv:2605.24002", "doi:10.1234/..." lower).
+# Their relevance is floored to RELEVANCE_CUTOFF so they slot in naturally.
+LANDMARK_UIDS = {
+    'arxiv:2605.24002',   # Harnessing AtomisticSkills for Agentic Atomistic Research
+}
+
+
+def _is_landmark(paper: Paper) -> bool:
+    return paper.uid.lower() in LANDMARK_UIDS
+
+
+def _display_relevance(paper: Paper) -> int:
+    """Relevance used for ranking/inclusion — floored to the cutoff for landmarks."""
+    r = relevance_value(paper)
+    return max(r, RELEVANCE_CUTOFF) if _is_landmark(paper) else r
+
 
 def _relevance_list(sorted_items: list, min_n: int, cutoff: int = RELEVANCE_CUTOFF) -> list:
     """Leading slice of a relevance-sorted list: every item at/above ``cutoff``
     (no upper bound — the list grows with genuinely relevant work), but at least
     ``min_n`` so a thin crop still yields a usable table."""
-    above = sum(1 for it in sorted_items if relevance_value(it[0]) >= cutoff)
+    above = sum(1 for it in sorted_items if _display_relevance(it[0]) >= cutoff)
     return sorted_items[:max(above, min_n)]
 
 
