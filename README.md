@@ -46,7 +46,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Autonomous Computational Catalysis Research via Agentic Systems](https://doi.org/10.26434/chemrxiv.15001654/v1) | 2026 | chemRxiv | - |
 | [Abstract 31: Charles: A self-critical agentic AI drug discovery analyst for canc…](https://doi.org/10.1158/1538-7445.am2026-31) | 2026 | Cancer Research | - |
 | [Smart Exploration of Perovskite Photovoltaics: From AI Driven Discovery to Auton…](https://doi.org/10.1002/aenm.202506803) | 2026 | Advanced Energy Materi… | - |
-| [AI agents in drug discovery: applications and case studies.](https://pubmed.ncbi.nlm.nih.gov/41887499/) | 2026 | Drug Discovery Today | - |
+| [AI agents in drug discovery: applications and case studies.](https://pubmed.ncbi.nlm.nih.gov/41887499/) | 2026 | Drug Discovery Today | [Code](https://github.com/scalable-ml-systems/molecular-evidence-engine) |
 | [STALAgent: A Multi-Agent System Based on Large Language Model (LLM) for Steel an…](https://doi.org/10.26434/chemrxiv.15001153/v1) | 2026 | chemRxiv | - |
 | [Toward self-driving laboratory 2.0 for chemistry and materials discovery.](https://doi.org/10.1039/d5mh01984b) | 2026 | Materials Horizons | - |
 | [Human-Aware Robot Behaviour in Self-Driving Labs](https://arxiv.org/abs/2603.08420) | 2026 | HRI Companion | - |
@@ -84,9 +84,9 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 | [Harness Engineered LLM Agents for Material Science: A Case Study on Perovskite M…](https://doi.org/10.26434/chemrxiv.15004684/v1) | 2026-06-12 | chemrxiv | - |
 | [PeLED Agent: an evidence-grounded agentic workflow for additive discovery in per…](https://doi.org/10.26434/chemrxiv.15004608/v1) | 2026-06-10 | chemrxiv | - |
 | [Small Science Agentic Models for Automated Perovskite Thin Film Exploration via …](https://doi.org/10.26434/chemrxiv.15004310/v1) | 2026-06-04 | chemrxiv | - |
-| [Autonomous heterogeneous catalyst discovery with a self-evolving multi-agent dig…](https://arxiv.org/abs/2606.05050) | 2026-06-03 | semantic_scholar | - |
+| [Autonomous heterogeneous catalyst discovery with a self-evolving multi-agent dig…](https://arxiv.org/abs/2606.05050) | 2026-06-03 | semantic_scholar | [Code](https://github.com/AI4QC/catdt) |
 | [MolLingo: Molecule-Native Representations for LLM-Powered Scientific Agents](http://arxiv.org/abs/2605.27853v1) | 2026-05-27 | arxiv | - |
-| [PolyFusionAgent: A Multimodal Foundation Model and Autonomous AI Assistant for P…](https://arxiv.org/abs/2605.26543) | 2026-05-26 | semantic_scholar | - |
+| [PolyFusionAgent: A Multimodal Foundation Model and Autonomous AI Assistant for P…](https://arxiv.org/abs/2605.26543) | 2026-05-26 | semantic_scholar | [Code](https://github.com/mk1426/PolyFusionAgent) |
 | [Iterative LLM-driven de novo drug design with multi-method consensus scoring: a …](https://doi.org/10.26434/chemrxiv.15003690/v1) | 2026-05-21 | chemrxiv | - |
 | [SMDD-Bench: Can LLMs Solve Real-World Small Molecule Drug Design Tasks?](https://arxiv.org/abs/2605.21740) | 2026-05-20 | semantic_scholar | - |
 | [FlowPilot: A Multi-Agent AI System for Continuous Flow Chemistry Process Design](https://doi.org/10.26434/chemrxiv.15003445/v1) | 2026-05-18 | chemrxiv | - |
