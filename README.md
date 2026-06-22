@@ -9,7 +9,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 
 <!-- PAPERS_START -->
 
-*Auto-updated 2026-06-21 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
+*Auto-updated 2026-06-22 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
 ### Top Papers (by relevance)
 
