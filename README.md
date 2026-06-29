@@ -9,7 +9,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 
 <!-- PAPERS_START -->
 
-*Auto-updated 2026-06-22 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
+*Auto-updated 2026-06-29 · Sources: arXiv · Semantic Scholar · chemRxiv · OpenReview (ICLR/NeurIPS/ICML)*
 
 ### Top Papers (by relevance)
 
@@ -17,6 +17,7 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 
 | Title | Date | Venue | Code |
 | --- | --- | --- | --- |
+| [Closed-Loop LLM-Guided Molecular Dynamics Screening of Thermal Transport in Co-C…](https://doi.org/10.26434/chemrxiv.15005077/v1) | 2026-06-23 | chemRxiv | - |
 | [NIMO: A Software Platform for Closed-Loop Materials Exploration with Diverse AI …](http://arxiv.org/abs/2606.15522v1) | 2026-06-14 | arXiv | [Code](https://github.com/NIMS-DA/nimo) |
 | [Synthesis and modelling of chemically cross-linked hydrogels with a semi-self-dr…](https://doi.org/10.26434/chemrxiv.15004569/v1) | 2026-06-10 | chemRxiv | - |
 | [Autonomous computational catalysis through an agentic research system](https://doi.org/10.26434/chemrxiv.15001654/v2) | 2026-06-08 | chemRxiv | [Code](https://github.com/q734738781/CatMaster) |
@@ -74,11 +75,11 @@ Relevance scoring, classification (article vs. review), on-topic filtering, and 
 
 | Title | Year | Venue | Citations |
 | --- | --- | --- | ---: |
-| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 473 |
-| [Next-Generation Experimentation with Self-Driving Laboratories](https://doi.org/10.1016/J.TRECHM.2019.02.007) | 2019 | Trends in Chemistry | 299 |
-| [Autonomous Chemical Experiments: Challenges and Perspectives on Establishing a S…](https://doi.org/10.1021/acs.accounts.2c00220) | 2022 | Accounts of Chemical R… | 212 |
-| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 92 |
-| [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 60 |
-| [Autonomous ‘self-driving’ laboratories: a review of technology and policy implic…](https://doi.org/10.1098/rsos.250646) | 2025 | Royal Society Open Sci… | 41 |
+| [Self-Driving Laboratories for Chemistry and Materials Science](https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.4c00055) | 2024 | Chem. Rev. | 479 |
+| [Next-Generation Experimentation with Self-Driving Laboratories](https://doi.org/10.1016/J.TRECHM.2019.02.007) | 2019 | Trends in Chemistry | 302 |
+| [Autonomous Chemical Experiments: Challenges and Perspectives on Establishing a S…](https://doi.org/10.1021/acs.accounts.2c00220) | 2022 | Accounts of Chemical R… | 216 |
+| [Agentic AI for Scientific Discovery: A Survey of Progress, Challenges, and Futur…](https://arxiv.org/abs/2503.08979) | 2025 | arXiv | 93 |
+| [From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discov…](https://arxiv.org/abs/2508.14111) | 2025 | arXiv | 63 |
+| [Autonomous ‘self-driving’ laboratories: a review of technology and policy implic…](https://doi.org/10.1098/rsos.250646) | 2025 | Royal Society Open Sci… | 42 |
 
 <!-- PAPERS_END -->
